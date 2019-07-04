@@ -16,9 +16,6 @@ Demo images** courtesy of Unsplash, a radtastic collection of CC0 (public domain
 you can use for pretty much whatever.
 
 
-(* = my other side project -- carrd.co)
-(** = not included)
-
 AJ
 aj@lkn.io | @ajlkn
 
