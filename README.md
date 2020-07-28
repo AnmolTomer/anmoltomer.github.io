@@ -1,7 +1,7 @@
-# anmoltomer.github.io
+# Hi there, I'm Anmol.👋
 My portfolio page.
 
-# Hi there, I'm Anmol.👋
+
 <a href="https://www.linkedin.com/in/anmol-tomer/">
   <img align="left" alt="Anmol Tomer - LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg"/>
 </a>
