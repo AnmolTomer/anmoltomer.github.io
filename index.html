@@ -1,355 +1,591 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>I'm Anmol</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body>
+<!DOCTYPE html>
+<html lang="en">
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="divided">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Anmol Tomer - Backend Developer</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
 
-				<!-- One -->
-					<section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
-						<div class="content">
-							<h1>Hi, I'm Anmol :) </h1>
-							<p class="major">A Data Analyst, developer and a life-long learner.</p>
-							<ul class="actions vertical">
-								<li><a href="https://drive.google.com/file/d/1EUwrVQGT4LzAohJcGxim_HLOWS8OzYpz/view?usp=sharing" class="button big wide smooth-scroll-middle" target="_blank">Download Resume</a></li>
-							</ul>
-						</div>
-						<div class="image">
-							<img src="https://i.imgur.com/tb9rpyo.jpg" alt="" />
-							<!-- images/code.jpg -->
-						</div>
-					</section>
+		:root {
+			--bg-primary: #0d1117;
+			--bg-secondary: #161b22;
+			--text-primary: #f0f6fc;
+			--text-secondary: #8b949e;
+			--accent: #58a6ff;
+			--accent-hover: #79c0ff;
+			--border: #30363d;
+			--success: #3fb950;
+			--warning: #d29922;
+		}
 
-				<!-- Two -->
-					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
-						<div class="content">
-							<h2>Personality</h2>
-							<h3>I am an Architect.</h3>
-							<p>
-								Architects are brilliant and confident in bodies of knowledge they have taken the time to understand, but unfortunately the social contract is unlikely to be one of those subjects. White lies and small talk are hard enough as it is for a personality type that craves truth and depth, but Architects may go so far as to see many social conventions as downright stupid.
-							</p>
-							<p><i>“Thought constitutes the greatness of man. Man is a reed, the feeblest thing in nature, but he is a thinking reed.”</i><br>
-								<strong align="content-align-right">~ Blaise Pascal</strong>
-							</p>
-							<ul class="actions vertical">
-								<li><a href="https://www.16personalities.com/intj-personality" target="_blank" class="button">Learn More</a></li>
-							</ul>
-						</div>
-						<div class="image">
-							<img class="robert" src="https://i.imgur.com/HnNRUN3.jpg" alt="The Architect"/>
-							<!-- images/robert.jpg -->
-						</div>
-					</section>
+		body {
+			font-family: 'Inter', sans-serif;
+			background-color: var(--bg-primary);
+			color: var(--text-primary);
+			line-height: 1.6;
+			overflow-x: hidden;
+		}
 
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 20px;
+		}
 
-				<!-- Three -->
-					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
-						<div class="content">
-							<h2>Curious Sparks</h2>
-							<p>I am a tech freak and someone who stays constantly updated with the recent tools and trends in the tech industry. I love to pick apart a motherboard and see how all the pieces fit together in my free time.
+		/* Header */
+		header {
+			padding: 2rem 0;
+			border-bottom: 1px solid var(--border);
+		}
 
-								My intellectual curiosity drives me to find answers to the most pressing questions. 
-								Applying my programming skills to solve real world problems in an efficient manner is what excites me.
-								I am a curious learner, and I am always very academically oriented and focused on maximizing my learning experiences.</p>
-							
-                            <p>Currently pursuing, Bachelor of Technology at <br>
-                            <strong>Vellore Institute of Technology</strong>, India</p>
-                            <ul class="actions vertical">
-							<li><a href="https://www.google.co.in/maps/place/VIT+Chennai/@12.8406462,80.1512396,17z/data=!3m1!4b1!4m5!3m4!1s0x3a5259af8e491f67:0x944b42131b757d2d!8m2!3d12.840641!4d80.1534283" target="_blank" class="button">Map it</a></li>
-						</ul>
-						</div>
-						<div class="image">
-							<img src="https://i.imgur.com/6bquGHN.jpg" alt="" />
-							<!-- images/quest.jpg -->
-						</div>
-					</section>
+		.header-content {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 1rem;
+		}
 
-				<!-- Four -->
-					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
-						<div class="content">
-							<h2>The Quote which reflects me</h2>
-							<p>"A human being should be able to change a diaper, plan an invasion, butcher a hog, conn a ship, design a building, write a sonnet, balance accounts, build a wall, set a bone, comfort the dying, take orders, give orders, cooperate, act alone, solve equations, analyze a new problem, pitch manure, program a computer, cook a tasty meal, fight efficiently, die gallantly. Specialization is for insects.".</p>
-							<ul class="actions vertical">
-								<li><a href="https://www.goodreads.com/book/show/21428001-a-competent-man" target="_blank" class="button">by, Robert A. Heinlein</a></li>
-							</ul>
-						</div>
-						<div class="image">
-							<img src="https://i.imgur.com/m7QhMCY.jpg" alt="" />
-							<!-- images/neversettle.jpg -->
-						</div>
-					</section>
+		.logo {
+			font-size: 1.5rem;
+			font-weight: 700;
+			color: var(--accent);
+		}
 
-				<!-- Five -->
-					<section class="wrapper style1 align-center">
-						<div class="inner">
-							<h2>Portfolio</h2>
-							<p>The showcase of my life's work. My contributions for the love of technology, design and code.</p>
-						</div>
+		.social-links {
+			display: flex;
+			gap: 1rem;
+		}
 
-						<!-- Gallery -->
-							<div class="gallery style2 medium lightbox onscroll-fade-in">
-								<article>
-									<a href="https://i.imgur.com/LjutyZc.jpg" class="image">
-										<!-- images/gallery/fulls/nokia.jpg -->
-										<img src="images/gallery/thumbs/nokia.jpg" alt="Data Analytics and ML Intern at Nokia - Summer 2019" />
-										<!-- images/gallery/thumbs/nokia.jpg -->
-									</a>
-									<div class="caption">
-										<h3><b>Data Analytics and ML Intern at Nokia - Summer 2019</b></h3>
-										<p>Worked on <strong>spare part consumption, prediction and inventory management system.</strong></a></p>
-										<ul class="actions">
-											<li><span class="button small"><a href="https://drive.google.com/file/d/1bt5IRksdTN6M8wNn9VoBDLo7QrYCCf_w/view?usp=drivesdk" target="_blank">Internship Completion Certificate</a></span></li>
-										</ul>
-									</div>
-								</article>
+		.social-links a {
+			color: var(--text-secondary);
+			font-size: 1.2rem;
+			transition: color 0.3s ease;
+		}
 
-                                <article>
-                                    <a href="https://i.imgur.com/jHwY7z1.png" class="image">
-										<!-- images/gallery/fulls/linkedin.jpeg -->
-										<img src="https://i.imgur.com/DhEG2hW.png" alt="LinkedIn Profile" />
-										<!-- images/gallery/thumbs/linkedin.jpeg -->
-                                    </a>
-                                    <div class="caption">
-                                        <h3><b>LinkedIn Profile</b></h3>
-                                        <p>This is where I post my achievements and what's happening in my professional life from time to time. Feel free to add me as a connection.</p>
-                                        <ul class="actions">
-											<li><span class="button small"><a href="https://www.linkedin.com/in/anmol-tomer/" target="_blank">LinkedIn Profile</a></span></li>                                            
-                                        </ul>
-                                    </div>
-                                </article>
+		.social-links a:hover {
+			color: var(--accent);
+		}
 
-								<article>
-									<a href="https://i.imgur.com/g1uBYpI.jpg" class="image">
-											<!-- images/gallery/fulls/plenty.jpg -->
-										<img src="https://i.imgur.com/AVBHhb3.jpg" alt="" />
-										<!-- images/gallery/thumbs/plenty.jpg -->
-									</a>
-									<div class="caption">
-										<h3><strong>Plenty Planet</strong></h3>
-										<p>Expoplanet Exploration WebApp</p>
-										<ul class="actions">
-											<li><span class="button small"><a href="https://imgur.com/a/avUtiCX" target="_blank">Album</a></span></li>
-										</ul>
-									</div>
-								</article>
+		/* Hero Section */
+		.hero {
+			padding: 6rem 0;
+			text-align: center;
+		}
 
-								<article>
-										<a href="https://i.imgur.com/GldMeHY.jpg" class="image">
-											<!-- images/gallery/fulls/ffcsotg.jpg -->
-											<img src="https://i.imgur.com/Ohsin1N.jpg" alt="FFCSOnTheGo" />
-											<!-- images/gallery/thumbs/ffcsotg.jpg -->
-										</a>
-										<div class="caption">
-											<h3><strong>FFCSOnTheGo</strong></h3>
-											<p>Contributor to FFCSOnTheGo GitHub repo and team lead for VIT Chennai campus, responsible for maintaining accurate courses offered data for VIT Chennai Campus.</p>
-											<ul class="actions">
-												<li><span class="button small"><a href="https://ffcsonthego.vatz88.in/#Chennai" target="_blank">See It Live</a></span></li>
-											</ul>
-										</div>
-									</article>
-								
-							  <article>
-                                    <a href="https://i.imgur.com/iYFu2WD.png" class="image">
-										<!-- images/gallery/fulls/github-mark.png -->
-										<img src="https://i.imgur.com/HEG91iw.png" alt="AnmolTomer GitHub Profile" />
-										<!-- images/gallery/thumbs/github-mark.png -->
-                                    </a>
-                                    <div class="caption">
-                                        <h3><strong>GitHub Profile</strong></h3>
-                                        <p>For all the latest and greatest you can view my Github profile below.</p>
-                                        <ul class="actions">
-                                            <li><span class="button small"><a href="https://github.com/AnmolTomer" target="_blank">Github</a></span></li>
-                                        </ul>
-                                    </div>
-								</article>
-					</section>
+		.hero h1 {
+			font-size: 3.5rem;
+			font-weight: 700;
+			margin-bottom: 1rem;
+			background: linear-gradient(135deg, var(--accent), #a371f7);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+		}
 
-				<!-- Six -->
-					<section class="wrapper style1 align-center">
-						<div class="inner">
-							<h2>Skills</h2>
-							<div class="items style1 medium onscroll-fade-in">
-								<section>
-									<span class="icon style2 major fa-bar-chart"></span>
-									<h3>Machine Learning</h3>
-									<p>For me its always been about the dream of true AI and understanding how our brain really works. I think machine learning offers the best path to start to get to that goal so that is why I am interested in it. I think some of the purely statistical techniques of ML are interesting but I really am more interested in building models that try to simulate the brain and topics like deep learning really fascinate me.</p>
-								</section>
-								<section>
-										<span class="icon style2 major fa-google"></span>
-										<h3>GCP - Cloud Architect Certification</h3>
-										<p>The internet is fundamentally designed to route around failure and our systems should do the same. Using microservices, GAE, load balancers,replication, nearline and cold storage services, k8s and many more useful concepts learnt along with fun and jam packed lab sessions during this specialization.</p>
-								</section>
-								<section>
-										<span class="icon style2 major fa-code"></span>
-										<h3>Node.js</h3>
-										<p>The quench of learning never ends. I am learning more about front-end dev, I have also contributed and made apps based on MEAN technologies. So, yeah! Amn't just HTML/CSS stuff. </p>
-								</section>
-								<section>
-									<span class="icon style2 major fa-git"></span>
-									<h3>Git</h3>
-									<p>The open source developement lead me learning all these skills. Presently collaborating various repositories at Github both public and private. I git things alike a kraken. Hence, GitKraken is my dream come <br><code> git pull...</code></p>
-								</section>
+		.hero .subtitle {
+			font-size: 1.5rem;
+			color: var(--text-secondary);
+			margin-bottom: 2rem;
+		}
 
-								<section>
-									<span class="icon style2 major fa-database"></span>
-									<h3>MongoDB</h3>
-									<p>I adore it. Been using it for all my latest and greatest personal project. I light it up a <b>db</b> with RoboMongo. <br><code>$ mongod</code></p>
-								</section>
+		.hero .description {
+			font-size: 1.1rem;
+			color: var(--text-primary);
+			max-width: 600px;
+			margin: 0 auto 3rem;
+			line-height: 1.8;
+		}
 
-								<section>
-									<span class="icon style2 major  fa-html5"></span>
-									<h3>HTML 5 / CSS3</h3>
-									<p>Very well versed with latest HTML5 standards and loves to develop skeletons from scrach</p>
-								</section>
-								
-								
-								
-								
-								
-							</div>
-						</div>
-					</section>
-				<!-- Seven -->
-                 <section class="wrapper style1 align-center">
-                    <div class="inner">
-                        <h2>Achievements and Certifications</h2>
-                        <p>Talent wins the game, but team work and intelligence wins championships.<br>
-                        Shout out to all my teachers, team and well wishers.</p>
-                    </div>
+		/* Skills Section */
+		.skills-section {
+			padding: 4rem 0;
+			background-color: var(--bg-secondary);
+		}
 
-                    <!-- Gallery -->
-                        <div class="gallery style2 medium lightbox onload-fade-in" id="awards">
-                             <article>
-                                <a href="https://i.imgur.com/3JtJi28.jpg" class="image">
-									<!-- images/ml.jpg -->
-									<img src="https://i.imgur.com/oqMNaw9.png" alt="" />
-									<!-- images/gallery/thumbs/ml.png -->
-                                </a>
-                                <div class="caption">
-                                    <h3><strong>Machine Learning Bootcamp Udemy</strong></h3>
-                                   <ul class="actions">
-                                        <li><span class="button small"><a href="https://www.udemy.com/certificate/UC-P1TQROA6/" target="_blank">View online copy</span></a></li>
-                                    </ul>
-                                </div>
-                            </article>
-                                 <article>
-								<a href="https://i.imgur.com/Y0zdyI7.png" class="image">
-									<!-- images/gcp_architect.png -->
-									<img src="https://i.imgur.com/Y0zdyI7.png" alt="" />
-									<!-- images/gcp_architect.png -->
-                                </a>
-                                <div class="caption">
-                                    <h3><strong>Architecting with GCP Specialization</strong></h3>
-                                    <ul class="actions">
-                                        <li><span class="button small"><a href="https://www.coursera.org/account/accomplishments/specialization/M9X8N5TXZQ8Y" target="_blank">View online copy</span></a></li>
-                                    </ul>
-                                </div>
-                            </article>
+		.section-title {
+			font-size: 2.5rem;
+			font-weight: 600;
+			text-align: center;
+			margin-bottom: 3rem;
+			color: var(--text-primary);
+		}
 
-                            <article>
-                                <a href="https://i.imgur.com/ZSVIJJ3.jpg" class="image">
-									<!-- images/internship.jpg -->
-									<img src="https://i.imgur.com/ZSVIJJ3.jpg" alt="" />
-									<!-- images/internship.jpg -->
-                                </a>
-                                <div class="caption">
-                                    <h3><strong>Data Analytics and ML Internship at Nokia</strong></h3>
-                                   <ul class="actions">
-                                        <li><span class="button small"><a href="https://www.linkedin.com/feed/update/urn:li:activity:6539979761467355136" target="_blank">Internship Experience</span></a></li>
-                                    </ul>
-                                </div>
-                            </article>
+		.skills-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			gap: 1.5rem;
+			margin-bottom: 3rem;
+		}
 
-                            <article>
-									<a href="https://i.imgur.com/MCF4pBp.png" class="image">
-											<!-- images/gallery/fulls/python.png -->
-									<img src="https://i.imgur.com/MCF4pBp.png" alt="Intro To Python - DATACAMP" />
-									<!-- images/gallery/fulls/python.png -->
-									</a>
-                                
-                                <div class="caption">
-                                    <h3><strong>Intro to Python</strong></h3>
-                                    <p>It has been a great journey with Python ever since I finished this course.</p>
-									<ul class="actions">
-                                        <li><span class="button small"><a href="https://www.datacamp.com/statement-of-accomplishment/course/c4cae96cfc9d89c11b117079e0563ad44ae8b418" target="_blank">VIEW ONLINE COPY</span></a></li>
-                                    </ul>
-                                </div>
-							</article>
-							<article>
-                                <a href="https://i.imgur.com/2fQQiGS.png" class="image">
-										<!-- images/matlab.png -->
-									<img src="https://i.imgur.com/2fQQiGS.png" alt="" />
-									<!-- images/matlab.png -->
-                                </a>
-                                <div class="caption">
-									<h3><strong>MATLAB OnRamp</strong></h3>
-									<p>Learnt as a supplement to Prof. Andrew Ng's Machine Learning Couse on Coursera.</p>
-                                    <ul class="actions">
-                                        <li><span class="button small"><a href="https://matlabacademy.mathworks.com/progress/share/certificate.html?id=60123cae-08e7-429a-acf6-26d7361e5c0e" target="_blank">View online copy</span></a></li>
-                                    </ul>
-                                </div>
-                            </article>
-           			</section>
+		.skill-card {
+			background: var(--bg-primary);
+			border: 1px solid var(--border);
+			border-radius: 8px;
+			padding: 1.5rem;
+			text-align: center;
+			transition: transform 0.3s ease, border-color 0.3s ease;
+		}
 
-				<!-- Seven -->
-					<section class="wrapper style1 align-center">
-						<div class="inner medium">
-							<h2>Get in touch</h2>
-							<p>“The meeting of two personalities is like the contact of two chemical substances: if there is any reaction, both are transformed.”</p>
-							  <form action="https://formspree.io/anmol3540@gmail.com" method="POST">
-								<div class="field half first">
-									<label for="name">Name</label>
-									<input type="text" name="name" id="name" value="" />
-								</div>
-								<div class="field half">
-									<label for="email">Email</label>
-									<input type="email" name="email" id="email" value="" />
-								</div>
-								<div class="field">
-									<label for="message">Message</label>
-									<textarea name="message" id="message" rows="6"></textarea>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" name="submit" id="submit" value="Send Message" /></li>
-								</ul>
-							</form>
+		.skill-card:hover {
+			transform: translateY(-5px);
+			border-color: var(--accent);
+		}
 
-						</div>
-					</section>
+		.skill-icon {
+			font-size: 2rem;
+			color: var(--accent);
+			margin-bottom: 1rem;
+		}
 
+		.skill-name {
+			font-family: 'Fira Code', monospace;
+			font-weight: 500;
+			color: var(--text-primary);
+		}
 
-				<!-- Footer -->
-					<footer class="wrapper style1 align-center">
-						<div class="inner">
-							<ul class="icons">
-								<li><a href="https://github.com/AnmolTomer" target="_blank" class="icon style2 fa-github"><span class="label">Medium</span></a></li>
-								<li><a href="https://www.linkedin.com/in/anmol-tomer" target="_blank" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
-								<li><a href="https://medium.com/@anmol_tomer" target="_blank" class="icon style2 fa-medium"><span class="label">Medium</span></a></li>
-								<li><a href="https://www.twitter.com/anmol_tomer_cc/" target="_blank" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="https://www.instagram.com/anmol_tomer/" target="_blank" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="https://www.facebook.com/anmoltomercc" target="_blank" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
-								
-								
-							</ul>
-							<p>&copy; 2019 Anmol Tomer. All rights reserved. <br>Image courtesy <a href="https://unsplash.com" target="_blank">Unsplash</a></p>
-						</div>
-					</footer>
+		/* Current Endeavors */
+		.endeavors-section {
+			padding: 4rem 0;
+		}
 
+		.endeavors-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 2rem;
+		}
+
+		.endeavor-card {
+			background: var(--bg-secondary);
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			padding: 2rem;
+			transition: transform 0.3s ease, border-color 0.3s ease;
+		}
+
+		.endeavor-card:hover {
+			transform: translateY(-5px);
+			border-color: var(--accent);
+		}
+
+		.endeavor-title {
+			font-size: 1.5rem;
+			font-weight: 600;
+			margin-bottom: 1rem;
+			color: var(--accent);
+		}
+
+		.endeavor-content {
+			color: var(--text-secondary);
+			margin-bottom: 1.5rem;
+		}
+
+		.cta-button {
+			display: inline-block;
+			background: var(--accent);
+			color: var(--bg-primary);
+			padding: 0.75rem 1.5rem;
+			border-radius: 6px;
+			text-decoration: none;
+			font-weight: 500;
+			transition: background-color 0.3s ease;
+		}
+
+		.cta-button:hover {
+			background: var(--accent-hover);
+		}
+
+		/* Interests Section */
+		.interests-section {
+			padding: 4rem 0;
+			background-color: var(--bg-secondary);
+		}
+
+		.interests-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 2rem;
+		}
+
+		.interest-card {
+			background: var(--bg-primary);
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			padding: 2rem;
+			text-align: center;
+			transition: transform 0.3s ease, border-color 0.3s ease;
+		}
+
+		.interest-card:hover {
+			transform: translateY(-5px);
+			border-color: var(--accent);
+		}
+
+		.interest-icon {
+			font-size: 3rem;
+			margin-bottom: 1rem;
+		}
+
+		.interest-title {
+			font-size: 1.2rem;
+			font-weight: 600;
+			margin-bottom: 1rem;
+			color: var(--text-primary);
+		}
+
+		.interest-description {
+			color: var(--text-secondary);
+			line-height: 1.6;
+		}
+
+		/* Footer */
+		footer {
+			padding: 3rem 0;
+			border-top: 1px solid var(--border);
+			text-align: center;
+		}
+
+		.footer-content {
+			margin-bottom: 2rem;
+		}
+
+		.footer-title {
+			font-size: 1.5rem;
+			font-weight: 600;
+			margin-bottom: 1rem;
+			color: var(--accent);
+		}
+
+		.footer-description {
+			color: var(--text-secondary);
+			margin-bottom: 2rem;
+		}
+
+		.footer-links {
+			display: flex;
+			justify-content: center;
+			gap: 2rem;
+			margin-bottom: 2rem;
+		}
+
+		.footer-links a {
+			color: var(--text-secondary);
+			text-decoration: none;
+			transition: color 0.3s ease;
+		}
+
+		.footer-links a:hover {
+			color: var(--accent);
+		}
+
+		.footer-bottom {
+			color: var(--text-secondary);
+			font-size: 0.9rem;
+		}
+
+		/* Responsive Design */
+		@media (max-width: 768px) {
+			.hero h1 {
+				font-size: 2.5rem;
+			}
+
+			.hero .subtitle {
+				font-size: 1.2rem;
+			}
+
+			.section-title {
+				font-size: 2rem;
+			}
+
+			.header-content {
+				flex-direction: column;
+				text-align: center;
+			}
+
+			.skills-grid {
+				grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+			}
+
+			.endeavors-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.interests-grid {
+				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			}
+		}
+
+		/* Animations */
+		@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				transform: translateY(30px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.fade-in-up {
+			animation: fadeInUp 0.6s ease-out;
+		}
+
+		/* Scroll animations */
+		.scroll-animate {
+			opacity: 0;
+			transform: translateY(30px);
+			transition: all 0.6s ease;
+		}
+
+		.scroll-animate.visible {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Header -->
+	<header>
+		<div class="container">
+			<div class="header-content">
+				<div class="logo">AT</div>
+				<div class="social-links">
+					<a href="https://github.com/AnmolTomer" target="_blank" title="GitHub">
+						<i class="fab fa-github"></i>
+					</a>
+					<a href="https://www.linkedin.com/in/anmol-tomer/" target="_blank" title="LinkedIn">
+						<i class="fab fa-linkedin"></i>
+					</a>
+					<a href="https://twitter.com/anmol_tomer_cc" target="_blank" title="Twitter">
+						<i class="fab fa-twitter"></i>
+					</a>
+					<a href="https://www.strava.com/athletes/anmol_tomer" target="_blank" title="Strava">
+						<i class="fab fa-strava"></i>
+					</a>
+				</div>
 			</div>
+		</div>
+	</header>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+	<!-- Hero Section -->
+	<section class="hero">
+		<div class="container">
+			<h1 class="fade-in-up">Anmol Tomer</h1>
+			<p class="subtitle fade-in-up">Backend Developer | AI Enthusiast | Aspiring Ironman</p>
+			<p class="description fade-in-up">
+				I build robust backend systems by day and train for endurance sports by night.
+				Currently exploring the world of AI while looking for collaborators on open-source projects.
+			</p>
+		</div>
+	</section>
 
-	</body>
+	<!-- Skills Section -->
+	<section class="skills-section">
+		<div class="container">
+			<h2 class="section-title scroll-animate">Ask Me About</h2>
+			<div class="skills-grid">
+				<div class="skill-card scroll-animate">
+					<div class="skill-icon">
+						<i class="fas fa-terminal"></i>
+					</div>
+					<div class="skill-name">Bash</div>
+				</div>
+				<div class="skill-card scroll-animate">
+					<div class="skill-icon">
+						<i class="fas fa-code"></i>
+					</div>
+					<div class="skill-name">Vim</div>
+				</div>
+				<div class="skill-card scroll-animate">
+					<div class="skill-icon">
+						<i class="fab fa-docker"></i>
+					</div>
+					<div class="skill-name">Docker</div>
+				</div>
+				<div class="skill-card scroll-animate">
+					<div class="skill-icon">
+						<i class="fab fa-node-js"></i>
+					</div>
+					<div class="skill-name">NodeJS</div>
+				</div>
+				<div class="skill-card scroll-animate">
+					<div class="skill-icon">
+						<i class="fas fa-brain"></i>
+					</div>
+					<div class="skill-name">Deep Learning</div>
+				</div>
+				<div class="skill-card scroll-animate">
+					<div class="skill-icon">
+						<i class="fas fa-leaf"></i>
+					</div>
+					<div class="skill-name">Spring Boot</div>
+				</div>
+				<div class="skill-card scroll-animate">
+					<div class="skill-icon">
+						<i class="fas fa-chart-line"></i>
+					</div>
+					<div class="skill-name">Data Visualization</div>
+				</div>
+				<div class="skill-card scroll-animate">
+					<div class="skill-icon">
+						<i class="fas fa-archive"></i>
+					</div>
+					<div class="skill-name">Data Archival</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Current Endeavors -->
+	<section class="endeavors-section">
+		<div class="container">
+			<h2 class="section-title scroll-animate">Current Endeavors</h2>
+			<div class="endeavors-grid">
+				<div class="endeavor-card scroll-animate">
+					<h3 class="endeavor-title">🌱 Currently Learning</h3>
+					<p class="endeavor-content">
+						Focusing on Databases and Operating Systems to become AI native.
+						Building a strong foundation in system design and distributed systems.
+					</p>
+				</div>
+				<div class="endeavor-card scroll-animate">
+					<h3 class="endeavor-title">🤔 Seeking Collaboration</h3>
+					<p class="endeavor-content">
+						I'm building an open-source workout tracking app, a community version of Hevy.
+						If you're skilled in Java or Python and want to contribute, let's connect!
+					</p>
+					<a href="https://github.com/AnmolTomer" target="_blank" class="cta-button">
+						View on GitHub
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Interests Section -->
+	<section class="interests-section">
+		<div class="container">
+			<h2 class="section-title scroll-animate">Interests & Goals</h2>
+			<div class="interests-grid">
+				<div class="interest-card scroll-animate">
+					<div class="interest-icon">🏃‍♂️</div>
+					<h3 class="interest-title">Ironman Training</h3>
+					<p class="interest-description">
+						Training for a future Ironman triathlon. Building endurance and pushing physical limits.
+					</p>
+				</div>
+				<div class="interest-card scroll-animate">
+					<div class="interest-icon">⚽</div>
+					<h3 class="interest-title">Team Sports</h3>
+					<p class="interest-description">
+						I enjoy playing cricket, badminton, and football. Hala Madrid! 🤍
+					</p>
+				</div>
+				<div class="interest-card scroll-animate">
+					<div class="interest-icon">🏎️</div>
+					<h3 class="interest-title">Sports Watching</h3>
+					<p class="interest-description">
+						When I'm not active, I'm watching F1, Tennis, and football.
+					</p>
+				</div>
+				<div class="interest-card scroll-animate">
+					<div class="interest-icon">📰</div>
+					<h3 class="interest-title">Tech Hobbies</h3>
+					<p class="interest-description">
+						In my spare time, I love reading tech blogs and doom-scrolling Hackernews and tech-twitter.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer>
+		<div class="container">
+			<div class="footer-content">
+				<h3 class="footer-title">Let's build something great together</h3>
+				<p class="footer-description">
+					Always open to interesting conversations about tech, sports, or life in general.
+				</p>
+				<div class="footer-links">
+					<a href="mailto:anmol3540@gmail.com">
+						<i class="fas fa-envelope"></i> anmol3540@gmail.com
+					</a>
+					<a href="tel:+917389126962">
+						<i class="fas fa-phone"></i> +91-738-912-6962
+					</a>
+				</div>
+				<div class="social-links">
+					<a href="https://github.com/AnmolTomer" target="_blank" title="GitHub">
+						<i class="fab fa-github"></i>
+					</a>
+					<a href="https://www.linkedin.com/in/anmol-tomer/" target="_blank" title="LinkedIn">
+						<i class="fab fa-linkedin"></i>
+					</a>
+					<a href="https://twitter.com/anmol_tomer_cc" target="_blank" title="Twitter">
+						<i class="fab fa-twitter"></i>
+					</a>
+					<a href="https://www.strava.com/athletes/anmol_tomer" target="_blank" title="Strava">
+						<i class="fab fa-strava"></i>
+					</a>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p>Pronouns: He/Him/His</p>
+				<p>&copy; 2024 Anmol Tomer. Built with ❤️ and ☕</p>
+			</div>
+		</div>
+	</footer>
+
+	<script>
+		// Scroll animations
+		const observerOptions = {
+			threshold: 0.1,
+			rootMargin: '0px 0px -50px 0px'
+		};
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+				}
+			});
+		}, observerOptions);
+
+		// Observe all scroll-animate elements
+		document.querySelectorAll('.scroll-animate').forEach(el => {
+			observer.observe(el);
+		});
+
+		// Smooth scrolling for anchor links
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+				const target = document.querySelector(this.getAttribute('href'));
+				if (target) {
+					target.scrollIntoView({
+						behavior: 'smooth',
+						block: 'start'
+					});
+				}
+			});
+		});
+	</script>
+</body>
+
 </html>
