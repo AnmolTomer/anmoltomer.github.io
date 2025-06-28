@@ -30,12 +30,23 @@
 			--warning: #d29922;
 		}
 
+		:root[data-theme="light"] {
+			--bg-primary: #ffffff;
+			--bg-secondary: #f6f8fa;
+			--text-primary: #24292f;
+			--text-secondary: #656d76;
+			--accent: #0969da;
+			--accent-hover: #1a7f37;
+			--border: #d0d7de;
+		}
+
 		body {
 			font-family: 'Inter', sans-serif;
 			background-color: var(--bg-primary);
 			color: var(--text-primary);
 			line-height: 1.6;
 			overflow-x: hidden;
+			transition: background-color 0.3s ease, color 0.3s ease;
 		}
 
 		.container {
@@ -48,6 +59,11 @@
 		header {
 			padding: 2rem 0;
 			border-bottom: 1px solid var(--border);
+			position: sticky;
+			top: 0;
+			background-color: var(--bg-primary);
+			z-index: 100;
+			transition: background-color 0.3s ease, border-color 0.3s ease;
 		}
 
 		.header-content {
@@ -64,6 +80,12 @@
 			color: var(--accent);
 		}
 
+		.header-right {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+		}
+
 		.social-links {
 			display: flex;
 			gap: 1rem;
@@ -77,6 +99,22 @@
 
 		.social-links a:hover {
 			color: var(--accent);
+		}
+
+		.theme-toggle {
+			background: none;
+			border: 1px solid var(--border);
+			color: var(--text-secondary);
+			padding: 0.5rem;
+			border-radius: 6px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			font-size: 1.1rem;
+		}
+
+		.theme-toggle:hover {
+			color: var(--accent);
+			border-color: var(--accent);
 		}
 
 		/* Hero Section */
@@ -109,56 +147,230 @@
 			line-height: 1.8;
 		}
 
+		/* Education Section */
+		.education-section {
+			padding: 4rem 0;
+			background-color: var(--bg-secondary);
+		}
+
+		.education-card {
+			background: var(--bg-primary);
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			padding: 2rem;
+			max-width: 600px;
+			margin: 0 auto;
+			transition: transform 0.3s ease, border-color 0.3s ease;
+		}
+
+		.education-card:hover {
+			transform: translateY(-5px);
+			border-color: var(--accent);
+		}
+
+		.education-title {
+			font-size: 1.5rem;
+			font-weight: 600;
+			margin-bottom: 0.5rem;
+			color: var(--accent);
+		}
+
+		.education-subtitle {
+			color: var(--text-secondary);
+			margin-bottom: 1rem;
+		}
+
+		.education-details {
+			color: var(--text-primary);
+			font-weight: 500;
+		}
+
+		/* Work Experience Section */
+		.experience-section {
+			padding: 4rem 0;
+		}
+
+		.experience-grid {
+			display: grid;
+			gap: 2rem;
+		}
+
+		.experience-card {
+			background: var(--bg-secondary);
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			padding: 2rem;
+			transition: transform 0.3s ease, border-color 0.3s ease;
+		}
+
+		.experience-card:hover {
+			transform: translateY(-5px);
+			border-color: var(--accent);
+		}
+
+		.experience-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			margin-bottom: 1.5rem;
+			flex-wrap: wrap;
+			gap: 1rem;
+		}
+
+		.experience-title {
+			font-size: 1.3rem;
+			font-weight: 600;
+			color: var(--accent);
+		}
+
+		.experience-company {
+			color: var(--text-secondary);
+			font-weight: 500;
+		}
+
+		.experience-date {
+			color: var(--text-secondary);
+			font-size: 0.9rem;
+		}
+
+		.experience-role {
+			color: var(--text-primary);
+			font-weight: 500;
+			margin-bottom: 1rem;
+		}
+
+		.experience-list {
+			list-style: none;
+			padding-left: 0;
+		}
+
+		.experience-list li {
+			margin-bottom: 0.5rem;
+			padding-left: 1.5rem;
+			position: relative;
+			color: var(--text-secondary);
+		}
+
+		.experience-list li::before {
+			content: "▹";
+			position: absolute;
+			left: 0;
+			color: var(--accent);
+		}
+
 		/* Skills Section */
 		.skills-section {
 			padding: 4rem 0;
 			background-color: var(--bg-secondary);
 		}
 
-		.section-title {
-			font-size: 2.5rem;
-			font-weight: 600;
-			text-align: center;
-			margin-bottom: 3rem;
-			color: var(--text-primary);
-		}
-
-		.skills-grid {
+		.skills-categories {
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-			gap: 1.5rem;
-			margin-bottom: 3rem;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 2rem;
 		}
 
-		.skill-card {
+		.skill-category {
 			background: var(--bg-primary);
 			border: 1px solid var(--border);
-			border-radius: 8px;
-			padding: 1.5rem;
-			text-align: center;
+			border-radius: 12px;
+			padding: 2rem;
 			transition: transform 0.3s ease, border-color 0.3s ease;
 		}
 
-		.skill-card:hover {
+		.skill-category:hover {
 			transform: translateY(-5px);
 			border-color: var(--accent);
 		}
 
-		.skill-icon {
-			font-size: 2rem;
-			color: var(--accent);
+		.skill-category-title {
+			font-size: 1.3rem;
+			font-weight: 600;
 			margin-bottom: 1rem;
+			color: var(--accent);
 		}
 
-		.skill-name {
-			font-family: 'Fira Code', monospace;
-			font-weight: 500;
+		.skill-tags {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+		}
+
+		.skill-tag {
+			background: var(--bg-secondary);
+			border: 1px solid var(--border);
 			color: var(--text-primary);
+			padding: 0.5rem 1rem;
+			border-radius: 20px;
+			font-family: 'Fira Code', monospace;
+			font-size: 0.9rem;
+			transition: all 0.3s ease;
+		}
+
+		.skill-tag:hover {
+			background: var(--accent);
+			color: var(--bg-primary);
+			border-color: var(--accent);
+		}
+
+		/* Projects Section */
+		.projects-section {
+			padding: 4rem 0;
+		}
+
+		.projects-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+			gap: 2rem;
+		}
+
+		.project-card {
+			background: var(--bg-secondary);
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			padding: 2rem;
+			transition: transform 0.3s ease, border-color 0.3s ease;
+		}
+
+		.project-card:hover {
+			transform: translateY(-5px);
+			border-color: var(--accent);
+		}
+
+		.project-title {
+			font-size: 1.3rem;
+			font-weight: 600;
+			margin-bottom: 1rem;
+			color: var(--accent);
+		}
+
+		.project-description {
+			color: var(--text-secondary);
+			margin-bottom: 1.5rem;
+			line-height: 1.6;
+		}
+
+		.project-links {
+			display: flex;
+			gap: 1rem;
+			flex-wrap: wrap;
+		}
+
+		.project-link {
+			color: var(--accent);
+			text-decoration: none;
+			font-weight: 500;
+			transition: color 0.3s ease;
+		}
+
+		.project-link:hover {
+			color: var(--accent-hover);
 		}
 
 		/* Current Endeavors */
 		.endeavors-section {
 			padding: 4rem 0;
+			background-color: var(--bg-secondary);
 		}
 
 		.endeavors-grid {
@@ -168,7 +380,7 @@
 		}
 
 		.endeavor-card {
-			background: var(--bg-secondary);
+			background: var(--bg-primary);
 			border: 1px solid var(--border);
 			border-radius: 12px;
 			padding: 2rem;
@@ -210,7 +422,6 @@
 		/* Interests Section */
 		.interests-section {
 			padding: 4rem 0;
-			background-color: var(--bg-secondary);
 		}
 
 		.interests-grid {
@@ -220,7 +431,7 @@
 		}
 
 		.interest-card {
-			background: var(--bg-primary);
+			background: var(--bg-secondary);
 			border: 1px solid var(--border);
 			border-radius: 12px;
 			padding: 2rem;
@@ -255,6 +466,7 @@
 			padding: 3rem 0;
 			border-top: 1px solid var(--border);
 			text-align: center;
+			background-color: var(--bg-secondary);
 		}
 
 		.footer-content {
@@ -278,6 +490,7 @@
 			justify-content: center;
 			gap: 2rem;
 			margin-bottom: 2rem;
+			flex-wrap: wrap;
 		}
 
 		.footer-links a {
@@ -293,6 +506,15 @@
 		.footer-bottom {
 			color: var(--text-secondary);
 			font-size: 0.9rem;
+		}
+
+		/* Section Title */
+		.section-title {
+			font-size: 2.5rem;
+			font-weight: 600;
+			text-align: center;
+			margin-bottom: 3rem;
+			color: var(--text-primary);
 		}
 
 		/* Responsive Design */
@@ -314,8 +536,21 @@
 				text-align: center;
 			}
 
-			.skills-grid {
-				grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+			.header-right {
+				flex-direction: column;
+			}
+
+			.experience-header {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+
+			.projects-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.skills-categories {
+				grid-template-columns: 1fr;
 			}
 
 			.endeavors-grid {
@@ -364,19 +599,30 @@
 		<div class="container">
 			<div class="header-content">
 				<div class="logo">AT</div>
-				<div class="social-links">
-					<a href="https://github.com/AnmolTomer" target="_blank" title="GitHub">
-						<i class="fab fa-github"></i>
-					</a>
-					<a href="https://www.linkedin.com/in/anmol-tomer/" target="_blank" title="LinkedIn">
-						<i class="fab fa-linkedin"></i>
-					</a>
-					<a href="https://twitter.com/anmol_tomer_cc" target="_blank" title="Twitter">
-						<i class="fab fa-twitter"></i>
-					</a>
-					<a href="https://www.strava.com/athletes/anmol_tomer" target="_blank" title="Strava">
-						<i class="fab fa-strava"></i>
-					</a>
+				<div class="header-right">
+					<div class="social-links">
+						<a href="https://github.com/AnmolTomer" target="_blank" title="GitHub">
+							<i class="fab fa-github"></i>
+						</a>
+						<a href="https://www.linkedin.com/in/anmol-tomer/" target="_blank" title="LinkedIn">
+							<i class="fab fa-linkedin"></i>
+						</a>
+						<a href="https://twitter.com/anmol_tomer_cc" target="_blank" title="Twitter">
+							<i class="fab fa-twitter"></i>
+						</a>
+						<a href="https://www.strava.com/athletes/anmol_tomer" target="_blank" title="Strava">
+							<i class="fab fa-strava"></i>
+						</a>
+						<a href="https://anmoltomer.bearblog.dev/blog/" target="_blank" title="Blog">
+							<i class="fas fa-blog"></i>
+						</a>
+						<a href="https://leetcode.com/u/AnmolTomer/" target="_blank" title="LeetCode">
+							<i class="fas fa-code"></i>
+						</a>
+					</div>
+					<button class="theme-toggle" id="themeToggle" title="Toggle theme">
+						<i class="fas fa-moon"></i>
+					</button>
 				</div>
 			</div>
 		</div>
@@ -394,58 +640,161 @@
 		</div>
 	</section>
 
+	<!-- Education Section -->
+	<section class="education-section">
+		<div class="container">
+			<h2 class="section-title scroll-animate">Education</h2>
+			<div class="education-card scroll-animate">
+				<h3 class="education-title">Vellore Institute of Technology</h3>
+				<p class="education-subtitle">Chennai, India</p>
+				<p class="education-details">Bachelor of Technology in Electronics and Computer Science Engineering</p>
+				<p class="education-details">CGPA: 8.6/10.0 | 2018 - 2022</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Work Experience Section -->
+	<section class="experience-section">
+		<div class="container">
+			<h2 class="section-title scroll-animate">Work Experience</h2>
+			<div class="experience-grid">
+				<div class="experience-card scroll-animate">
+					<div class="experience-header">
+						<div>
+							<h3 class="experience-title">Backend Engineer</h3>
+							<p class="experience-company">CRED</p>
+							<p class="experience-role">Bengaluru, India</p>
+						</div>
+						<span class="experience-date">June 2022 - Present</span>
+					</div>
+					<ul class="experience-list">
+						<li><strong>Backend Engineer, Payments Platform</strong> (June 2023 - Present)</li>
+						<li>Worked on Payments Loading, Merchant Onboarding and Compliance</li>
+						<li>Owned UPI and Payment Provider Integrations</li>
+						<li><strong>Product & Partner Engineering</strong> (September 2021 - June 2023)</li>
+						<li>Contributed to building CRED pay</li>
+						<li>Owned sales engineering, merchant integration and onboarding automation</li>
+						<li>Operated in a multi-stakeholder role, working closely with product, business, tech and ops
+							teams</li>
+					</ul>
+				</div>
+
+				<div class="experience-card scroll-animate">
+					<div class="experience-header">
+						<div>
+							<h3 class="experience-title">Data Science Intern</h3>
+							<p class="experience-company">Nokia Networks and Solutions</p>
+							<p class="experience-role">Chennai, India</p>
+						</div>
+						<span class="experience-date">May 2019 - June 2019</span>
+					</div>
+					<ul class="experience-list">
+						<li>Analyzed patterns in the usage of spare parts from historical data</li>
+						<li>Performed extensive Data Cleaning and Exploratory Data Analysis to assess usage patterns and
+							estimate the lifespan of spare parts</li>
+						<li>Built Machine Learning models to predict the ideal order size for various shop floor
+							components</li>
+						<li>Presented and demonstrated solutions to senior executives</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- Skills Section -->
 	<section class="skills-section">
 		<div class="container">
 			<h2 class="section-title scroll-animate">Ask Me About</h2>
-			<div class="skills-grid">
-				<div class="skill-card scroll-animate">
-					<div class="skill-icon">
-						<i class="fas fa-terminal"></i>
+			<div class="skills-categories">
+				<div class="skill-category scroll-animate">
+					<h3 class="skill-category-title">Languages</h3>
+					<div class="skill-tags">
+						<span class="skill-tag">C/C++ (STL)</span>
+						<span class="skill-tag">Java</span>
+						<span class="skill-tag">Python</span>
+						<span class="skill-tag">SQL</span>
+						<span class="skill-tag">JavaScript/Node.js</span>
 					</div>
-					<div class="skill-name">Bash</div>
 				</div>
-				<div class="skill-card scroll-animate">
-					<div class="skill-icon">
-						<i class="fas fa-code"></i>
+				<div class="skill-category scroll-animate">
+					<h3 class="skill-category-title">Frameworks & Libraries</h3>
+					<div class="skill-tags">
+						<span class="skill-tag">FastAPI</span>
+						<span class="skill-tag">Django</span>
+						<span class="skill-tag">Flask</span>
+						<span class="skill-tag">Pandas</span>
+						<span class="skill-tag">Express.js</span>
 					</div>
-					<div class="skill-name">Vim</div>
 				</div>
-				<div class="skill-card scroll-animate">
-					<div class="skill-icon">
-						<i class="fab fa-docker"></i>
+				<div class="skill-category scroll-animate">
+					<h3 class="skill-category-title">Databases</h3>
+					<div class="skill-tags">
+						<span class="skill-tag">MySQL</span>
+						<span class="skill-tag">MongoDB</span>
+						<span class="skill-tag">Redis</span>
+						<span class="skill-tag">AWS DynamoDB</span>
 					</div>
-					<div class="skill-name">Docker</div>
 				</div>
-				<div class="skill-card scroll-animate">
-					<div class="skill-icon">
-						<i class="fab fa-node-js"></i>
+				<div class="skill-category scroll-animate">
+					<h3 class="skill-category-title">Cloud & DevOps</h3>
+					<div class="skill-tags">
+						<span class="skill-tag">AWS (EC2, S3, SQS, Lambda, Step Functions)</span>
+						<span class="skill-tag">Docker</span>
+						<span class="skill-tag">Datadog</span>
+						<span class="skill-tag">Jenkins</span>
+						<span class="skill-tag">Grafana (Loki)</span>
+						<span class="skill-tag">Git</span>
 					</div>
-					<div class="skill-name">NodeJS</div>
 				</div>
-				<div class="skill-card scroll-animate">
-					<div class="skill-icon">
-						<i class="fas fa-brain"></i>
+			</div>
+		</div>
+	</section>
+
+	<!-- Projects Section -->
+	<section class="projects-section">
+		<div class="container">
+			<h2 class="section-title scroll-animate">Projects</h2>
+			<div class="projects-grid">
+				<div class="project-card scroll-animate">
+					<h3 class="project-title">V.A.N.I. — Voice Analytics Interface</h3>
+					<p class="project-description">
+						Worked on a project to detect dyslexia in children at an early stage, by determining their
+						reading age.
+						Worked with NGOs and schools for gifted children on this project, final outcome led to a filed
+						patent for the application.
+					</p>
+					<div class="project-links">
+						<a href="https://patentscope.wipo.int/search/en/detail.jsf?docId=IN276072258&tab=NATIONALBIBLIO"
+							target="_blank" class="project-link">
+							<i class="fas fa-external-link-alt"></i> Patent Link
+						</a>
 					</div>
-					<div class="skill-name">Deep Learning</div>
 				</div>
-				<div class="skill-card scroll-animate">
-					<div class="skill-icon">
-						<i class="fas fa-leaf"></i>
+
+				<div class="project-card scroll-animate">
+					<h3 class="project-title">iPark — Intelligent Parking System</h3>
+					<p class="project-description">
+						A solution to the problem of diminishing parking spaces in urban areas using Deep Learning and
+						Computer Vision.
+						Qualified as Top 30 for on-site finals out of 600 teams in the hackathon hosted by IISc
+						Bangalore.
+					</p>
+					<div class="project-links">
+						<a href="https://github.com/AnmolTomer/iPark" target="_blank" class="project-link">
+							<i class="fab fa-github"></i> GitHub Link
+						</a>
+						<a href="https://www.youtube.com/watch?v=3VMOG8u6cUI" target="_blank" class="project-link">
+							<i class="fab fa-youtube"></i> Project Demo
+						</a>
 					</div>
-					<div class="skill-name">Spring Boot</div>
 				</div>
-				<div class="skill-card scroll-animate">
-					<div class="skill-icon">
-						<i class="fas fa-chart-line"></i>
-					</div>
-					<div class="skill-name">Data Visualization</div>
-				</div>
-				<div class="skill-card scroll-animate">
-					<div class="skill-icon">
-						<i class="fas fa-archive"></i>
-					</div>
-					<div class="skill-name">Data Archival</div>
+
+				<div class="project-card scroll-animate">
+					<h3 class="project-title">Custom Object Detection for Autonomous Rover</h3>
+					<p class="project-description">
+						Built a model for custom object detection using the Darknet Neural Network Framework for the
+						Indian Rover Challenge 2020.
+					</p>
 				</div>
 			</div>
 		</div>
@@ -529,6 +878,12 @@
 					<a href="tel:+917389126962">
 						<i class="fas fa-phone"></i> +91-738-912-6962
 					</a>
+					<a href="https://anmoltomer.bearblog.dev/blog/" target="_blank">
+						<i class="fas fa-blog"></i> Blog
+					</a>
+					<a href="https://leetcode.com/u/AnmolTomer/" target="_blank">
+						<i class="fas fa-code"></i> LeetCode
+					</a>
 				</div>
 				<div class="social-links">
 					<a href="https://github.com/AnmolTomer" target="_blank" title="GitHub">
@@ -553,6 +908,35 @@
 	</footer>
 
 	<script>
+		// Theme toggle functionality
+		const themeToggle = document.getElementById('themeToggle');
+		const html = document.documentElement;
+		const icon = themeToggle.querySelector('i');
+
+		// Check for saved theme preference or default to dark
+		const currentTheme = localStorage.getItem('theme') || 'dark';
+		html.setAttribute('data-theme', currentTheme);
+		updateThemeIcon(currentTheme);
+
+		themeToggle.addEventListener('click', () => {
+			const currentTheme = html.getAttribute('data-theme');
+			const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+			html.setAttribute('data-theme', newTheme);
+			localStorage.setItem('theme', newTheme);
+			updateThemeIcon(newTheme);
+		});
+
+		function updateThemeIcon(theme) {
+			if (theme === 'light') {
+				icon.className = 'fas fa-sun';
+				themeToggle.title = 'Switch to dark theme';
+			} else {
+				icon.className = 'fas fa-moon';
+				themeToggle.title = 'Switch to light theme';
+			}
+		}
+
 		// Scroll animations
 		const observerOptions = {
 			threshold: 0.1,
