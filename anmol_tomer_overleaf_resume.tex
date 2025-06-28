@@ -1,0 +1,159 @@
+%-------------------------
+% Resume in LateX
+% Author : Anmol Tomer
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+
+
+
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate PDF is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1: #2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{https://anmoltomer.github.io/}{\Large Anmol Tomer}} & Email: \href{mailto:anmol3540@gmail.com}{anmol3540@gmail.com}\\
+  \href{https://anmoltomer.github.io/}{anmoltomer.github.io} & Mobile: \href{tel:+917389126962}{+91-738-912-6962} \\
+  \href{https://www.linkedin.com/in/anmol-tomer/}{linkedin.com/in/anmol-tomer} & \href{https://github.com/AnmolTomer}{github.com/AnmolTomer} \\
+  \href{https://anmoltomer.bearblog.dev/blog/}{Blog} & \href{https://leetcode.com/u/AnmolTomer/}{leetcode.com/AnmolTomer}
+\end{tabular*}
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Vellore Institute of Technology}{Chennai, IN}
+      {Bachelor of Technology in Electronics and Computer Science Engineering; CGPA: 8.6/10.0}{2018 -- 2022}
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {CRED}{Bengaluru, IN}
+      {Backend Engineer}{June 2022 -- Present}
+      \resumeItemListStart
+        \resumeItem{\textbf{Backend Engineer, Payments Platform} (June 2023 -- Present)}
+        \resumeItemListStart
+            \resumeItem{Worked on Payments Loading, Merchant Onboarding and Compliance.}
+            \resumeItem{Owned UPI and Payment Provider Integrations.}
+        \resumeItemListEnd
+        \resumeItem{\textbf{Product \& Partner Engineering} (September 2021 -- June 2023)}
+         \resumeItemListStart
+            \resumeItem{Contributed to building CRED pay.}
+            \resumeItem{Owned sales engineering, merchant integration and onboarding automation.}
+            \resumeItem{Operated in a multi-stakeholder role, working closely with product, business, tech and ops teams.}
+        \resumeItemListEnd
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Nokia Networks and Solutions}{Chennai, IN}
+      {Data Science Intern}{May 2019 -- June 2019}
+      \resumeItemListStart
+        \resumeItem{Analyzed patterns in the usage of spare parts from historical data.}
+        \resumeItem{Performed extensive Data Cleaning and Exploratory Data Analysis to assess usage patterns and estimate the lifespan of spare parts.}
+        \resumeItem{Built Machine Learning models to predict the ideal order size for various shop floor components.}
+        \resumeItem{Presented and demonstrated solutions to senior executives.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeSubItem{V.A.N.I. -- Voice Analytics Interface}{Worked on a project to detect dyslexia in children at an early stage, by determining their reading age. Worked with NGOs and schools for gifted children on this project, final outcome led to a filed patent for the application. \href{https://patentscope.wipo.int/search/en/detail.jsf?docId=IN276072258&tab=NATIONALBIBLIO}{\textbf{Patent Link}}}
+     \resumeSubItem{iPark -- Intelligent Parking System}{A solution to the problem of diminishing parking spaces in urban areas using Deep Learning and Computer Vision. Qualified as Top 30 for on-site finals out of 600 teams in the hackathon hosted by IISc Bangalore.} 
+     \href{https://github.com/AnmolTomer/iPark}{\textbf{Github Link}} | \href{https://www.youtube.com/watch?v=3VMOG8u6cUI}{\textbf{Project DEMO}}
+    \resumeSubItem{Custom Object Detection for Autonomous Rover}{Built a model for custom object detection using the Darknet Neural Network Framework for the Indian Rover Challenge 2020.}
+  \resumeSubHeadingListEnd
+
+%--------SKILLS------------
+\section{Skills}
+  \resumeSubHeadingListStart
+    \item{
+      \textbf{Languages: }{C/C++ (STL), Java, Python, SQL, JavaScript/Node.js}
+    }
+    \item{
+      \textbf{Frameworks \& Libraries: }{FastAPI, Django, Flask, Pandas, Express.js}
+    }
+    \item{
+      \textbf{Databases: }{MySQL, MongoDB, Redis, AWS DynamoDB}
+    }
+    \item{
+      \textbf{Cloud \& DevOps Tools: }{AWS (EC2, S3, SQS, Lambda, Step Functions), Docker, Datadog, Jenkins, Grafana (Loki), Git}
+    }
+  \resumeSubHeadingListEnd
+
+\end{document}
