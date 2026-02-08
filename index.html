@@ -9,7 +9,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	<style>
 		/* ========== RESET & BASE ========== */
 		*, *::before, *::after {
@@ -228,6 +228,16 @@
 			overflow: hidden;
 		}
 
+		.hero-canvas {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			pointer-events: none;
+			z-index: 0;
+		}
+
 		.hero::before {
 			content: '';
 			position: absolute;
@@ -239,6 +249,7 @@
 			background: radial-gradient(circle, var(--accent-glow-strong) 0%, transparent 70%);
 			pointer-events: none;
 			animation: heroGlow 8s ease-in-out infinite alternate;
+			z-index: 0;
 		}
 
 		.hero::after {
@@ -252,11 +263,66 @@
 			background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, transparent 70%);
 			pointer-events: none;
 			animation: heroGlow 10s ease-in-out infinite alternate-reverse;
+			z-index: 0;
 		}
 
 		@keyframes heroGlow {
 			0% { transform: translate(0, 0) scale(1); }
 			100% { transform: translate(30px, -20px) scale(1.1); }
+		}
+
+		/* ========== SCROLL INDICATOR ========== */
+		.scroll-indicator {
+			position: absolute;
+			bottom: 32px;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 2;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 8px;
+			color: var(--text-tertiary);
+			font-size: 0.75rem;
+			font-weight: 500;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			animation: fadeInScroll 1s ease 1.5s both;
+			cursor: pointer;
+			transition: color var(--transition-fast);
+		}
+
+		.scroll-indicator:hover {
+			color: var(--accent-light);
+		}
+
+		.scroll-indicator .scroll-line {
+			width: 1px;
+			height: 40px;
+			position: relative;
+			overflow: hidden;
+			background: var(--border);
+		}
+
+		.scroll-indicator .scroll-line::after {
+			content: '';
+			position: absolute;
+			top: -100%;
+			left: 0;
+			width: 100%;
+			height: 50%;
+			background: var(--accent);
+			animation: scrollLine 2s ease-in-out infinite;
+		}
+
+		@keyframes scrollLine {
+			0% { top: -50%; }
+			100% { top: 100%; }
+		}
+
+		@keyframes fadeInScroll {
+			from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+			to { opacity: 1; transform: translateX(-50%) translateY(0); }
 		}
 
 		.hero-content {
@@ -997,6 +1063,9 @@
 				padding: 100px 0 60px;
 				min-height: auto;
 			}
+			.scroll-indicator {
+				display: none;
+			}
 			.exp-card {
 				padding: 24px;
 			}
@@ -1065,6 +1134,7 @@
 
 	<!-- Hero -->
 	<section class="hero" id="hero">
+		<canvas class="hero-canvas" id="heroCanvas"></canvas>
 		<div class="container">
 			<div class="hero-content">
 				<div class="hero-text">
@@ -1090,6 +1160,10 @@
 				</div>
 			</div>
 		</div>
+		<a href="#experience" class="scroll-indicator">
+			<span>Scroll</span>
+			<span class="scroll-line"></span>
+		</a>
 	</section>
 
 	<!-- Experience -->
@@ -1499,6 +1573,140 @@
 		}, { threshold: 0.2 });
 
 		document.querySelectorAll('.skill-card').forEach(card => skillObserver.observe(card));
+
+		// ===== 3D FLOWING MESH BACKGROUND =====
+		const heroCanvas = document.getElementById('heroCanvas');
+		if (heroCanvas) {
+			const ctx = heroCanvas.getContext('2d');
+			let mouseX = 0, mouseY = 0;
+			let animFrame;
+
+			function resizeCanvas() {
+				const hero = heroCanvas.parentElement;
+				heroCanvas.width = hero.offsetWidth;
+				heroCanvas.height = hero.offsetHeight;
+			}
+			resizeCanvas();
+			window.addEventListener('resize', resizeCanvas);
+
+			document.addEventListener('mousemove', (e) => {
+				const rect = heroCanvas.getBoundingClientRect();
+				mouseX = (e.clientX - rect.left) / rect.width;
+				mouseY = (e.clientY - rect.top) / rect.height;
+			});
+
+			const cols = 28;
+			const rows = 16;
+			let time = 0;
+
+			function getAccentColor() {
+				return getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#6366f1';
+			}
+
+			function hexToRgb(hex) {
+				hex = hex.replace('#', '');
+				if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+				const n = parseInt(hex, 16);
+				return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+			}
+
+			function drawMesh() {
+				const w = heroCanvas.width;
+				const h = heroCanvas.height;
+				ctx.clearRect(0, 0, w, h);
+
+				const accent = hexToRgb(getAccentColor());
+				const spacingX = w / (cols - 1);
+				const spacingY = h / (rows - 1);
+
+				const points = [];
+				for (let row = 0; row < rows; row++) {
+					points[row] = [];
+					for (let col = 0; col < cols; col++) {
+						const baseX = col * spacingX;
+						const baseY = row * spacingY;
+
+						const distX = (col / cols) - mouseX;
+						const distY = (row / rows) - mouseY;
+						const dist = Math.sqrt(distX * distX + distY * distY);
+						const mouseInfluence = Math.max(0, 1 - dist * 2.5);
+
+						const wave1 = Math.sin(col * 0.3 + time * 0.8) * 8;
+						const wave2 = Math.cos(row * 0.4 + time * 0.6) * 6;
+						const wave3 = Math.sin((col + row) * 0.2 + time * 0.5) * 4;
+						const mouseWave = mouseInfluence * Math.sin(time * 2 + dist * 10) * 12;
+
+						points[row][col] = {
+							x: baseX + wave1 + wave3,
+							y: baseY + wave2 + mouseWave,
+							z: (wave1 + wave2 + mouseWave) * 0.5
+						};
+					}
+				}
+
+				// Draw connecting lines
+				for (let row = 0; row < rows; row++) {
+					for (let col = 0; col < cols; col++) {
+						const p = points[row][col];
+						const brightness = ((p.z + 30) / 60);
+						const alpha = 0.03 + brightness * 0.06;
+
+						// Horizontal lines
+						if (col < cols - 1) {
+							const next = points[row][col + 1];
+							ctx.beginPath();
+							ctx.moveTo(p.x, p.y);
+							ctx.lineTo(next.x, next.y);
+							ctx.strokeStyle = `rgba(${accent[0]}, ${accent[1]}, ${accent[2]}, ${alpha})`;
+							ctx.lineWidth = 0.5;
+							ctx.stroke();
+						}
+
+						// Vertical lines
+						if (row < rows - 1) {
+							const below = points[row + 1][col];
+							ctx.beginPath();
+							ctx.moveTo(p.x, p.y);
+							ctx.lineTo(below.x, below.y);
+							ctx.strokeStyle = `rgba(${accent[0]}, ${accent[1]}, ${accent[2]}, ${alpha * 0.7})`;
+							ctx.lineWidth = 0.5;
+							ctx.stroke();
+						}
+
+						// Draw node dots at intersections (sparse)
+						if (row % 2 === 0 && col % 2 === 0) {
+							const dotAlpha = 0.08 + brightness * 0.15;
+							const dotSize = 1 + brightness * 1.5;
+							ctx.beginPath();
+							ctx.arc(p.x, p.y, dotSize, 0, Math.PI * 2);
+							ctx.fillStyle = `rgba(${accent[0]}, ${accent[1]}, ${accent[2]}, ${dotAlpha})`;
+							ctx.fill();
+						}
+					}
+				}
+
+				time += 0.01;
+				animFrame = requestAnimationFrame(drawMesh);
+			}
+
+			// Only run on desktop
+			if (window.matchMedia('(pointer: fine)').matches && window.innerWidth > 768) {
+				drawMesh();
+			}
+
+			// Pause when not visible
+			const heroObserver = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						if (!animFrame) drawMesh();
+					} else {
+						cancelAnimationFrame(animFrame);
+						animFrame = null;
+					}
+				});
+			});
+			heroObserver.observe(heroCanvas.parentElement);
+		}
 
 		// ===== TILT EFFECT ON PROJECT CARDS (desktop) =====
 		if (window.matchMedia('(pointer: fine)').matches) {
