@@ -1430,12 +1430,13 @@
 				</div>
 			</div>
 			<div class="footer-bottom">
-				<p>&copy; 2025 Anmol Tomer</p>
+				<p>&copy; 2026 Anmol Tomer</p>
 				<div class="footer-socials">
 					<a href="https://github.com/AnmolTomer" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
 					<a href="https://www.linkedin.com/in/anmol-tomer/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
 					<a href="https://twitter.com/anmol_tomer_cc" target="_blank" title="Twitter"><i class="fab fa-x-twitter"></i></a>
 					<a href="https://www.strava.com/athletes/anmol_tomer" target="_blank" title="Strava"><i class="fab fa-strava"></i></a>
+					<a href="https://stackoverflow.com/users/9719106/anmol-tomer" target="_blank" title="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>
 				</div>
 			</div>
 		</div>
@@ -1510,6 +1511,29 @@
 		document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 		// ===== SMOOTH SCROLL FOR NAV LINKS =====
+		function smoothScrollTo(targetY, duration) {
+			duration = duration || 1200;
+			const startY = window.scrollY;
+			const diff = targetY - startY;
+			let startTime = null;
+
+			function easeInOutCubic(t) {
+				return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+			}
+
+			function step(timestamp) {
+				if (!startTime) startTime = timestamp;
+				const elapsed = timestamp - startTime;
+				const progress = Math.min(elapsed / duration, 1);
+				const eased = easeInOutCubic(progress);
+				window.scrollTo(0, startY + diff * eased);
+				if (progress < 1) {
+					requestAnimationFrame(step);
+				}
+			}
+			requestAnimationFrame(step);
+		}
+
 		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 			anchor.addEventListener('click', function(e) {
 				const target = document.querySelector(this.getAttribute('href'));
@@ -1517,7 +1541,7 @@
 					e.preventDefault();
 					const offset = 80;
 					const y = target.getBoundingClientRect().top + window.scrollY - offset;
-					window.scrollTo({ top: y, behavior: 'smooth' });
+					smoothScrollTo(y, 1200);
 				}
 			});
 		});
@@ -1574,12 +1598,13 @@
 
 		document.querySelectorAll('.skill-card').forEach(card => skillObserver.observe(card));
 
-		// ===== 3D FLOWING MESH BACKGROUND =====
+		// ===== AURORA + FIREFLIES BACKGROUND =====
 		const heroCanvas = document.getElementById('heroCanvas');
 		if (heroCanvas) {
 			const ctx = heroCanvas.getContext('2d');
-			let mouseX = 0, mouseY = 0;
+			let mouseX = -1, mouseY = -1;
 			let animFrame;
+			let time = 0;
 
 			function resizeCanvas() {
 				const hero = heroCanvas.parentElement;
@@ -1589,15 +1614,15 @@
 			resizeCanvas();
 			window.addEventListener('resize', resizeCanvas);
 
-			document.addEventListener('mousemove', (e) => {
+			heroCanvas.parentElement.addEventListener('mousemove', (e) => {
 				const rect = heroCanvas.getBoundingClientRect();
-				mouseX = (e.clientX - rect.left) / rect.width;
-				mouseY = (e.clientY - rect.top) / rect.height;
+				mouseX = e.clientX - rect.left;
+				mouseY = e.clientY - rect.top;
 			});
-
-			const cols = 28;
-			const rows = 16;
-			let time = 0;
+			heroCanvas.parentElement.addEventListener('mouseleave', () => {
+				mouseX = -1;
+				mouseY = -1;
+			});
 
 			function getAccentColor() {
 				return getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#6366f1';
@@ -1610,95 +1635,191 @@
 				return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
 			}
 
-			function drawMesh() {
+			// ----- Aurora Bands -----
+			const auroraBands = [
+				{ yOffset: 0.25, amplitude: 40, wavelength: 0.003, speed: 0.15, opacity: 0.04, hueShift: 0 },
+				{ yOffset: 0.40, amplitude: 55, wavelength: 0.002, speed: 0.12, opacity: 0.035, hueShift: 30 },
+				{ yOffset: 0.55, amplitude: 35, wavelength: 0.004, speed: 0.18, opacity: 0.03, hueShift: 60 },
+				{ yOffset: 0.70, amplitude: 45, wavelength: 0.0025, speed: 0.10, opacity: 0.025, hueShift: -20 },
+			];
+
+			function drawAurora(w, h) {
+				const accent = hexToRgb(getAccentColor());
+				const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+
+				auroraBands.forEach(band => {
+					const baseY = h * band.yOffset;
+					const bandHeight = 100 + band.amplitude;
+
+					ctx.beginPath();
+					ctx.moveTo(0, h);
+
+					for (let x = 0; x <= w; x += 3) {
+						const wave1 = Math.sin(x * band.wavelength + time * band.speed) * band.amplitude;
+						const wave2 = Math.sin(x * band.wavelength * 1.5 + time * band.speed * 0.7 + 2) * band.amplitude * 0.4;
+						const y = baseY + wave1 + wave2;
+						ctx.lineTo(x, y);
+					}
+
+					ctx.lineTo(w, h);
+					ctx.closePath();
+
+					const r = Math.min(255, accent[0] + band.hueShift);
+					const g = Math.min(255, accent[1] + Math.abs(band.hueShift) * 0.5);
+					const b = Math.min(255, accent[2] + band.hueShift * 0.3);
+					const opacity = isDark ? band.opacity : band.opacity * 0.6;
+
+					const grad = ctx.createLinearGradient(0, baseY - bandHeight, 0, baseY + bandHeight);
+					grad.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0)`);
+					grad.addColorStop(0.4, `rgba(${r}, ${g}, ${b}, ${opacity})`);
+					grad.addColorStop(0.6, `rgba(${r}, ${g}, ${b}, ${opacity * 0.8})`);
+					grad.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
+
+					ctx.fillStyle = grad;
+					ctx.fill();
+				});
+			}
+
+			// ----- Firefly Particles -----
+			const PARTICLE_COUNT = 70;
+			const particles = [];
+
+			function createParticle(w, h, forceBottom) {
+				const isAccent = Math.random() < 0.25;
+				const hasTrail = Math.random() < 0.12;
+				return {
+					x: Math.random() * w,
+					y: forceBottom ? h + Math.random() * 40 : Math.random() * h,
+					size: 0.8 + Math.random() * 2.2,
+					speedY: -(0.15 + Math.random() * 0.45),
+					speedX: (Math.random() - 0.5) * 0.3,
+					wobbleAmp: 0.3 + Math.random() * 0.6,
+					wobbleSpeed: 0.01 + Math.random() * 0.02,
+					wobbleOffset: Math.random() * Math.PI * 2,
+					opacity: 0.15 + Math.random() * 0.55,
+					pulseSpeed: 0.008 + Math.random() * 0.015,
+					pulseOffset: Math.random() * Math.PI * 2,
+					isAccent: isAccent,
+					hasTrail: hasTrail,
+					trail: [],
+				};
+			}
+
+			function initParticles() {
+				const w = heroCanvas.width;
+				const h = heroCanvas.height;
+				particles.length = 0;
+				for (let i = 0; i < PARTICLE_COUNT; i++) {
+					particles.push(createParticle(w, h, false));
+				}
+			}
+			initParticles();
+			window.addEventListener('resize', () => { setTimeout(initParticles, 100); });
+
+			function drawFireflies(w, h) {
+				const accent = hexToRgb(getAccentColor());
+				const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+
+				particles.forEach(p => {
+					// Pulse opacity
+					const pulse = Math.sin(time * p.pulseSpeed * 60 + p.pulseOffset);
+					const currentOpacity = p.opacity * (0.5 + pulse * 0.5);
+					const displayOpacity = isDark ? currentOpacity : currentOpacity * 0.7;
+
+					// Color
+					let r, g, b;
+					if (p.isAccent) {
+						r = accent[0]; g = accent[1]; b = accent[2];
+					} else {
+						r = 220; g = 220; b = 230;
+					}
+
+					// Draw trail
+					if (p.hasTrail && p.trail.length > 1) {
+						for (let t = 0; t < p.trail.length - 1; t++) {
+							const trailAlpha = (t / p.trail.length) * displayOpacity * 0.3;
+							const trailSize = p.size * (t / p.trail.length) * 0.6;
+							ctx.beginPath();
+							ctx.arc(p.trail[t].x, p.trail[t].y, trailSize, 0, Math.PI * 2);
+							ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${trailAlpha})`;
+							ctx.fill();
+						}
+					}
+
+					// Draw glow
+					if (p.size > 1.5 || p.isAccent) {
+						const glowSize = p.size * 3;
+						const glowGrad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, glowSize);
+						glowGrad.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${displayOpacity * 0.15})`);
+						glowGrad.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
+						ctx.beginPath();
+						ctx.arc(p.x, p.y, glowSize, 0, Math.PI * 2);
+						ctx.fillStyle = glowGrad;
+						ctx.fill();
+					}
+
+					// Draw particle dot
+					ctx.beginPath();
+					ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+					ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${displayOpacity})`;
+					ctx.fill();
+
+					// Update trail
+					if (p.hasTrail) {
+						p.trail.push({ x: p.x, y: p.y });
+						if (p.trail.length > 8) p.trail.shift();
+					}
+
+					// Move
+					const wobble = Math.sin(time * p.wobbleSpeed * 60 + p.wobbleOffset) * p.wobbleAmp;
+					p.x += p.speedX + wobble;
+					p.y += p.speedY;
+
+					// Mouse repulsion
+					if (mouseX > 0 && mouseY > 0) {
+						const dx = p.x - mouseX;
+						const dy = p.y - mouseY;
+						const dist = Math.sqrt(dx * dx + dy * dy);
+						if (dist < 120) {
+							const force = (1 - dist / 120) * 0.8;
+							p.x += (dx / dist) * force;
+							p.y += (dy / dist) * force;
+						}
+					}
+
+					// Wrap around
+					if (p.y < -10) {
+						Object.assign(p, createParticle(w, h, true));
+						p.y = h + 5;
+					}
+					if (p.x < -10) p.x = w + 5;
+					if (p.x > w + 10) p.x = -5;
+				});
+			}
+
+			// ----- Main draw loop -----
+			function draw() {
 				const w = heroCanvas.width;
 				const h = heroCanvas.height;
 				ctx.clearRect(0, 0, w, h);
 
-				const accent = hexToRgb(getAccentColor());
-				const spacingX = w / (cols - 1);
-				const spacingY = h / (rows - 1);
+				drawAurora(w, h);
+				drawFireflies(w, h);
 
-				const points = [];
-				for (let row = 0; row < rows; row++) {
-					points[row] = [];
-					for (let col = 0; col < cols; col++) {
-						const baseX = col * spacingX;
-						const baseY = row * spacingY;
-
-						const distX = (col / cols) - mouseX;
-						const distY = (row / rows) - mouseY;
-						const dist = Math.sqrt(distX * distX + distY * distY);
-						const mouseInfluence = Math.max(0, 1 - dist * 2.5);
-
-						const wave1 = Math.sin(col * 0.3 + time * 0.8) * 8;
-						const wave2 = Math.cos(row * 0.4 + time * 0.6) * 6;
-						const wave3 = Math.sin((col + row) * 0.2 + time * 0.5) * 4;
-						const mouseWave = mouseInfluence * Math.sin(time * 2 + dist * 10) * 12;
-
-						points[row][col] = {
-							x: baseX + wave1 + wave3,
-							y: baseY + wave2 + mouseWave,
-							z: (wave1 + wave2 + mouseWave) * 0.5
-						};
-					}
-				}
-
-				// Draw connecting lines
-				for (let row = 0; row < rows; row++) {
-					for (let col = 0; col < cols; col++) {
-						const p = points[row][col];
-						const brightness = ((p.z + 30) / 60);
-						const alpha = 0.03 + brightness * 0.06;
-
-						// Horizontal lines
-						if (col < cols - 1) {
-							const next = points[row][col + 1];
-							ctx.beginPath();
-							ctx.moveTo(p.x, p.y);
-							ctx.lineTo(next.x, next.y);
-							ctx.strokeStyle = `rgba(${accent[0]}, ${accent[1]}, ${accent[2]}, ${alpha})`;
-							ctx.lineWidth = 0.5;
-							ctx.stroke();
-						}
-
-						// Vertical lines
-						if (row < rows - 1) {
-							const below = points[row + 1][col];
-							ctx.beginPath();
-							ctx.moveTo(p.x, p.y);
-							ctx.lineTo(below.x, below.y);
-							ctx.strokeStyle = `rgba(${accent[0]}, ${accent[1]}, ${accent[2]}, ${alpha * 0.7})`;
-							ctx.lineWidth = 0.5;
-							ctx.stroke();
-						}
-
-						// Draw node dots at intersections (sparse)
-						if (row % 2 === 0 && col % 2 === 0) {
-							const dotAlpha = 0.08 + brightness * 0.15;
-							const dotSize = 1 + brightness * 1.5;
-							ctx.beginPath();
-							ctx.arc(p.x, p.y, dotSize, 0, Math.PI * 2);
-							ctx.fillStyle = `rgba(${accent[0]}, ${accent[1]}, ${accent[2]}, ${dotAlpha})`;
-							ctx.fill();
-						}
-					}
-				}
-
-				time += 0.01;
-				animFrame = requestAnimationFrame(drawMesh);
+				time += 0.016;
+				animFrame = requestAnimationFrame(draw);
 			}
 
 			// Only run on desktop
 			if (window.matchMedia('(pointer: fine)').matches && window.innerWidth > 768) {
-				drawMesh();
+				draw();
 			}
 
 			// Pause when not visible
 			const heroObserver = new IntersectionObserver((entries) => {
 				entries.forEach(entry => {
 					if (entry.isIntersecting) {
-						if (!animFrame) drawMesh();
+						if (!animFrame) draw();
 					} else {
 						cancelAnimationFrame(animFrame);
 						animFrame = null;
