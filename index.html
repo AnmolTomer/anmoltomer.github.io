@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Anmol Tomer is a backend engineer building reliable payment systems and exploring AI, automation, and developer tools.">
-  <title>Anmol Tomer — Backend Engineer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Anmol Tomer is a 0→1 full-stack builder exploring agentic AI workflows, infrastructure, and product.">
+  <title>Anmol Tomer — 0→1 Builder</title>
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://cdn.simpleicons.org">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="tokens.css">
   <style>
     * { box-sizing: border-box; }
@@ -17,123 +17,81 @@
     a { color: inherit; text-decoration: none; }
     button { font: inherit; }
     a:focus-visible, button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
-    .shell { width: min(100%, 1520px); margin: 0 auto; padding: var(--space-md); }
-    .nav { position: fixed; z-index: var(--z-sticky); top: var(--space-md); left: 50%; width: min(calc(100% - var(--space-2xl)), 700px); transform: translateX(-50%); min-height: 52px; display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding: var(--space-xs) var(--space-xs) var(--space-xs) var(--space-lg); border: var(--rule); border-radius: var(--radius-pill); background: color-mix(in oklch, var(--color-paper) 88%, transparent); backdrop-filter: blur(14px); box-shadow: 0 6px 18px var(--color-shadow); }
-    .wordmark { min-width: 0; font-family: var(--font-display); font-size: var(--text-sm); font-weight: 700; letter-spacing: -0.04em; white-space: nowrap; }
-    .nav-rail { display: flex; align-items: center; gap: var(--space-xs); }
-    .nav-link, .theme-toggle { min-height: 36px; border: 0; border-radius: var(--radius-pill); background: transparent; color: var(--color-ink-soft); font-family: var(--font-body); font-size: var(--text-xs); line-height: 1; padding: 0 var(--space-sm); white-space: nowrap; cursor: pointer; }
-    .theme-toggle { display: inline-flex; align-items: center; gap: var(--space-xs); color: var(--color-ink); border: var(--rule); }
-    .theme-toggle .theme-icon { color: var(--color-accent); font-size: var(--text-base); line-height: 1; }
-    .nav-link[aria-current="page"] { color: var(--color-accent-ink); }
-    .hero { padding-top: clamp(104px, 13vw, 154px); display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr); min-height: min(800px, 90dvh); }
-    .hero-copy { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(var(--space-xl), 5vw, var(--space-4xl)); border: var(--rule); border-right: 0; background: var(--color-paper); }
-    .available { display: inline-flex; align-items: center; gap: var(--space-xs); color: var(--color-ink-soft); font-family: var(--font-body); font-size: var(--text-xs); }
-    .available::before { content: ""; width: 8px; height: 8px; border-radius: var(--radius-pill); background: var(--color-accent); }
+    .page { width: min(100%, 1280px); margin: 0 auto; padding: var(--space-md); }
+    .nav { position: fixed; z-index: var(--z-sticky); top: var(--space-md); left: 50%; width: min(calc(100% - var(--space-2xl)), 610px); min-height: 52px; display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding: var(--space-xs) var(--space-xs) var(--space-xs) var(--space-lg); transform: translateX(-50%); border: var(--rule); border-radius: var(--radius-pill); background: color-mix(in oklch, var(--color-paper) 91%, transparent); backdrop-filter: blur(16px); box-shadow: 0 7px 21px var(--color-shadow); }
+    .brand { font-family: var(--font-display); font-size: var(--text-sm); font-weight: 700; letter-spacing: -.05em; white-space: nowrap; }
+    .nav-actions { display: flex; align-items: center; gap: var(--space-2xs); }
+    .nav-link, .theme-toggle { min-height: 36px; border: 0; border-radius: var(--radius-pill); background: transparent; color: var(--color-ink-soft); font-size: var(--text-xs); font-weight: 700; line-height: 1; padding: 0 var(--space-sm); white-space: nowrap; cursor: pointer; }
+    .theme-toggle { display: inline-flex; align-items: center; gap: var(--space-xs); border: var(--rule); color: var(--color-ink); }
+    .theme-icon { color: var(--color-accent); font-size: var(--text-base); }
+    .hero { padding: clamp(124px, 16vw, 176px) clamp(var(--space-lg), 5vw, var(--space-4xl)) clamp(var(--space-3xl), 9vw, calc(var(--space-4xl) * 1.2)); border: var(--rule); border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+    .quiet-line { display: flex; align-items: center; gap: var(--space-xs); color: var(--color-ink-soft); font-size: var(--text-sm); font-weight: 500; }
+    .quiet-line::before { content: ""; width: 8px; height: 8px; border-radius: var(--radius-pill); background: var(--color-warm); }
     h1, h2, h3, p { margin: 0; }
-    h1, h2, h3 { font-family: var(--font-display); font-style: normal; overflow-wrap: anywhere; min-width: 0; }
-    h1 { max-width: 11ch; margin-top: var(--space-4xl); font-size: var(--text-display); font-weight: 600; line-height: .97; letter-spacing: -0.065em; text-wrap: balance; }
+    h1, h2, h3 { min-width: 0; font-family: var(--font-display); font-style: normal; overflow-wrap: anywhere; }
+    h1 { max-width: 12ch; margin-top: var(--space-xl); font-size: var(--text-display); font-weight: 600; line-height: .95; letter-spacing: -.07em; text-wrap: balance; }
     .accent { color: var(--color-accent); }
-    .hero-bottom { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: var(--space-xl); margin-top: var(--space-3xl); }
-    .hero-intro { max-width: 52ch; color: var(--color-ink-soft); font-size: var(--text-md); line-height: 1.55; }
-    .round-link { width: 48px; height: 48px; flex: 0 0 auto; display: grid; place-items: center; border: var(--rule); border-radius: var(--radius-pill); color: var(--color-accent); font-size: var(--text-xl); transition: transform var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); }
-    .hero-image { position: relative; overflow: hidden; min-height: 440px; border: var(--rule); background: var(--color-image-wash); }
-    .hero-image::after { content: ""; position: absolute; inset: 0; background: color-mix(in oklch, var(--color-image-wash) 18%, transparent); pointer-events: none; }
-    .hero-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; filter: saturate(.88) contrast(1.08); }
-    .rule-band { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: var(--rule); border-top: 0; }
-    .rule-band span { min-height: 70px; padding: var(--space-sm) var(--space-md); display: flex; align-items: flex-end; border-right: var(--rule); color: var(--color-ink-faint); font-family: var(--font-body); font-size: var(--text-xs); font-variant-numeric: tabular-nums; }
-    .rule-band span:last-child { border-right: 0; }
-    .section { display: grid; grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr); border: var(--rule); border-top: 0; }
-    .section-lead { padding: clamp(var(--space-xl), 5vw, var(--space-3xl)); border-right: var(--rule); }
-    .section-lead p { margin-top: var(--space-lg); max-width: 29ch; color: var(--color-ink-soft); }
-    .section-kicker { color: var(--color-accent-ink); font-family: var(--font-body); font-size: var(--text-xs); font-weight: 500; letter-spacing: .06em; text-transform: uppercase; }
-    h2 { margin-top: var(--space-md); font-size: clamp(var(--text-2xl), 4vw, var(--text-3xl)); font-weight: 600; line-height: 1.02; letter-spacing: -0.055em; text-wrap: balance; }
-    .proof { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-    .proof-item { min-height: 260px; display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-xl); padding: clamp(var(--space-xl), 4vw, var(--space-2xl)); border-bottom: var(--rule); }
-    .proof-item:nth-child(odd) { border-right: var(--rule); }
-    .proof-item:nth-last-child(-n+2) { border-bottom: 0; }
-    .proof-index { color: var(--color-ink-faint); font-family: var(--font-body); font-size: var(--text-xs); }
-    .proof h3 { max-width: 15ch; font-size: var(--text-xl); font-weight: 600; line-height: 1.08; letter-spacing: -0.045em; }
-    .proof p { max-width: 41ch; color: var(--color-ink-soft); font-size: var(--text-sm); }
-    .proof strong { color: var(--color-ink); font-weight: 600; }
-    .side-by-side { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border: var(--rule); border-top: 0; }
-    .projects { padding: clamp(var(--space-2xl), 6vw, var(--space-4xl)); }
-    .projects h2 { max-width: 10ch; }
-    .project-list { margin-top: var(--space-2xl); border-top: var(--rule); }
-    .project { min-height: 130px; display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; align-items: center; gap: var(--space-lg); padding: var(--space-xl) 0; border-bottom: var(--rule); transition: color var(--dur-short) var(--ease-out); }
-    .project-number { color: var(--color-ink-faint); font-family: var(--font-body); font-size: var(--text-xs); }
-    .project h3 { font-size: var(--text-lg); font-weight: 600; letter-spacing: -0.04em; }
-    .project p { max-width: 47ch; margin-top: var(--space-xs); color: var(--color-ink-soft); font-size: var(--text-sm); }
-    .project-arrow { color: var(--color-accent); font-size: var(--text-xl); transition: transform var(--dur-short) var(--ease-out); }
-    .play { padding: clamp(var(--space-2xl), 6vw, var(--space-4xl)); border-left: var(--rule); background: var(--color-paper-raised); }
-    .play h2 { max-width: 9ch; }
-    .play-lines { list-style: none; margin: var(--space-2xl) 0 0; padding: 0; border-top: var(--rule); }
-    .play-lines li { display: grid; grid-template-columns: minmax(74px, .28fr) minmax(0, 1fr); gap: var(--space-md); padding: var(--space-md) 0; border-bottom: var(--rule); }
-    .play-lines span { color: var(--color-accent-ink); font-family: var(--font-body); font-size: var(--text-xs); }
-    .play-lines p { font-size: var(--text-sm); }
-    .learn { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); border: var(--rule); border-top: 0; }
-    .learn-main { padding: clamp(var(--space-2xl), 6vw, var(--space-4xl)); }
-    .learn-main h2 { max-width: 14ch; }
-    .now { margin-top: var(--space-2xl); border-top: var(--rule); }
-    .now-item { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: var(--space-lg); padding: var(--space-lg) 0; border-bottom: var(--rule); }
-    .now-item time { color: var(--color-ink-faint); font-family: var(--font-body); font-size: var(--text-xs); }
-    .now-item h3 { font-family: var(--font-body); font-size: var(--text-base); font-weight: 600; letter-spacing: -0.025em; }
-    .now-item p { margin-top: var(--space-2xs); color: var(--color-ink-soft); font-size: var(--text-sm); }
-    .principles { padding: clamp(var(--space-2xl), 6vw, var(--space-4xl)); border-left: var(--rule); display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-3xl); }
-    .principles-copy { font-family: var(--font-display); font-size: clamp(var(--text-xl), 3vw, var(--text-2xl)); font-weight: 500; line-height: 1.1; letter-spacing: -0.05em; }
-    .stack { color: var(--color-ink-soft); font-family: var(--font-body); font-size: var(--text-xs); line-height: 2; }
-    .contact { padding: clamp(var(--space-3xl), 8vw, calc(var(--space-4xl) * 1.35)); border: var(--rule); border-top: 0; }
-    .contact h2 { max-width: 12ch; font-size: clamp(var(--text-3xl), 6.4vw, 5rem); }
-    .contact p { max-width: 48ch; margin-top: var(--space-lg); color: var(--color-ink-soft); font-size: var(--text-md); }
+    .hero-copy { max-width: 64ch; margin-top: var(--space-xl); color: var(--color-ink-soft); font-size: var(--text-md); line-height: 1.55; }
+    .hero-copy strong { color: var(--color-ink); font-weight: 700; }
+    .hero-links { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-2xl); }
+    .button { min-height: 44px; display: inline-flex; align-items: center; padding: var(--space-sm) var(--space-md); border: var(--rule); border-radius: var(--radius-sm); font-size: var(--text-sm); font-weight: 700; white-space: nowrap; transition: transform var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); }
+    .button-primary { border-color: var(--color-accent); background: var(--color-accent); color: var(--color-paper); }
+    .button-quiet { color: var(--color-ink-soft); }
+    .tool-section { display: grid; grid-template-columns: minmax(0, .68fr) minmax(0, 1.32fr); border: var(--rule); border-top: 0; }
+    .tool-intro { padding: clamp(var(--space-xl), 5vw, var(--space-3xl)); border-right: var(--rule); background: var(--color-paper-raised); }
+    .tool-intro h2 { margin-top: var(--space-sm); font-size: clamp(var(--text-2xl), 4vw, var(--text-3xl)); font-weight: 600; line-height: 1; letter-spacing: -.06em; }
+    .tool-intro p { max-width: 31ch; margin-top: var(--space-lg); color: var(--color-ink-soft); }
+    .tool-groups { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    .tool-group { padding: clamp(var(--space-xl), 4vw, var(--space-2xl)); border-bottom: var(--rule); }
+    .tool-group:nth-child(odd) { border-right: var(--rule); }
+    .tool-group:nth-last-child(-n+2) { border-bottom: 0; }
+    .tool-group h3 { font-size: var(--text-lg); font-weight: 600; letter-spacing: -.045em; }
+    .tool-group p { margin-top: var(--space-xs); color: var(--color-ink-soft); font-size: var(--text-sm); }
+    .logo-row { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin-top: var(--space-lg); }
+    .tool-logo { width: 42px; height: 42px; display: grid; place-items: center; border: var(--rule); border-radius: var(--radius-sm); background: var(--color-paper); }
+    .tool-logo img { width: 22px; height: 22px; object-fit: contain; }
+    .tool-logo[data-mark="aws"] { color: var(--color-accent); font-family: var(--font-display); font-size: var(--text-xs); font-weight: 700; }
+    .tool-logo[data-mark="sqs"] { color: var(--color-warm); font-family: var(--font-display); font-size: var(--text-xs); font-weight: 700; }
+    .tool-logo[data-mark="step"] { color: var(--color-accent); font-family: var(--font-display); font-size: var(--text-xs); font-weight: 700; }
+    .build-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); border: var(--rule); border-top: 0; }
+    .build-card { min-height: 270px; padding: clamp(var(--space-xl), 4vw, var(--space-2xl)); border-right: var(--rule); display: flex; flex-direction: column; justify-content: space-between; }
+    .build-card:last-child { border-right: 0; }
+    .card-index { color: var(--color-warm); font-size: var(--text-sm); font-weight: 700; }
+    .build-card h2 { max-width: 10ch; font-size: var(--text-xl); font-weight: 600; line-height: 1.05; letter-spacing: -.05em; }
+    .build-card p { max-width: 34ch; color: var(--color-ink-soft); font-size: var(--text-sm); }
+    .now { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); border: var(--rule); border-top: 0; }
+    .now-main { padding: clamp(var(--space-2xl), 6vw, var(--space-4xl)); }
+    .now-main h2 { max-width: 13ch; font-size: clamp(var(--text-2xl), 4.5vw, var(--text-3xl)); font-weight: 600; line-height: 1; letter-spacing: -.06em; }
+    .now-main p { max-width: 55ch; margin-top: var(--space-lg); color: var(--color-ink-soft); font-size: var(--text-md); }
+    .now-note { padding: clamp(var(--space-2xl), 6vw, var(--space-4xl)); border-left: var(--rule); background: var(--color-paper-raised); display: flex; align-items: flex-end; }
+    .now-note p { max-width: 16ch; color: var(--color-ink); font-family: var(--font-display); font-size: clamp(var(--text-lg), 3vw, var(--text-xl)); font-weight: 500; line-height: 1.1; letter-spacing: -.045em; }
+    .contact { padding: clamp(var(--space-3xl), 8vw, calc(var(--space-4xl) * 1.15)); border: var(--rule); border-top: 0; }
+    .contact h2 { max-width: 12ch; font-size: clamp(var(--text-3xl), 6vw, 5rem); font-weight: 600; line-height: .96; letter-spacing: -.07em; }
     .contact-links { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-2xl); }
-    .contact-link { min-height: 44px; display: inline-flex; align-items: center; padding: var(--space-sm) var(--space-md); border: var(--rule); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: var(--text-xs); white-space: nowrap; transition: transform var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); }
-    .footer { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); padding: var(--space-md) var(--space-lg); border: var(--rule); border-top: 0; color: var(--color-ink-soft); font-family: var(--font-body); font-size: var(--text-xs); }
+    .contact-link { min-height: 44px; display: inline-flex; align-items: center; padding: var(--space-sm) var(--space-md); border: var(--rule); border-radius: var(--radius-sm); font-size: var(--text-sm); font-weight: 700; white-space: nowrap; transition: transform var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); }
+    .footer { display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); min-height: 76px; padding: var(--space-md) var(--space-lg); border: var(--rule); border-top: 0; border-radius: 0 0 var(--radius-lg) var(--radius-lg); color: var(--color-ink-faint); font-size: var(--text-xs); font-weight: 700; }
     .footer a { color: var(--color-accent-ink); white-space: nowrap; }
     .reveal { opacity: 0; transform: translateY(8px); transition: opacity var(--dur-long) var(--ease-out), transform var(--dur-long) var(--ease-out); }
     .reveal.is-visible { opacity: 1; transform: translateY(0); }
-    @media (hover: hover) and (pointer: fine) { .nav-link:hover { color: var(--color-accent-ink); } .round-link:hover { background: var(--color-accent); color: var(--color-paper); transform: translateY(-1px); } .project:hover { color: var(--color-accent-ink); } .project:hover .project-arrow { transform: translate(3px, -3px); } .contact-link:hover { background: var(--color-ink); color: var(--color-paper); transform: translateY(-1px); } .theme-toggle:hover { color: var(--color-accent-ink); } }
-    .round-link:active, .contact-link:active, .theme-toggle:active { transform: translateY(1px) scale(.98); }
-    @media (max-width: 59.99rem) { .shell { padding: var(--space-xs); } .hero { grid-template-columns: minmax(0, 1fr); } .hero-copy { min-height: 570px; border-right: var(--rule); border-bottom: 0; } .hero-image { min-height: 520px; } .rule-band { grid-template-columns: repeat(2, minmax(0, 1fr)); } .rule-band span:nth-child(2) { border-right: 0; } .rule-band span:nth-child(-n+2) { border-bottom: var(--rule); } .section, .side-by-side, .learn { grid-template-columns: minmax(0, 1fr); } .section-lead, .play, .principles { border-right: 0; border-left: 0; border-bottom: var(--rule); } .proof { grid-template-columns: minmax(0, 1fr); } .proof-item, .proof-item:nth-child(odd), .proof-item:nth-last-child(-n+2) { min-height: auto; border-right: 0; border-bottom: var(--rule); } .proof-item:last-child { border-bottom: 0; } .play { border-left: 0; } .principles { border-left: 0; } }
-    @media (max-width: 39.99rem) { .shell { padding: var(--space-2xs); } .nav { top: var(--space-xs); width: calc(100% - var(--space-md)); padding-left: var(--space-md); } .nav-link { display: none; } .theme-toggle { min-width: 42px; padding: 0 var(--space-sm); } .theme-label { display: none; } .hero { padding-top: 76px; } .hero-copy { min-height: 560px; padding: var(--space-xl); } h1 { margin-top: var(--space-3xl); } .hero-bottom { grid-template-columns: minmax(0, 1fr); margin-top: var(--space-2xl); } .round-link { display: none; } .hero-image { min-height: 420px; } .image-note { right: var(--space-md); bottom: var(--space-md); } .rule-band span { min-height: 56px; padding: var(--space-xs) var(--space-sm); } .section-lead, .projects, .play, .learn-main, .principles, .contact { padding: var(--space-2xl) var(--space-xl); } .project { grid-template-columns: 36px minmax(0, 1fr); gap: var(--space-sm); } .project-arrow { display: none; } .play-lines li, .now-item { grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); } .footer { flex-direction: column; align-items: flex-start; padding: var(--space-lg); } }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: 150ms !important; animation-duration: 150ms !important; animation-iteration-count: 1 !important; } .reveal { transform: none; } }
+    @media (hover: hover) and (pointer: fine) { .nav-link:hover { color: var(--color-accent-ink); } .button-primary:hover { background: var(--color-ink); border-color: var(--color-ink); transform: translateY(-1px); } .button-quiet:hover, .contact-link:hover { background: var(--color-ink); color: var(--color-paper); transform: translateY(-1px); } .theme-toggle:hover { color: var(--color-accent-ink); } .tool-logo:hover { border-color: var(--color-accent); } }
+    .button:active, .contact-link:active, .theme-toggle:active { transform: translateY(1px) scale(.98); }
+    @media (max-width: 59.99rem) { .page { padding: var(--space-xs); } .tool-section, .now { grid-template-columns: minmax(0, 1fr); } .tool-intro { border-right: 0; border-bottom: var(--rule); } .now-note { min-height: 260px; border-left: 0; border-top: var(--rule); } .build-grid { grid-template-columns: minmax(0, 1fr); } .build-card { min-height: 210px; border-right: 0; border-bottom: var(--rule); } .build-card:last-child { border-bottom: 0; } }
+    @media (max-width: 39.99rem) { .page { padding: var(--space-2xs); } .nav { top: var(--space-xs); width: calc(100% - var(--space-md)); padding-left: var(--space-md); } .nav-link { display: none; } .theme-label { display: none; } .theme-toggle { min-width: 42px; padding: 0 var(--space-sm); } .hero { padding: 112px var(--space-xl) var(--space-3xl); } h1 { margin-top: var(--space-lg); } .hero-copy { font-size: var(--text-base); } .tool-groups { grid-template-columns: minmax(0, 1fr); } .tool-group, .tool-group:nth-child(odd), .tool-group:nth-last-child(-n+2) { border-right: 0; border-bottom: var(--rule); } .tool-group:last-child { border-bottom: 0; } .tool-intro, .tool-group, .now-main, .now-note, .contact { padding: var(--space-2xl) var(--space-xl); } .footer { flex-direction: column; align-items: flex-start; padding: var(--space-lg); } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: 150ms !important; animation-iteration-count: 1 !important; transition-duration: 150ms !important; } .reveal { transform: none; } }
   </style>
 </head>
 <body>
-  <nav class="nav" aria-label="Primary navigation">
-    <a class="wordmark" href="#top">AT / SYSTEMS + CURIOSITY</a>
-    <div class="nav-rail"><a class="nav-link" href="#build">Build</a><a class="nav-link" href="#play">Play</a><a class="nav-link" href="#learn">Learn</a><button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme"><span class="theme-icon" aria-hidden="true">◐</span><span class="theme-label">Theme</span></button></div>
-  </nav>
-  <main class="shell" id="top">
-    <section class="hero">
-      <div class="hero-copy">
-        <div class="available">Backend Engineer · CRED · Bengaluru</div>
-        <h1>Making difficult systems <span class="accent">feel simple.</span></h1>
-        <div class="hero-bottom"><p class="hero-intro">I build payment infrastructure, distributed workflows and operational systems that keep working when the real world gets messy.</p><a class="round-link" href="#build" aria-label="Explore selected work">↘</a></div>
-      </div>
-      <figure class="hero-image"><img src="images/night-signal.png" width="1152" height="2048" fetchpriority="high" alt="Abstract red illuminated track curving through a dark mountain landscape"></figure>
-    </section>
-    <div class="rule-band" aria-label="Portfolio themes"><span>Payments</span><span>Distributed systems</span><span>Agent workflows</span><span>Life outside the terminal</span></div>
+  <nav class="nav" aria-label="Primary navigation"><a class="brand" href="#top">ANMOL TOMER</a><div class="nav-actions"><a class="nav-link" href="#tools">Tools</a><a class="nav-link" href="#now">Now</a><button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme"><span class="theme-icon" aria-hidden="true">◐</span><span class="theme-label">Theme</span></button></div></nav>
+  <main class="page" id="top">
+    <section class="hero"><p class="quiet-line">Full-stack builder · learning in public</p><h1>0→1 builder for messy, <span class="accent">high-ownership</span> problems.</h1><p class="hero-copy">I like the early, ambiguous part of building. <strong>Full-stack by default.</strong> Currently deep-diving into agentic AI workflows, with a strong pull towards infrastructure and product.</p><div class="hero-links"><a class="button button-primary" href="mailto:anmol3540@gmail.com">Email me ↗</a><a class="button button-quiet" href="https://github.com/AnmolTomer" target="_blank" rel="noreferrer">See GitHub ↗</a></div></section>
 
-    <section class="section" id="build">
-      <header class="section-lead"><p class="section-kicker">Build</p><h2>Systems with real consequences.</h2><p>At CRED, I work where payments, partners, operations and reliability meet. The interesting work is usually in the handoffs.</p></header>
-      <div class="proof">
-        <article class="proof-item reveal"><span class="proof-index">01 / MERCHANT VPA</span><div><h3>From 14 days to real time.</h3><p>Built in-house VPA creation through Axis UPI APIs, removing manual banking and operations handoffs.</p></div></article>
-        <article class="proof-item reveal"><span class="proof-index">02 / ONBOARDING</span><div><h3>Days became hours — and sometimes minutes.</h3><p>Designed AWS Step Functions and SQS workflows that moved integration turnaround from <strong>4–5 days to 2 hours</strong>; Shopify and GoKwik onboarding reached <strong>5 minutes.</strong></p></div></article>
-        <article class="proof-item reveal"><span class="proof-index">03 / RELIABILITY</span><div><h3>Build for the path nobody wants.</h3><p>Designed low-latency payment services with event-driven orchestration, idempotency, DLQs, observability and production ownership.</p></div></article>
-        <article class="proof-item reveal"><span class="proof-index">04 / OUTCOME</span><div><h3>Better rails, tangible impact.</h3><p>Integrated the HDFC UPI stack into credit-card bill payments: <strong>₹50L+ monthly cost savings</strong> and a <strong>3% improvement in payment success rates.</strong></p></div></article>
-      </div>
-    </section>
+    <section class="tool-section" id="tools"><div class="tool-intro"><h2>Tools I reach for.</h2><p>A pragmatic stack for taking an idea from rough shape to something people can use.</p></div><div class="tool-groups"><article class="tool-group reveal"><h3>Build</h3><p>Backend and full-stack foundations.</p><div class="logo-row" aria-label="Java, Spring Boot, FastAPI, Python"><span class="tool-logo"><img src="https://cdn.simpleicons.org/openjdk" alt="Java"></span><span class="tool-logo"><img src="https://cdn.simpleicons.org/springboot" alt="Spring Boot"></span><span class="tool-logo"><img src="https://cdn.simpleicons.org/fastapi" alt="FastAPI"></span><span class="tool-logo"><img src="https://cdn.simpleicons.org/python" alt="Python"></span></div></article><article class="tool-group reveal"><h3>Ship</h3><p>Cloud, queues and systems that need to hold up.</p><div class="logo-row" aria-label="AWS, Kafka, Redis, Docker, SQS and Step Functions"><span class="tool-logo" data-mark="aws">AWS</span><span class="tool-logo"><img src="https://cdn.simpleicons.org/apachekafka" alt="Apache Kafka"></span><span class="tool-logo"><img src="https://cdn.simpleicons.org/redis" alt="Redis"></span><span class="tool-logo"><img src="https://cdn.simpleicons.org/docker" alt="Docker"></span><span class="tool-logo" data-mark="sqs">SQS</span><span class="tool-logo" data-mark="step">SF</span></div></article><article class="tool-group reveal"><h3>Explore</h3><p>Agentic workflows, evals and AI product experiments.</p><div class="logo-row" aria-label="Amazon Bedrock, OpenAI and Langfuse"><span class="tool-logo" data-mark="aws">BR</span><span class="tool-logo"><img src="https://cdn.simpleicons.org/openai" alt="OpenAI"></span><span class="tool-logo"><img src="https://cdn.simpleicons.org/langfuse" alt="Langfuse"></span></div></article><article class="tool-group reveal"><h3>Connect</h3><p>Product surfaces and the glue that makes them useful.</p><div class="logo-row" aria-label="TypeScript, React and n8n"><span class="tool-logo"><img src="https://cdn.simpleicons.org/typescript" alt="TypeScript"></span><span class="tool-logo"><img src="https://cdn.simpleicons.org/react" alt="React"></span><span class="tool-logo"><img src="https://cdn.simpleicons.org/n8n" alt="n8n"></span></div></article></div></section>
 
-    <section class="side-by-side">
-      <div class="projects"><p class="section-kicker">After hours</p><h2>Things I build to understand the next thing.</h2><div class="project-list"><a class="project" href="https://github.com/AnmolTomer/bloom-learn-app" target="_blank" rel="noreferrer"><span class="project-number">01</span><span><h3>Bloom Learn</h3><p>AI-powered learning with a policy-driven state machine, multi-agent orchestration and observability-first workflows.</p></span><span class="project-arrow">↗</span></a><a class="project" href="https://wandrai.in/" target="_blank" rel="noreferrer"><span class="project-number">02</span><span><h3>Verso</h3><p>An agentic backend for schema-compliant text classification, async auth and containerized deployment.</p></span><span class="project-arrow">↗</span></a><a class="project" href="https://github.com/AnmolTomer" target="_blank" rel="noreferrer"><span class="project-number">03</span><span><h3>Current explorations</h3><p>Agent onboarding, Kanna translation overlay, homelab work, RAG and useful automations.</p></span><span class="project-arrow">↗</span></a></div></div>
-      <aside class="play" id="play"><p class="section-kicker">Play</p><h2>Work improves when life has range.</h2><ul class="play-lines"><li><span>Move</span><p>Badminton, pickleball, cricket and running.</p></li><li><span>Roam</span><p>Solo travel, hikes and getting to places without a neat itinerary.</p></li><li><span>Watch</span><p>Real Madrid, Max Verstappen and RB Racing, KKR, ICT and Carlos Alcaraz.</p></li><li><span>Read</span><p>Hacker News rabbit holes, systems writing and people who build with conviction.</p></li></ul></aside>
-    </section>
+    <section class="build-grid"><article class="build-card"><span class="card-index">01</span><div><h2>Start close to the problem.</h2><p>I’m most useful when the shape is still unclear and someone needs to make the first good decisions.</p></div></article><article class="build-card"><span class="card-index">02</span><div><h2>Move across the stack.</h2><p>Backend is home, but I enjoy the product and infrastructure conversations that make a build more complete.</p></div></article><article class="build-card"><span class="card-index">03</span><div><h2>Keep learning where it matters.</h2><p>Right now, that means treating agentic AI less like a demo and more like a real workflow to design carefully.</p></div></article></section>
 
-    <section class="learn" id="learn">
-      <div class="learn-main"><p class="section-kicker">Learn</p><h2>Stay useful. Stay curious.</h2><div class="now"><article class="now-item"><time>NOW</time><div><h3>Agentic systems with a reliability bias</h3><p>Structured outputs, policy-driven orchestration, observability and cost-aware AI workflows.</p></div></article><article class="now-item"><time>ALWAYS</time><div><h3>Systems design with real constraints</h3><p>Queues, APIs, failure modes, developer experience and the boring details that decide whether things hold up.</p></div></article><article class="now-item"><time>OFFLINE</time><div><h3>Learning through movement</h3><p>Sport, trails, cities and conversations usually create the next good technical question.</p></div></article></div></div>
-      <aside class="principles"><div><p class="section-kicker">Working principles</p><p class="principles-copy">Own the whole thing.<br>Automate operational drag.<br>Design for the failure path.<br>Ship what works.</p></div><p class="stack">JAVA · SPRING BOOT · PYTHON · TYPESCRIPT<br>AWS · KAFKA · SQS · STEP FUNCTIONS<br>MYSQL · REDIS · DYNAMODB · DOCKER</p></aside>
-    </section>
+    <section class="now" id="now"><div class="now-main"><h2>Currently deep-diving into agentic AI workflows.</h2><p>How agents make decisions, use tools, recover from failures, expose useful product behavior and stay observable once they leave the prototype stage.</p></div><aside class="now-note"><p>Curious about what happens when product thinking, infrastructure and AI workflows meet.</p></aside></section>
 
-    <section class="contact"><p class="section-kicker">Contact</p><h2>Have a system worth making more reliable?</h2><p>Always open to interesting conversations about payments, distributed systems, AI, sport or the projects people keep thinking about after work.</p><div class="contact-links"><a class="contact-link" href="mailto:anmol3540@gmail.com">Email ↗</a><a class="contact-link" href="https://github.com/AnmolTomer" target="_blank" rel="noreferrer">GitHub ↗</a><a class="contact-link" href="https://www.linkedin.com/in/anmol-tomer/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a class="contact-link" href="https://x.com/anmol_tomer_cc" target="_blank" rel="noreferrer">X / @anmol_tomer_cc ↗</a></div></section>
+    <section class="contact"><h2>Let’s talk about what you’re building.</h2><div class="contact-links"><a class="contact-link" href="mailto:anmol3540@gmail.com">Email ↗</a><a class="contact-link" href="https://www.linkedin.com/in/anmol-tomer/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a class="contact-link" href="https://github.com/AnmolTomer" target="_blank" rel="noreferrer">GitHub ↗</a><a class="contact-link" href="https://x.com/anmol_tomer_cc" target="_blank" rel="noreferrer">X ↗</a></div></section>
     <footer class="footer"><span>© 2026 Anmol Tomer</span><a href="#top">Back to top ↑</a></footer>
   </main>
   <script>
@@ -143,7 +101,7 @@
     const setTheme = theme => { root.dataset.theme = theme; localStorage.setItem('theme', theme); themeToggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`); themeToggle.querySelector('.theme-label').textContent = theme === 'dark' ? 'Light' : 'Dark'; themeToggle.querySelector('.theme-icon').textContent = theme === 'dark' ? '☀' : '◐'; };
     setTheme(preferredTheme);
     themeToggle.addEventListener('click', () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) { const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }), { threshold: .16 }); document.querySelectorAll('.reveal').forEach(el => observer.observe(el)); } else { document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible')); }
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) { const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }), { threshold: .14 }); document.querySelectorAll('.reveal').forEach(el => observer.observe(el)); } else { document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible')); }
   </script>
 </body>
 </html>

@@ -1,23 +1,23 @@
-/* Hallmark · genre: modern-minimal · macrostructure: Split Studio · theme: Cobalt · enrichment: Tier C generated still · nav: N5 · footer: Ft5
- * Audience: engineering hiring managers and technical peers · Use: evaluate proof, then get in touch · Tone: technical, considered, human
- * Hallmark · pre-emit critique: P5 H5 E4 S5 R5 V5
+/* Hallmark · genre: modern-minimal · macrostructure: Bento Grid · theme: custom
+ * vibe: calm, smooth, cozy, technical · paper: warm light / midnight navy · accent: cobalt
+ * display: Cabinet Grotesk · body: Satoshi · nav: N5 · footer: Ft5
+ * contrast: pass (40–41) · honest: pass (46) · chrome: pass (47) · tokens: pass (48) · responsive: pass (34, 49, 50–57)
+ * Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5
  */
 :root {
-  --color-paper: oklch(97% 0.008 250);
-  --color-paper-raised: oklch(94% 0.012 250);
-  --color-ink: oklch(19% 0.018 250);
-  --color-ink-soft: oklch(39% 0.02 250);
-  --color-ink-faint: oklch(57% 0.018 250);
-  --color-rule: oklch(84% 0.014 250);
-  --color-accent: oklch(52% 0.19 258);
-  --color-accent-ink: oklch(32% 0.12 258);
-  --color-focus: oklch(48% 0.21 258);
-  --color-signal: oklch(58% 0.19 32);
-  --color-image-wash: oklch(22% 0.025 250);
-  --color-shadow: oklch(24% 0.02 250 / 0.12);
-  --font-display: "Space Grotesk", sans-serif;
-  --font-body: "IBM Plex Sans", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --color-paper: oklch(97% 0.012 78);
+  --color-paper-raised: oklch(93% 0.016 78);
+  --color-ink: oklch(23% 0.022 258);
+  --color-ink-soft: oklch(43% 0.024 258);
+  --color-ink-faint: oklch(60% 0.02 258);
+  --color-rule: oklch(85% 0.015 78);
+  --color-accent: oklch(54% 0.18 258);
+  --color-accent-ink: oklch(37% 0.13 258);
+  --color-focus: oklch(49% 0.2 258);
+  --color-warm: oklch(63% 0.15 42);
+  --color-shadow: oklch(27% 0.02 258 / 0.10);
+  --font-display: "Cabinet Grotesk", sans-serif;
+  --font-body: "Satoshi", sans-serif;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -26,42 +26,41 @@
   --text-xl: 1.953rem;
   --text-2xl: 2.441rem;
   --text-3xl: 3.052rem;
-  --text-display: clamp(3rem, 5.2vw + 1rem, 5.25rem);
-  --space-3xs: 0.125rem;
-  --space-2xs: 0.25rem;
-  --space-xs: 0.5rem;
-  --space-sm: 0.75rem;
+  --text-display: clamp(3rem, 6vw + .5rem, 5.5rem);
+  --space-3xs: .125rem;
+  --space-2xs: .25rem;
+  --space-xs: .5rem;
+  --space-sm: .75rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
   --space-xl: 2.5rem;
   --space-2xl: 4rem;
   --space-3xl: 6rem;
   --space-4xl: 9rem;
-  --radius-sm: 0.375rem;
-  --radius-md: 0.625rem;
+  --radius-sm: .5rem;
+  --radius-md: .875rem;
+  --radius-lg: 1.25rem;
   --radius-pill: 999px;
   --rule: 1px solid var(--color-rule);
-  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
-  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-out: cubic-bezier(.23, 1, .32, 1);
+  --ease-in: cubic-bezier(.7, 0, .84, 0);
+  --ease-in-out: cubic-bezier(.77, 0, .175, 1);
   --dur-micro: 120ms;
   --dur-short: 200ms;
   --dur-long: 420ms;
-  --z-base: 1;
   --z-raised: 10;
   --z-sticky: 200;
 }
 :root[data-theme="dark"] {
-  --color-paper: oklch(15% 0.016 250);
-  --color-paper-raised: oklch(19% 0.018 250);
-  --color-ink: oklch(94% 0.008 250);
-  --color-ink-soft: oklch(76% 0.015 250);
-  --color-ink-faint: oklch(58% 0.018 250);
-  --color-rule: oklch(31% 0.018 250);
-  --color-accent: oklch(73% 0.15 258);
-  --color-accent-ink: oklch(82% 0.10 258);
-  --color-focus: oklch(77% 0.16 258);
-  --color-signal: oklch(71% 0.14 32);
-  --color-image-wash: oklch(18% 0.025 250);
-  --color-shadow: oklch(7% 0.02 250 / 0.32);
+  --color-paper: oklch(17% 0.024 258);
+  --color-paper-raised: oklch(22% 0.026 258);
+  --color-ink: oklch(94% 0.01 78);
+  --color-ink-soft: oklch(76% 0.018 78);
+  --color-ink-faint: oklch(58% 0.02 258);
+  --color-rule: oklch(33% 0.025 258);
+  --color-accent: oklch(75% 0.14 258);
+  --color-accent-ink: oklch(83% 0.10 258);
+  --color-focus: oklch(80% 0.15 258);
+  --color-warm: oklch(72% 0.12 42);
+  --color-shadow: oklch(8% 0.02 258 / 0.30);
 }

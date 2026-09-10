@@ -1,9 +1,7 @@
 {
   "framework": "vanilla HTML",
-  "font_stack_before": "Manrope, Playfair Display, DM Mono",
-  "palette_before": "dark charcoal / acid lime / signal red",
-  "motion_before": "CSS only",
-  "spacing_before": "custom CSS variables",
-  "decision": "Replaced with a Cobalt modern-minimal system: Space Grotesk + IBM Plex Sans + JetBrains Mono; paired light/dark themes; CSS-only motion.",
+  "design_system_before": "Cobalt light/dark portfolio",
+  "user_direction": "single image-free one-pager; remove CRED and delivery metrics; emphasize full-stack, agentic AI, infrastructure, product, and recognized tools; calm and cozy motion",
+  "decision": "New warm-paper/midnight-navy system, Cabinet Grotesk + Satoshi, compact Bento Grid macrostructure, tool logos as primary proof, CSS-only motion.",
   "scanned_at": "2026-09-10"
 }

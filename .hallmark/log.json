@@ -1,6 +1,14 @@
 [
   {
     "date": "2026-09-10",
+    "macrostructure": "Bento Grid",
+    "theme": "custom",
+    "theme_axes": "light / grotesk-sans / cool cobalt",
+    "enrichment": "none — typography and tool marks only",
+    "brief": "Short image-free one-pager positioning Anmol as a 0→1 full-stack builder focused on agentic AI, infrastructure and product"
+  },
+  {
+    "date": "2026-09-10",
     "macrostructure": "Split Studio",
     "theme": "Cobalt",
     "enrichment": "Tier C generated still — Night Signal",
