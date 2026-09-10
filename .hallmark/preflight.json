@@ -1,0 +1,9 @@
+{
+  "framework": "vanilla HTML",
+  "font_stack_before": "Manrope, Playfair Display, DM Mono",
+  "palette_before": "dark charcoal / acid lime / signal red",
+  "motion_before": "CSS only",
+  "spacing_before": "custom CSS variables",
+  "decision": "Replaced with a Cobalt modern-minimal system: Space Grotesk + IBM Plex Sans + JetBrains Mono; paired light/dark themes; CSS-only motion.",
+  "scanned_at": "2026-09-10"
+}
