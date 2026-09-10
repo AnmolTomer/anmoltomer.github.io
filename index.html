@@ -39,8 +39,6 @@
     .hero-image { position: relative; overflow: hidden; min-height: 440px; border: var(--rule); background: var(--color-image-wash); }
     .hero-image::after { content: ""; position: absolute; inset: 0; background: color-mix(in oklch, var(--color-image-wash) 18%, transparent); pointer-events: none; }
     .hero-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; filter: saturate(.88) contrast(1.08); }
-    .image-note { position: absolute; z-index: var(--z-raised); right: var(--space-lg); bottom: var(--space-lg); width: min(260px, calc(100% - var(--space-2xl))); padding: var(--space-md); border: var(--rule); background: color-mix(in oklch, var(--color-paper) 92%, transparent); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-xs); line-height: 1.6; }
-    .image-note b { display: block; margin-bottom: var(--space-2xs); color: var(--color-accent-ink); font-weight: 500; }
     .rule-band { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: var(--rule); border-top: 0; }
     .rule-band span { min-height: 70px; padding: var(--space-sm) var(--space-md); display: flex; align-items: flex-end; border-right: var(--rule); color: var(--color-ink-faint); font-family: var(--font-body); font-size: var(--text-xs); font-variant-numeric: tabular-nums; }
     .rule-band span:last-child { border-right: 0; }
@@ -111,7 +109,7 @@
         <h1>Making difficult systems <span class="accent">feel simple.</span></h1>
         <div class="hero-bottom"><p class="hero-intro">I build payment infrastructure, distributed workflows and operational systems that keep working when the real world gets messy.</p><a class="round-link" href="#build" aria-label="Explore selected work">↘</a></div>
       </div>
-      <figure class="hero-image"><img src="images/night-signal.png" width="1152" height="2048" fetchpriority="high" alt="Abstract red illuminated track curving through a dark mountain landscape"><figcaption class="image-note"><b>Night Signal</b>Momentum needs a route. So do good systems.</figcaption></figure>
+      <figure class="hero-image"><img src="images/night-signal.png" width="1152" height="2048" fetchpriority="high" alt="Abstract red illuminated track curving through a dark mountain landscape"></figure>
     </section>
     <div class="rule-band" aria-label="Portfolio themes"><span>Payments</span><span>Distributed systems</span><span>Agent workflows</span><span>Life outside the terminal</span></div>
 
