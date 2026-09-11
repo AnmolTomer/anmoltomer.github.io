@@ -5,8 +5,8 @@
  * Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5
  */
 :root {
-  --color-paper: oklch(97% 0.012 78);
-  --color-paper-raised: oklch(93% 0.016 78);
+  --color-paper: oklch(97% 0.008 255);
+  --color-paper-raised: oklch(93% 0.012 255);
   --color-ink: oklch(23% 0.022 258);
   --color-ink-soft: oklch(43% 0.024 258);
   --color-ink-faint: oklch(60% 0.02 258);
@@ -17,6 +17,7 @@
   --color-warm: oklch(63% 0.15 42);
   --color-shadow: oklch(27% 0.02 258 / 0.10);
   --font-display: "Cabinet Grotesk", sans-serif;
+  --font-editorial: "Zodiak", serif;
   --font-body: "Satoshi", sans-serif;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
