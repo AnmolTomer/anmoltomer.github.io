@@ -1,4 +1,20 @@
-# Portfolio prototype brief (shared by all 8 builders)
+# Selected portfolio: Meadow Trail
+
+Prototype 7-2 is the owner's selected portfolio direction. The other designs were retired to Trash on 2026-10-25. Frozen copies remain in the sibling `../prototypes/` directory; do not update those as a side effect of work here.
+
+The selected source is `prototype/v2/07-2-trail-meadow/`. `prototype/` and `prototype/v2/` redirect to it. On 2026-10-25 the owner authorized publication through the existing `master` branch. The root homepage and `assets/portfolio/` are generated from this selected source by `node scripts/publish-portfolio.mjs`; see `docs/portfolio-deployment.md`.
+
+Preserve the existing Fraunces/Instrument Sans typography, warm hiking/postcard world, Hero 64 day flowers/clouds, Atelier name entrance, crescent moon, sequential night lamps, theme toggle and reduced-motion behavior. Copy comes from `data.js`. Current employer/client/product names, job-search plans and private learner-profile details do not belong in the public site.
+
+The owner requested resume-grounded career milestones, a personal quote and interests, refined stack groups, a scroll-driven illustrative recovery workflow, polished social-link feedback and footer life confined below the contact buttons. Writing content stays unchanged. The selected footer headline is “Building something that needs to hold up?”. Survey Contours is the default trail background; four candidates remain available in `background-options.html`. The fourth stack group combines Automation & Delivery: n8n, Lambda, Step Functions, Docker and CI/CD with logos. Docker appears here rather than repeating in Systems.
+
+Verification evidence and active choices live in `output/portfolio-refinement-2026-10-25/`. Check the real local page at desktop and 390px, both themes, keyboard use, reduced motion, link targets and fallback behavior. Pause decorative loops offscreen or when hidden. Keep the selected route readable without WebGL or animation libraries.
+
+The footer is now a voxel tulip and Dutch windmill farm, confined below the contact buttons. Its left half turns sails anticlockwise and its right half clockwise; both halves are native keyboard controls. Night uses stars and a small crescent on the right, raised above the horizon. The owner removed the copyright bar. Day/night fallback images must contain only the farm; hide the fallback while the live canvas is ready so it cannot bleed through the sky mask. See `output/portfolio-footer-farm-2026-10-25/task.md` for current implementation and visual-audit evidence.
+
+## Original exploration brief (historical)
+
+The material below records the initial exploration constraints, including the former no-publish restriction. It does not authorize restoring retired routes or override the selected design and owner's later publication authorization.
 
 Throwaway prototypes for Anmol Tomer's personal portfolio. Branch `prototype/portfolio-variants` only. Never commit or push.
 

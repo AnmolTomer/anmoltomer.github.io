@@ -4,7 +4,7 @@ window.PORTFOLIO = {
   last: 'Tomer',
   role: 'Full-stack engineer',
   headline: '0→1 builder for messy, high-ownership problems.',
-  intro: 'I like the early, ambiguous part of building. Full-stack by default, backend at heart. Currently deep-diving into agentic AI workflows, with a strong pull towards infrastructure and product.',
+  intro: 'I like the early, ambiguous part of building. Full-stack by default, backend at heart. Currently shipping agentic AI workflows, with a strong pull towards infrastructure and product.',
   portrait: { src: '../../../images/photo_2025-06-28_23-41-00.jpg', w: 853, h: 1280, alt: 'Illustrated portrait of Anmol hiking in green hills with a backpack' },
   email: 'anmol3540@gmail.com',
   links: {
@@ -20,28 +20,31 @@ window.PORTFOLIO = {
     { value: 2021, suffix: '', label: 'Shipping since', plain: true },
   ],
   stack: [
-    { group: 'Build', note: 'Backend and full-stack foundations', tools: [
+    { group: 'Backend', note: 'Languages, frameworks and APIs', tools: [
       { name: 'Java', logo: 'java.svg' }, { name: 'Spring Boot', logo: 'spring.svg' },
-      { name: 'Python', logo: 'python-color.svg' }, { name: 'FastAPI', logo: 'fastapi-color.svg' } ] },
-    { group: 'Ship', note: 'Cloud and systems that need to hold up', tools: [
+      { name: 'Python', logo: 'python-color.svg' }, { name: 'FastAPI', logo: 'fastapi-color.svg' },
+      { name: 'TypeScript', logo: 'typescript-color.svg' } ] },
+    { group: 'Systems', note: 'Cloud, queues and data stores', tools: [
       { name: 'AWS', logo: 'aws.svg', mono: true }, { name: 'Kafka', logo: 'apachekafka.svg', mono: true },
-      { name: 'Redis', logo: 'redis-color.svg' }, { name: 'Docker', logo: 'docker-color.svg' } ] },
-    { group: 'Explore', note: 'Agentic workflows, evals and AI product experiments', tools: [
+      { name: 'Redis', logo: 'redis-color.svg' }, { name: 'PostgreSQL', monogram: 'PG' } ] },
+    { group: 'AI workflows', note: 'Model APIs, typed agents and traces', tools: [
       { name: 'Bedrock', logo: 'bedrock.jpg' }, { name: 'OpenAI', logo: 'openai.svg', mono: true },
-      { name: 'Claude', logo: 'anthropic.svg', mono: true }, { name: 'Langfuse', logo: 'langfuse.svg', mono: true } ] },
-    { group: 'Connect', note: 'Product surfaces and the glue that makes them useful', tools: [
-      { name: 'TypeScript', logo: 'typescript-color.svg' }, { name: 'React', logo: 'react-color.svg' },
-      { name: 'n8n', logo: 'n8n.svg', mono: true } ] },
+      { name: 'Claude', logo: 'anthropic.svg', mono: true }, { name: 'Langfuse', logo: 'langfuse.svg', mono: true },
+      { name: 'PydanticAI', monogram: 'Py' } ] },
+    { group: 'Automation & Delivery', note: 'Workflows, containers and CI/CD', tools: [
+      { name: 'n8n', logo: 'n8n.svg' }, { name: 'Lambda', logo: 'aws-lambda.svg' },
+      { name: 'Step Functions', logo: 'aws-step-functions.svg' },
+      { name: 'Docker', logo: 'docker-color.svg' }, { name: 'CI/CD', logo: 'githubactions.svg' } ] },
   ],
   logoBase: '../../../assets/logos/',
   principles: [
-    { title: 'Start close to the problem.', body: 'I’m most useful when the shape is still unclear and someone needs to make the first good decisions.' },
+    { title: 'Start close to the problem.', body: 'I work with sales, end customers and partner teams to understand requirements, turn them into technical solutions, and stay close through delivery.' },
     { title: 'Move across the stack.', body: 'Backend is home, but I enjoy the product and infrastructure conversations that make a build more complete.' },
     { title: 'Keep learning where it matters.', body: 'Right now, that means treating agentic AI less like a demo and more like a real workflow to design carefully.' },
   ],
   now: {
-    title: 'Currently deep-diving into agentic AI workflows.',
-    body: 'How agents make decisions, use tools, recover from failures, expose useful product behaviour and stay observable once they leave the prototype stage.',
+    title: 'Currently shipping agentic AI workflows.',
+    body: 'Models make decisions; the harness sets deterministic rules and checkpoints. I’m building around typed tools, evals, bounded retries, recovery and tracing, so failures can be understood and work can resume safely.',
     note: 'I’m drawn to the stretch between a good prototype and a product people can actually rely on.',
   },
   agentRun: [
@@ -53,12 +56,21 @@ window.PORTFOLIO = {
     { step: 'Answer', detail: 'Reply with the result, and say that the data came from the cache.' },
   ],
   timeline: [
-    { year: 2018, title: 'B.Tech, Electronics & Computer Science', body: 'Started engineering school; CGPA 8.6/10.' },
-    { year: 2019, title: 'Data science internship, Nokia Networks', body: 'First taste of production data work in Chennai.' },
-    { year: 2020, title: 'V.A.N.I. and the rover', body: 'Voice analytics to spot dyslexia early (patent filed) and custom object detection for the Indian Rover Challenge.' },
-    { year: 2022, title: 'Backend engineer, payments platform', body: 'Services, partner integrations and onboarding automation at scale.' },
-    { year: 2026, title: 'Agentic AI workflows', body: 'Designing agents that use tools, recover from failure and stay observable.' },
+    { year: 2018, period: '2018–2022', title: 'VIT, Chennai', body: 'B.Tech in Electronics and Computer Science Engineering; CGPA 8.6/10.' },
+    { year: 2019, period: '2019–2020', title: 'Data science & applied AI', body: 'Data science at Nokia Networks; rover object detection and V.A.N.I. voice analytics, with a patent filed.', highlights: [
+      'Data science internship at Nokia Networks in Chennai.',
+      'Custom object detection for the Indian Rover Challenge and V.A.N.I. voice analytics for early dyslexia detection; patent filed.',
+    ] },
+    { year: 2022, period: 'Jun 2022–Jun 2024', title: 'Product & partner engineering', body: 'At CRED, worked with partner product and business teams on payment integrations for 400+ brands. Built self-serve onboarding APIs and automated payment and refund operations.' },
+    { year: 2024, period: 'Jul 2024–Mar 2026', title: 'Backend engineering, payments', body: 'At CRED, built Java/Spring Boot payment services, UPI bank integrations and idempotent Kafka/SQS processing. Automated merchant onboarding with Step Functions and Lambda.' },
+    { year: 2026, period: 'Mar 2026–present', title: 'Founding Engineer', body: 'Owning backend architecture, databases and deployment while building Python/FastAPI AI workflows with checkpoints, bounded retries and human review. Shipping evals and retrieval changes with clear rollback paths.' },
   ],
+  personal: [
+    { title: 'Football & F1', body: 'Real Madrid. Max Verstappen.' },
+    { title: 'Off the keyboard', body: 'Out for a run or a game of cricket.' },
+    { title: 'Homelab tinkering', body: 'AdGuard, Immich & open-source experiments.' },
+  ],
+  quote: 'Perhaps wisdom…is realizing how small I am, and unwise, and how far I have yet to go.',
   articles: [
     { title: 'Authentication Concepts Explained', date: '2026-09-25', tags: ['OAuth2', 'Security'], blurb: 'Basic, Digest, API keys, sessions, JWT and OAuth2: what each one actually answers about who is making a request.', url: 'https://medium.com/@anmol_tomer/authentication-concepts-explained-b6d5d208cfee', cover: 'https://cdn-images-1.medium.com/max/1024/1*cY2aWbMMzhGqkeVLIpcpbg.png' },
     { title: 'The LiteLLM Supply Chain Attack: What Actually Happened', date: '2026-03-25', tags: ['LLM', 'Python', 'Security'], blurb: 'Two malicious LiteLLM releases hit PyPI and stole credentials from laptops, CI runners and clusters within hours. How it worked.', url: 'https://medium.com/@anmol_tomer/the-litellm-supply-chain-attack-what-actually-happened-2d9d634ed82b', cover: 'https://cdn-images-1.medium.com/max/1024/1*LTf-P3CsPqG4bEBQRjpAlA.png' },

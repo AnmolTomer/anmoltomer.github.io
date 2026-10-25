@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trail background options · Anmol Tomer</title>
+  <script>
+    (function () {
+      var theme;
+      try { theme = localStorage.getItem('theme'); } catch (error) {}
+      if (theme !== 'light' && theme !== 'dark') theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..800,0..100,0..1;1,9..144,300..800,0..100,0..1&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./trail-backgrounds.css">
+  <style>
+    :root { color-scheme: light; --paper: #f6f0e1; --card: #fffaf0; --ink: #1e3028; --muted: #48584a; --accent: #b44532; --edge: #d9d1ba; --line: rgb(29 41 34 / .13); --dirt: #c49e68; }
+    :root[data-theme="dark"] { color-scheme: dark; --paper: #0e1521; --card: #172232; --ink: #f6edda; --muted: #c6ccbd; --accent: #e57e62; --edge: #34414a; --line: rgb(237 230 212 / .12); --dirt: #827b68; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.5 'Instrument Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+    main { max-width: 1240px; margin: 0 auto; padding: 36px 32px 72px; }
+    a { color: inherit; text-underline-offset: 5px; }
+    button { font: inherit; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+    ::selection { background: var(--accent); color: var(--paper); }
+    html { scrollbar-color: var(--accent) var(--paper); }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .theme-toggle { min-height: 44px; padding: 8px 18px; background: transparent; color: var(--ink); border: 1px solid var(--edge); border-radius: 99px; cursor: pointer; }
+    h1 { margin: 50px 0 40px; font: 480 clamp(38px, 6vw, 68px)/1.05 'Fraunces', Georgia, serif; font-variation-settings: 'SOFT' 100, 'opsz' 144; letter-spacing: -.03em; }
+    h1 em { color: var(--accent); font-weight: 400; }
+    .options { display: grid; grid-template-columns: 1fr 1fr; gap: 42px 32px; }
+    article { min-width: 0; }
+    .preview { position: relative; aspect-ratio: 1.5; overflow: hidden; border-radius: 12px; background: var(--paper); outline: 1px solid var(--edge); }
+    .preview > .trail-bg { -webkit-mask-image: none; mask-image: none; }
+    .preview > .trail-bg path { vector-effect: none; }
+    .preview-content { position: absolute; inset: 0; padding: 25px 28px; }
+    .preview-title { font: 480 clamp(20px, 2.5vw, 32px)/1.15 'Fraunces', Georgia, serif; letter-spacing: -.025em; }
+    .preview-title em { color: var(--accent); }
+    .preview-trail { position: absolute; inset: 20% 0 0; width: 100%; height: 80%; fill: none; }
+    .preview-trail .route { stroke: var(--dirt); stroke-width: 15; opacity: .35; }
+    .preview-trail .steps { stroke: var(--dirt); stroke-width: 2; stroke-dasharray: 2 9; stroke-linecap: round; }
+    .preview-sign { position: absolute; width: 39%; height: 23%; background: var(--card); border: 1px solid var(--edge); border-radius: 8px; padding: 10px 13px; box-shadow: 0 5px 12px -7px rgb(20 30 25 / .35); }
+    .preview-sign.sign-start { top: 28%; left: 7%; rotate: -.8deg; }
+    .preview-sign.sign-end { top: 59%; right: 7%; rotate: .8deg; }
+    .preview-sign b { display: block; font: 520 clamp(16px, 2.4vw, 29px)/1 'Fraunces', Georgia, serif; color: var(--accent); }
+    .preview-sign i { display: block; height: 3px; width: 68%; margin-top: 10px; background: var(--line); border-radius: 2px; }
+    .preview-sign i + i { width: 90%; margin-top: 6px; }
+    .option-caption { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px 20px; margin-top: 18px; }
+    h2 { margin: 0; font: 500 27px/1.2 'Fraunces', Georgia, serif; font-variation-settings: 'SOFT' 100; letter-spacing: -.02em; }
+    .option-caption a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 600; }
+    footer { margin-top: 54px; color: var(--muted); }
+    footer a { display: inline-flex; align-items: center; min-height: 44px; }
+    @media (max-width: 640px) { main { padding: 20px 20px 48px; } h1 { margin: 38px 0 28px; } .options { grid-template-columns: 1fr; gap: 32px; } .preview-title { font-size: 27px; } .preview-sign b { font-size: 25px; } h2 { font-size: 26px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header><a href="./index.html#trail">Back to 7-2</a><button class="theme-toggle" type="button">Switch to night</button></header>
+    <h1>Choose the <em>trail ground.</em></h1>
+    <div class="options">
+      <article data-variant="survey-contours"><div class="preview" data-trail-preview aria-hidden="true"></div><div class="option-caption"><h2>Survey contours</h2><a href="./index.html?trail-bg=survey-contours#trail">Open full trail</a></div></article>
+      <article data-variant="ridge-folds"><div class="preview" data-trail-preview aria-hidden="true"></div><div class="option-caption"><h2>Ridge folds</h2><a href="./index.html?trail-bg=ridge-folds#trail">Open full trail</a></div></article>
+      <article data-variant="watershed-chart"><div class="preview" data-trail-preview aria-hidden="true"></div><div class="option-caption"><h2>Watershed chart</h2><a href="./index.html?trail-bg=watershed-chart#trail">Open full trail</a></div></article>
+      <article data-variant="field-paper"><div class="preview" data-trail-preview aria-hidden="true"></div><div class="option-caption"><h2>Field paper</h2><a href="./index.html?trail-bg=field-paper#trail">Open full trail</a></div></article>
+    </div>
+    <footer><a href="./index.html#trail">Compare with the current background</a></footer>
+  </main>
+  <script type="module">
+    import { mountTrailBackground } from './trail-backgrounds.js';
+
+    const previewContent = `<div class="preview-content"><div class="preview-title">The trail <em>so far</em></div><svg class="preview-trail" viewBox="0 0 600 350" preserveAspectRatio="none"><path class="route" d="M305 0C80 40 120 110 300 140S510 230 300 290 240 330 290 350"/><path class="steps" d="M305 0C80 40 120 110 300 140S510 230 300 290 240 330 290 350"/></svg><div class="preview-sign sign-start"><b>2019</b><i></i><i></i></div><div class="preview-sign sign-end"><b>2026</b><i></i><i></i></div></div>`;
+    document.querySelectorAll('[data-variant]').forEach(function (option) {
+      const preview = option.querySelector('[data-trail-preview]');
+      mountTrailBackground(preview, { variant: option.dataset.variant });
+      preview.insertAdjacentHTML('beforeend', previewContent);
+    });
+
+    const themeButton = document.querySelector('.theme-toggle');
+    function updateThemeLabel() {
+      themeButton.textContent = document.documentElement.dataset.theme === 'dark' ? 'Switch to day' : 'Switch to night';
+    }
+    themeButton.addEventListener('click', function () {
+      const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = theme;
+      try { localStorage.setItem('theme', theme); } catch (error) {}
+      updateThemeLabel();
+    });
+    updateThemeLabel();
+  </script>
+</body>
+</html>

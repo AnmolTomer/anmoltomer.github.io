@@ -1,0 +1,78 @@
+/* Every candidate is opt-in. No selector changes the incumbent without a variant. */
+:where(#trail, [data-trail-preview])[data-trail-bg] {
+  isolation: isolate;
+  --tb-contour: rgb(101 119 76 / .26);
+  --tb-contour-index: rgb(101 119 76 / .38);
+  --tb-water: rgb(73 122 135 / .35);
+  --tb-water-bank: rgb(103 161 167 / .1);
+  --tb-fold: rgb(134 110 73 / .13);
+  --tb-ridge-far: #e8e7d5;
+  --tb-ridge-middle: #e1e4cc;
+  --tb-ridge-near: #d8dec5;
+  --tb-field: #ece1c8;
+}
+
+[data-theme="dark"] :where(#trail, [data-trail-preview])[data-trail-bg] {
+  --tb-contour: rgb(127 158 145 / .23);
+  --tb-contour-index: rgb(127 158 145 / .36);
+  --tb-water: rgb(117 170 187 / .34);
+  --tb-water-bank: rgb(70 128 153 / .12);
+  --tb-fold: rgb(153 165 157 / .12);
+  --tb-ridge-far: #131e29;
+  --tb-ridge-middle: #17252e;
+  --tb-ridge-near: #1b2d33;
+  --tb-field: #19232b;
+}
+
+#trail[data-trail-bg] > .topo { display: none; }
+
+:where(#trail, [data-trail-preview]) > .trail-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(transparent, #000 9%, #000 90%, transparent);
+  mask-image: linear-gradient(transparent, #000 9%, #000 90%, transparent);
+}
+
+:where(#trail, [data-trail-preview]) > .trail-bg svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: none;
+}
+
+:where(#trail, [data-trail-preview]) > .trail-bg path {
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+:where(#trail, [data-trail-preview])[data-trail-bg="survey-contours"] > .trail-bg {
+  background: radial-gradient(ellipse at 0 28%, rgb(156 174 119 / .1), transparent 52%), radial-gradient(ellipse at 100% 75%, rgb(156 174 119 / .12), transparent 52%);
+}
+
+:where(#trail, [data-trail-preview]) .tb-contours { stroke: var(--tb-contour); stroke-width: 1; }
+:where(#trail, [data-trail-preview]) .tb-index-contour { stroke: var(--tb-contour-index); stroke-width: 1.5; }
+:where(#trail, [data-trail-preview]) .tb-survey-ticks { stroke: var(--tb-contour-index); stroke-width: 1; }
+:where(#trail, [data-trail-preview]) .tb-ridge-far { fill: var(--tb-ridge-far); }
+:where(#trail, [data-trail-preview]) .tb-ridge-middle { fill: var(--tb-ridge-middle); }
+:where(#trail, [data-trail-preview]) .tb-ridge-near { fill: var(--tb-ridge-near); }
+:where(#trail, [data-trail-preview]) .tb-ridge-lines { stroke: var(--tb-contour); stroke-width: 1; }
+:where(#trail, [data-trail-preview]) .tb-watershed-land { stroke: var(--tb-contour); stroke-width: 70; opacity: .18; }
+:where(#trail, [data-trail-preview]) .tb-water-bank { stroke: var(--tb-water-bank); stroke-width: 16; }
+:where(#trail, [data-trail-preview]) .tb-water-stream { stroke: var(--tb-water); stroke-width: 2; }
+:where(#trail, [data-trail-preview]) .tb-water-tributary { stroke: var(--tb-water); stroke-width: 1; }
+:where(#trail, [data-trail-preview]) .tb-water-relief { stroke: var(--tb-contour); stroke-width: 1; }
+
+:where(#trail, [data-trail-preview])[data-trail-bg="field-paper"] > .trail-bg {
+  background: linear-gradient(90deg, transparent, var(--tb-field) 22%, var(--tb-field) 78%, transparent);
+}
+
+:where(#trail, [data-trail-preview]) .tb-paper-folds { stroke: var(--tb-fold); stroke-width: 1; }
+:where(#trail, [data-trail-preview]) .tb-paper-registration { stroke: var(--tb-contour-index); stroke-width: 1; }
+
+@media (max-width: 760px) {
+  #trail[data-trail-bg="survey-contours"] > .trail-bg svg { width: 180%; margin-left: -40%; }
+}
