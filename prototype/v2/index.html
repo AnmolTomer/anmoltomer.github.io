@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio prototypes</title>
+<style>
+  :root { color-scheme: light dark; --g: #f4f4f2; --i: #111; --s: #fff; --soft: #666; }
+  @media (prefers-color-scheme: dark) { :root { --g: #0d0d0d; --i: #f2f2f2; --s: #181818; --soft: #9a9a9a; } }
+  body { margin: 0; background: var(--g); color: var(--i); font: 16px/1.5 system-ui, sans-serif; }
+  main { max-width: 1200px; margin: 0 auto; padding: 48px 16px 96px; }
+  h1 { font-size: clamp(32px, 5vw, 56px); letter-spacing: -.03em; margin: 0 0 32px; }
+  ol { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  a { display: block; height: 100%; padding: 24px; border-radius: 16px; background: var(--s); color: inherit; text-decoration: none; transition: transform 200ms cubic-bezier(.23,1,.32,1); }
+  @media (hover: hover) and (pointer: fine) { a:hover { transform: translateY(-3px); } }
+  a:active { transform: scale(.97); }
+  strong { display: block; font-size: 22px; letter-spacing: -.02em; }
+  span { color: var(--soft); font-size: 15px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Portfolio prototypes</h1>
+  <ol>
+    <li><a href="01-atelier/"><strong>1 · Atelier</strong><span>j471n-style: script name, tilted portrait, floating stat cards, cursor-following article covers.</span></a></li>
+    <li><a href="02-aurora/"><strong>2 · Aurora</strong><span>ishanbagchi-style: living aurora canvas, sliding pill nav, ⌘K palette, tilt cards.</span></a></li>
+    <li><a href="03-orbit/"><strong>3 · Orbit 3D</strong><span>three.js core with your stack orbiting; drag, hover, scroll-driven camera.</span></a></li>
+    <li><a href="04-agent-graph/"><strong>4 · Agent graph</strong><span>Streamed headline and a live, draggable agent-run node graph.</span></a></li>
+    <li><a href="05-bento/"><strong>5 · Bento motion</strong><span>Live bento tiles with cursor spotlight; tiles expand with shared-element transitions.</span></a></li>
+    <li><a href="06-horizon/"><strong>6 · Horizon scroll</strong><span>Cinematic GSAP story: docking name, mask reveal, pinned horizontal timeline.</span></a></li>
+    <li><a href="07-trail/"><strong>7 · Ghibli trail</strong><span>Painterly parallax landscape around your portrait; a trail that draws as you scroll; day and night.</span></a></li>
+    <li><a href="08-kinetic/"><strong>8 · Kinetic type</strong><span>Variable-font name reacting to the cursor, WebGL portrait distortion, velocity marquee.</span></a></li>
+  </ol>
+</main>
+</body>
+</html>
