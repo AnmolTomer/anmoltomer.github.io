@@ -12,6 +12,8 @@ After pushing, verify that the latest Pages build belongs to the release commit.
 
 ## Agent access
 
+Read [SEO and agent readiness](seo-and-agent-readiness.md) for why these components exist, how requests flow, and how to choose future improvements. This document owns the release procedure.
+
 `scripts/agent-content.mjs` reads the same portfolio data as the homepage and generates `index.md`, `llms.txt`, `sitemap.xml`, `robots.txt`, `404.html`, and the About, Contact, and Privacy pages in HTML and Markdown. Production JSON-LD and Open Graph metadata are inserted by the publisher. The homepage body and interaction code are unchanged. `assets/portfolio/info.css` gives the new text pages the existing palette without remote fonts or scripts. Update `lastmod` in the content module when published copy or metadata changes; do not advance it merely for a rebuild. The sitemap lists the four canonical portfolio pages, not alternate representations, assets, or development prototypes.
 
 The identity is `Person`, with the public email and profile links from portfolio data. Do not invent an Organization, postal address, prices, or availability to satisfy a scoring heuristic. A business identity and public address require an owner decision. Privacy copy describes the application’s actual local theme storage and external dependencies; recheck it when providers or collection behavior change.
