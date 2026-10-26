@@ -40,6 +40,7 @@ for (const path of ['/', ...pages.map(page => `/${page.slug}/`)]) {
       const main = body.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)[1];
       for (const text of [portfolio.name, portfolio.intro, portfolio.now.body, ...portfolio.timeline.map(item => item.title)]) assert.ok(main.includes(escapeHtml(text)), `Initial HTML must include ${text}`);
       assert.ok(main.includes(`href="mailto:${portfolio.email}"`));
+      assert.ok(!main.includes('/cdn-cgi/l/email-protection'), 'Public homepage contact links must work without Cloudflare JavaScript decoding');
       assert.equal((main.match(/class="marker(?: summit)?"/g) || []).length, portfolio.timeline.length);
       assert.equal((main.match(/class="pc-wrap"/g) || []).length, 6);
     } else {

@@ -68,6 +68,8 @@ For the homepage, the actual behavior is:
 
 The Worker does not run an AI model, rank the site, submit it to search engines, or create a service API. It changes HTTP delivery. The email contact method remains the way to reach Anmol.
 
+Cloudflare can also transform HTML after the origin response. Its email obfuscation rewrote the newly static homepage contact anchors into links requiring a decode script. Those three intentionally public anchors now use the supported `<!--email_off-->…<!--/email_off-->` exemption so native `mailto:` links and the address remain available without JavaScript. Preserve the wrappers and verify served HTML, since a local preview does not exercise that transformation. See [Cloudflare’s per-address exemption](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/#prevent-cloudflare-from-obfuscating-email).
+
 ### Why headers and caching matter
 
 Negotiated responses include `Vary: Accept`, telling caches that format selection depends on that request header. Without correct separation, a cache could serve a previously stored Markdown response to a browser requesting HTML, or the reverse.

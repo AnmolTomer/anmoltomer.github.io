@@ -22,6 +22,7 @@ test('initial HTML contains the actual portfolio text and links without executin
   assert.equal((main.match(/class="pc-wrap"/g) || []).length, 6);
   for (const tool of portfolio.stack.flatMap(group => group.tools)) assert.ok(main.includes(escapeHtml(tool.name)));
   for (const url of [...Object.values(portfolio.links), `mailto:${portfolio.email}`]) assert.ok(main.includes(`href="${escapeHtml(url)}"`));
+  assert.equal((main.match(/<!--email_off--><a\b[^>]*href="mailto:[^"]+"[^>]*>[\s\S]*?<\/a><!--\/email_off-->/g) || []).length, 3, 'Public contact links must remain usable through Cloudflare without a decode script');
   const publishedArticles = portfolio.articles.slice().sort((a, b) => a.date < b.date ? 1 : -1).slice(0, 6);
   for (const article of publishedArticles) {
     assert.ok(main.includes(escapeHtml(article.title)));
