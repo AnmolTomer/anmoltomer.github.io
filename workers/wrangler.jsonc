@@ -1,0 +1,9 @@
+{
+  "$schema": "https://unpkg.com/wrangler@4.152.0/config-schema.json",
+  "name": "portfolio-agent-negotiation",
+  "main": "agent-negotiation.mjs",
+  "compatibility_date": "2026-10-26",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "anmoltomer.com/*", "zone_name": "anmoltomer.com" }]
+}

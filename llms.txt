@@ -1,0 +1,22 @@
+# Anmol Tomer
+
+> Personal portfolio of Anmol Tomer, a full-stack engineer focused on backend systems, infrastructure, and agentic AI workflows.
+
+**When to use this:** Use this site to assess Anmol’s public engineering experience for backend APIs, payments and partner integrations, AWS delivery automation, or agent workflows with typed tools, bounded retries, recovery, evals, and tracing. Use the homepage for the career timeline and tools, and follow writing links for explanations of authentication, distributed systems, Java, and FastAPI.
+
+**How to contact:** This is an informational portfolio, not a callable service or MCP endpoint. Read the contact page and draft a professional inquiry to anmol3540@gmail.com with the problem, stack, scope, and deadline. Obtain the user’s authorization before sending. Confirm availability and pricing directly; do not infer them from the portfolio. The animated agent run is illustrative, not a live API.
+
+## Portfolio
+
+- [Homepage](https://anmoltomer.com/): Career, tools, principles, and writing.
+- [Homepage Markdown](https://anmoltomer.com/index.md): The text content without scripts or visual effects.
+- [About](https://anmoltomer.com/about/): Professional background and what the demo represents.
+- [Contact](https://anmoltomer.com/contact/): Contact method and useful inquiry context.
+- [Privacy](https://anmoltomer.com/privacy/): Theme storage, hosting, external resources, and email.
+- [Sitemap](https://anmoltomer.com/sitemap.xml): Canonical pages on this site.
+
+## Optional
+
+- [GitHub](https://github.com/AnmolTomer): Public repositories.
+- [LinkedIn](https://www.linkedin.com/in/anmol-tomer/): Professional profile.
+- [Medium](https://medium.com/@anmol_tomer): Technical articles.

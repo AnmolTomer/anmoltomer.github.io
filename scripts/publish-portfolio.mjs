@@ -1,5 +1,6 @@
 import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
+import { description, generateAgentContent, metadata, person } from './agent-content.mjs';
 
 const root = new URL('../', import.meta.url);
 const source = new URL('prototype/v2/07-2-trail-meadow/', root);
@@ -18,13 +19,14 @@ await writeFile(new URL('data.js', destination), data);
 
 let html = await readFile(new URL('index.html', source), 'utf8');
 html = html.replace('<title>Anmol Tomer · Meadow trail</title>', '<title>Anmol Tomer · Full-stack engineer</title>');
-html = html.replace('Anmol Tomer, full-stack engineer. A walk down the trail: milestones, stack, principles, writing.', 'Anmol Tomer, full-stack engineer building backend systems and agentic AI workflows.');
+html = html.replace('Anmol Tomer, full-stack engineer. A walk down the trail: milestones, stack, principles, writing.', description);
 html = html.replaceAll('../../../images/', './images/');
 html = html.replace('src="../data.js"', 'src="./assets/portfolio/data.js"');
 for (const name of assets) {
   html = html.replaceAll(`href="${name}"`, `href="./assets/portfolio/${name}"`);
   html = html.replaceAll(`'./${name}'`, `'./assets/portfolio/${name}'`);
 }
-html = html.replace('</title>', '</title>\n<link rel="canonical" href="https://anmoltomer.com/">');
+html = html.replace('</title>', `</title>\n${metadata('/', 'Anmol Tomer · Full-stack engineer', description)}\n<script type="application/ld+json">${JSON.stringify(person).replaceAll('<', '\\u003c')}</script>`);
 await writeFile(new URL('index.html', root), html);
+await generateAgentContent(root);
 console.log(`Published the selected portfolio to ${fileURLToPath(new URL('index.html', root))}`);
