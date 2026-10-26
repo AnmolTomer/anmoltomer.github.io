@@ -19,8 +19,8 @@ export const person = {
 
 export const pages = [
   { slug: 'about', title: 'About', paragraphs: [
-    `${portfolio.name} is a ${portfolio.role.toLowerCase()} with a backend focus. ${portfolio.intro}`,
-    'His engineering background includes partner payment integrations, self-serve onboarding APIs, Java and Spring Boot payment services, UPI bank integrations, and idempotent Kafka and SQS processing. At CRED, he worked with partner product and business teams on payment integrations for more than 400 brands.',
+    `I’m ${portfolio.name}, a ${portfolio.role.toLowerCase()}. ${portfolio.intro}`,
+    'My engineering background includes partner payment integrations, self-serve onboarding APIs, Java and Spring Boot payment services, UPI bank integrations, and idempotent Kafka and SQS processing. At CRED, I worked with partner product and business teams on payment integrations for more than 400 brands.',
     `${portfolio.now.body} ${portfolio.now.note}`,
     'The homepage contains the career timeline, current tools, working principles, and links to technical writing on Medium. The agent workflow shown there is an illustrative demonstration of planning, tool failure, recovery, and tracing; it is not an API or a live customer transaction.',
   ] },

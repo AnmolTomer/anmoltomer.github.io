@@ -47,7 +47,10 @@ for (const path of ['/index.md', '/about/index.md', '/contact/index.md', '/priva
   await check(`${path} published bytes`, async () => {
     const { response, body } = await get(path, '*/*');
     assert.equal(response.status, 200);
-    assert.equal(body, await readFile(new URL(`..${path}`, import.meta.url), 'utf8'));
+    const local = await readFile(new URL(`..${path}`, import.meta.url), 'utf8');
+    // Cloudflare may prepend managed bot rules to the origin robots.txt.
+    if (path === '/robots.txt') assert.ok(body.includes(local), 'Origin robots directives must remain present');
+    else assert.equal(body, local);
   });
 }
 for (const accept of ['text/markdown', 'text/html']) {

@@ -1,8 +1,8 @@
 # About
 
-Anmol Tomer is a full-stack engineer with a backend focus. I like the early, ambiguous part of building. Full-stack by default, backend at heart. Currently shipping agentic AI workflows, with a strong pull towards infrastructure and product.
+I’m Anmol Tomer, a full-stack engineer. I like the early, ambiguous part of building. Full-stack by default, backend at heart. Currently shipping agentic AI workflows, with a strong pull towards infrastructure and product.
 
-His engineering background includes partner payment integrations, self-serve onboarding APIs, Java and Spring Boot payment services, UPI bank integrations, and idempotent Kafka and SQS processing. At CRED, he worked with partner product and business teams on payment integrations for more than 400 brands.
+My engineering background includes partner payment integrations, self-serve onboarding APIs, Java and Spring Boot payment services, UPI bank integrations, and idempotent Kafka and SQS processing. At CRED, I worked with partner product and business teams on payment integrations for more than 400 brands.
 
 Models make decisions; the harness sets deterministic rules and checkpoints. I’m building around typed tools, evals, bounded retries, recovery and tracing, so failures can be understood and work can resume safely. I’m drawn to the stretch between a good prototype and a product people can actually rely on.
 
