@@ -6,7 +6,9 @@ The objective is to make Anmol’s actual work easy to find, read, and attribute
 
 ## Current evidence
 
-On 2026-10-26, the deployed site passed all 26 checks in `make verify-public`. The latest completed [Is Agentic report](https://is-agentic.com/scan/anmoltomer.com), scanned at `2026-10-26T10:46:40.123Z` (16:16 IST), scored 94/100. Fetching that report again is not a new scan. Its one remaining issue was limited homepage text in the initial HTML response.
+On 2026-10-26, the homepage-rendering follow-up passed all 27 checks in `make verify-public`, including actual initial HTML content and native public email links. Live Chrome checks also confirmed useful content and navigation without JavaScript at desktop and 390px. See the [release follow-up](agent-readiness-release-2026-10-26.md#follow-up-initial-homepage-html) for the deployed commits and evidence.
+
+The post-change browser rescan showed 100/100, all six essential checks passing, and no material issues. At verification time it still displayed “Saving completed scan”, while the public API returned the older 94/100 snapshot scanned at `2026-10-26T10:46:40.123Z` (16:16 IST). That older snapshot’s initial-HTML finding preceded this fix. Treat the browser result and the persisted snapshot as separate observations; confirm a newer timestamp before claiming the public report has updated. [Is Agentic report](https://is-agentic.com/scan/anmoltomer.com).
 
 These are observations, not permanent guarantees. Recheck public responses and the report timestamp before making a new claim. Search Console ownership, Google indexing, search performance, and changes in AI referrals were not verified in this work.
 

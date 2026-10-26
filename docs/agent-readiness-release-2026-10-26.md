@@ -1,6 +1,6 @@
 # Agent readiness release, 2026-10-26
 
-The requested discovery and negotiation changes are deployed to `https://anmoltomer.com/`. A fresh Is Agentic snapshot reports **94/100**, scanned at `2026-10-26T10:46:40.123Z` (16:16 IST): <https://is-agentic.com/scan/anmoltomer.com>. The user-supplied baseline was 69; a newer pre-deployment snapshot reported 55. These snapshots used different site-type eligibility, so the score difference alone is not the verification evidence.
+The initial discovery and negotiation release reached **94/100**, scanned at `2026-10-26T10:46:40.123Z` (16:16 IST): <https://is-agentic.com/scan/anmoltomer.com>. The user-supplied baseline was 69; a newer pre-deployment snapshot reported 55. These snapshots used different site-type eligibility, so the score difference alone is not the verification evidence. The follow-up below records the later homepage-rendering change.
 
 ## Published artifacts
 
@@ -30,3 +30,24 @@ The fresh audit’s only remaining issue is `content-no-js`: it counts 347 chara
 Cloudflare’s browser code editor stalled while loading. The user approved the official Wrangler OAuth alternative with account/user/zone read, Workers Scripts Write, Workers Routes Write, and background access. Authentication succeeded; its encrypted credential is protected by macOS Keychain. No broader Cloudflare scopes were granted, and no additional credentials are needed for this release.
 
 Read the implementation in this order: `scripts/agent-content.mjs`, `scripts/publish-portfolio.mjs`, `workers/agent-negotiation.mjs`, `tests/agent-readiness.test.mjs`, then `docs/portfolio-deployment.md`. The final follow-up commit records verification and expands public checks; it does not change the deployed content or Worker source.
+
+## Follow-up: initial homepage HTML
+
+The user authorized publishing the existing homepage copy in the initial HTML while retaining animations. Commits `30e68cf2edf241179fc58be0816b2af8f02992a0` and `e32b14337503965cbc6417f3ebe259ceacd7b162` implement that follow-up. GitHub Pages confirmed a successful build for `e32b143`; the Cloudflare Worker source and deployment were unchanged.
+
+`prototype/v2/07-2-trail-meadow/portfolio-content.js` now owns the shared markup renderer. `scripts/prerender-portfolio.mjs` uses it at build time to populate explicit template slots, with escaped text/attributes and failures on missing slots. The published `data-content-rendered` marker prevents duplicate browser rendering. The unbuilt design preview uses the same renderer in the browser. Existing stylesheet and animation-module contents are preserved, apart from production asset path rewrites. A noscript stylesheet exposes mobile section links and hides script-dependent controls.
+
+Live verification detected Cloudflare email obfuscation rewriting the newly static homepage email anchors into links that required a decode script. The follow-up wraps only the three intentionally public anchors in the provider-supported `email_off` comments. Served HTML now retains all three native `mailto:` links and the readable email address. No zone-wide protection or Worker setting was changed.
+
+Verification passed:
+
+- `make generate test worker-check`: 12 tests and the Worker dry-run bundle; subsequent `make generate test` passed after the email exemption. New tests cover substantive initial HTML, links and exact list counts, escaping, missing-slot failures, deterministic output, provider exemption wrappers, and unchanged stylesheet/animation-module generation.
+- `make verify-public`: all 27 checks passed against the deployed domain, including the shared renderer asset, raw homepage copy, original Markdown negotiation/error behavior, and native email links.
+- Chrome in the explicitly authorized Anmol profile: live homepage text and contact/navigation links work with JavaScript disabled at desktop and a confirmed 390px viewport. The main element exposes 4,897 characters of browser-readable text, five timeline entries, and six article cards. At 390px, the page has no horizontal overflow and native Contact navigation works.
+- With scripts enabled, the pre-change and generated DOM matched for the hero name, introduction, timeline, tools, principles, and articles. Theme switching, mobile menu navigation, and the running meadow scene were verified; local reduced-motion content stayed visible. The editable design preview also rendered correctly. Console checks found no app warnings or errors. Test viewport, JavaScript, and media overrides were restored afterward.
+
+Evidence is in ignored `output/prerender/`, including before/after screenshots, actual production HTML, public-check output, no-JavaScript desktop/mobile screenshots, and the post-change audit result. These focused Chrome checks do not constitute Safari, physical-device, or exhaustive animation testing. Search ranking, indexing, traffic, and referral changes remain unmeasured.
+
+The post-change browser rescan displayed 100/100, all six essential checks passing, and no material issues. It still showed “Saving completed scan” when checked; the public API continued to return the previous 94/100 snapshot from `2026-10-26T10:46:40.123Z`. `is-agentic-100.png` records the browser result; `is-agentic-after.json` records that older API snapshot. The technical result was observed, but persistence of a new public snapshot was not confirmed. Recheck the report timestamp before treating the published snapshot as updated.
+
+Read the follow-up in this order: `prototype/v2/07-2-trail-meadow/portfolio-content.js`, `scripts/prerender-portfolio.mjs`, `scripts/publish-portfolio.mjs`, `tests/prerender-portfolio.test.mjs`, then `docs/seo-and-agent-readiness.md`.
