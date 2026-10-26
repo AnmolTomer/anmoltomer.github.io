@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { pages, person, site } from './agent-content.mjs';
+import { escapeHtml, pages, person, portfolio, site } from './agent-content.mjs';
 
 const base = process.argv[2] || site;
 let failures = 0;
@@ -30,20 +30,25 @@ for (const path of ['/', ...pages.map(page => `/${page.slug}/`)]) {
     assert.equal(response.status, 200);
     assert.match(response.headers.get('Content-Type'), /^text\/html\b/);
     varied(response);
-    assert.match(body, /<html lang="en">/);
+    assert.match(body, /<html lang="en"(?:\s[^>]*)?>/);
     assert.ok(body.includes(`<link rel="canonical" href="${site}${path}">`));
     assert.match(body, /property="og:image"/);
     assert.match(body, /property="og:type" content="website"/);
     if (path === '/') {
       const schema = JSON.parse(body.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
       assert.deepEqual(schema, JSON.parse(JSON.stringify(person)));
+      const main = body.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)[1];
+      for (const text of [portfolio.name, portfolio.intro, portfolio.now.body, ...portfolio.timeline.map(item => item.title)]) assert.ok(main.includes(escapeHtml(text)), `Initial HTML must include ${text}`);
+      assert.ok(main.includes(`href="mailto:${portfolio.email}"`));
+      assert.equal((main.match(/class="marker(?: summit)?"/g) || []).length, portfolio.timeline.length);
+      assert.equal((main.match(/class="pc-wrap"/g) || []).length, 6);
     } else {
       const text = body.match(/<p>.*?<\/p>/gs).join('').replace(/<[^>]*>/g, '');
       assert.ok(text.length >= 500);
     }
   });
 }
-for (const path of ['/index.md', '/about/index.md', '/contact/index.md', '/privacy/index.md', '/llms.txt', '/sitemap.xml', '/robots.txt', '/assets/portfolio/info.css']) {
+for (const path of ['/index.md', '/about/index.md', '/contact/index.md', '/privacy/index.md', '/llms.txt', '/sitemap.xml', '/robots.txt', '/assets/portfolio/info.css', '/assets/portfolio/portfolio-content.js']) {
   await check(`${path} published bytes`, async () => {
     const { response, body } = await get(path, '*/*');
     assert.equal(response.status, 200);

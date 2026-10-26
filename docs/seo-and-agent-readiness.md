@@ -25,7 +25,7 @@ The homepage worked in a browser, but much of its meaningful copy was inserted b
 | No substantial trust pages | About, Contact, and Privacy pages, in HTML and Markdown | Readers can inspect background, contact expectations, and data handling |
 | Incomplete sharing/identity metadata | Retained the existing canonical URL and `lang`; added Open Graph type, image, title, description, and URL | Gives parsers and link-preview clients explicit attribution and presentation data |
 
-The remaining initial-HTML limitation was preserved during that release. Markdown access fixes that reading path, but it does not populate the HTML placeholders for clients that never request Markdown.
+The initial-HTML limitation was preserved during the first release. The follow-up now renders the existing homepage text and links before publication, so both HTML-only clients and Markdown clients can read the content.
 
 ## How the system works
 
@@ -33,7 +33,7 @@ There are two separate stages: generating the files before publication, and choo
 
 ### Build time: one source, several readable representations
 
-`prototype/v2/data.js` supplies the existing portfolio copy. `scripts/publish-portfolio.mjs` publishes the selected Meadow Trail design to the repository root. It also calls `scripts/agent-content.mjs`, which generates Markdown, discovery files, and the text pages, and supplies homepage metadata.
+`prototype/v2/data.js` supplies the existing portfolio copy. `scripts/publish-portfolio.mjs` publishes the selected Meadow Trail design to the repository root. `scripts/prerender-portfolio.mjs` fills the template’s explicit content slots using `prototype/v2/07-2-trail-meadow/portfolio-content.js`. That same markup renderer also powers the editable browser preview. Published HTML carries `data-content-rendered`, so the browser keeps its existing content and runs the interaction and animation module. A noscript stylesheet makes mobile section links usable when scripts are disabled. The publisher also calls `scripts/agent-content.mjs`, which generates Markdown, discovery files, and the text pages, and supplies homepage metadata.
 
 The Markdown is assembled from the portfolio data during generation. It is not written by an LLM at request time and is not a second manually maintained biography. The extra About/Contact/Privacy copy lives in the content module. Publishing the files makes them available from GitHub Pages.
 
@@ -102,43 +102,41 @@ SEO helps search engines discover, understand, and present useful pages for rele
 | Area | Owning source | Maintenance rule |
 | --- | --- | --- |
 | Professional copy, timeline, tools, and public profiles | `prototype/v2/data.js` | Update facts here so generated representations stay consistent |
-| Homepage layout and browser rendering | `prototype/v2/07-2-trail-meadow/index.html` | Preserve the selected design and interaction behavior |
+| Homepage layout and content markup | `prototype/v2/07-2-trail-meadow/index.html`, `prototype/v2/07-2-trail-meadow/portfolio-content.js` | Share markup between build and preview; preserve the selected design and interaction behavior |
 | Person schema, Open Graph metadata, trust-page copy, Markdown, sitemap, robots | `scripts/agent-content.mjs` | Change the generator, then regenerate; advance `lastmod` for real published-content changes |
-| Production HTML generation and asset path rewrites | `scripts/publish-portfolio.mjs` | Keep generation repeatable and source/output relationships intact |
+| Production HTML generation and asset path rewrites | `scripts/publish-portfolio.mjs`, `scripts/prerender-portfolio.mjs` | Fill explicit slots before publishing; fail on missing slots and keep generation repeatable |
 | Negotiation, response headers, errors, and route configuration | `workers/agent-negotiation.mjs`, `workers/wrangler.jsonc` | Test both formats, failure cases, and caching before deploying |
 
 Root `index.html`, `index.md`, `llms.txt`, `sitemap.xml`, `robots.txt`, `404.html`, and the trust-page HTML/Markdown are generated outputs. Hand-editing them alone creates changes that the next generation can overwrite. `assets/portfolio/info.css` owns the text-page styling.
 
 Local behavior tests live in `tests/agent-readiness.test.mjs`; public acceptance checks live in `scripts/verify-public.mjs`. The Makefile names the supported check commands. The public agent guide describes how to use the portfolio; it is not the repository’s maintenance manual. Keep operational instructions in these repository docs.
 
-## Prioritized future improvements
+## Initial HTML rendering invariant
 
-### 1. Publish the existing homepage copy in the initial HTML
+The follow-up implements build-time rendering of the existing homepage copy and links while retaining the animation module. The earlier audit counted only 347 characters of meaningful initial HTML. Its 500-character threshold is a scoring rule, not a Google ranking requirement. Preserve useful content instead of padding the page to a threshold.
 
-This is the next confirmed technical gap. The latest audit counted only 347 characters of meaningful initial HTML. The 500-character audit threshold is a scoring rule, not a Google ranking requirement; the goal is to deliver the real content and useful links without JavaScript.
-
-A bounded implementation would render the current copy during generation, using the same portfolio data, and retain JavaScript for enhancement and animation. Read the existing `data-f` bindings and list-building code before choosing how to render it. Avoid introducing a framework or a second content source just for this change.
-
-Acceptance criteria:
+Regression criteria:
 
 - The HTTP HTML body includes the actual name, professional introduction, substantive experience, and working contact/navigation links before scripts run.
 - With JavaScript unavailable, the content is visible and usable; animation classes do not leave it hidden. JSON-LD, HTML, and Markdown agree on identity and facts.
 - With JavaScript enabled, text is not duplicated or removed, and the name treatment, theme switch, menu, animations, and 390px layout retain their behavior.
-- Tests assert meaningful expected text and links, plus visual behavior, rather than only a character count. Deliberately revise the current unchanged-body regression assertion for this authorized change; do not simply disable it.
+- Tests assert meaningful expected text and links, plus visual behavior, rather than only a character count. The original unchanged-body assertion has been replaced with explicit content/link checks and preservation checks for styles and the animation module.
 
-### 2. Measure search performance before choosing search work
+## Prioritized future improvements
+
+### 1. Measure search performance before choosing search work
 
 Check whether an authorized Google Search Console property already exists. With owner-approved access, inspect homepage indexing, Google’s selected canonical, sitemap processing, and the query/page performance reports. Record observations and dates. Do not describe an unknown property as unconfigured or create another verification record without checking.
 
 Choose the audience and desired outcome with Anmol: recruiting, engineering collaboration, consulting inquiries, or technical writing readership lead to different useful content. The outcome is a product decision; it cannot be inferred from a readiness score. Use [Google’s SEO starter guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide) as the baseline, not promises of a particular rank.
 
-### 3. Add evidence-rich content when there is a clear audience
+### 2. Add evidence-rich content when there is a clear audience
 
 Useful candidates include public project write-ups, specific problem/solution examples, and clearer descriptions of responsibilities and outcomes. Publish only substantiated facts and work that can be shared. Case-study selection and publication of employer/client material need owner input; keep confidential details out of generated formats as well as visible pages.
 
 For a new indexable page, deliberately connect its HTML, discoverable internal links, canonical metadata, sitemap entry, and any Markdown representation/Worker mapping. Add the corresponding tests. Existing development prototypes and alternative representations should not become sitemap entries merely because they are files in the repository. A visible link to the trust pages is another possible navigation improvement; the current release exposes them through the sitemap, agent guide, and their own navigation without changing the homepage layout.
 
-### 4. Revisit identity, previews, and performance only for a concrete need
+### 3. Revisit identity, previews, and performance only for a concrete need
 
 Keep Person schema unless a real separate business identity should be represented. A public business address, service offers, pricing, or availability requires confirmed facts and an owner decision. A dedicated social-preview image is optional; the current metadata uses the existing portrait. Validate appearance before claiming that a preview image improved sharing.
 

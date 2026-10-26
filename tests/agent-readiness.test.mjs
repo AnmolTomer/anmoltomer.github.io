@@ -98,7 +98,7 @@ test('Cloudflare entry point accepts environment and context without treating th
 
 test('generated identity and metadata match public portfolio without inventing an organization', async () => {
   const home = await read('index.html');
-  assert.match(home, /<html lang="en">/);
+  assert.match(home, /<html lang="en" data-content-rendered>/);
   assert.match(home, /<link rel="canonical" href="https:\/\/anmoltomer.com\/">/);
   assert.match(home, /property="og:type" content="website"/);
   assert.match(home, /property="og:image" content="https:\/\/anmoltomer.com\/images\//);
@@ -107,8 +107,6 @@ test('generated identity and metadata match public portfolio without inventing a
   assert.equal(schema['@type'], 'Person');
   assert.equal(schema.contactPoint.email, portfolio.email);
   assert.ok(!('address' in schema));
-  const source = await read('prototype/v2/07-2-trail-meadow/index.html');
-  assert.equal(home.slice(home.indexOf('<body')), source.slice(source.indexOf('<body')).replaceAll('../../../images/', './images/').replace('src="../data.js"', 'src="./assets/portfolio/data.js"').replaceAll("'./", "'./assets/portfolio/"));
 });
 
 test('discovery files follow llms.txt and sitemap formats and trust pages contain substantive text', async () => {

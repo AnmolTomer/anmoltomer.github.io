@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-content-rendered>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -516,6 +516,13 @@ html { scrollbar-color: var(--accent) var(--paper); }
   .socials .icon-btn:hover, .socials .icon-btn:focus-visible { transform: none; }
 }
 </style>
+<noscript><style>
+.menu-btn, .theme-btn, .totop, .farm-interaction, .links-on { display: none; }
+@media (max-width: 1080px) {
+  .nav { position: relative; top: auto; left: auto; translate: none; margin: 10px auto; flex-wrap: wrap; border-radius: 22px; }
+  .links { display: flex; flex-wrap: wrap; justify-content: center; order: 1; width: 100%; }
+}
+</style></noscript>
 <link rel="stylesheet" href="./assets/portfolio/agent-log.css">
 <link rel="stylesheet" href="./assets/portfolio/trail-backgrounds.css">
 </head>
@@ -608,21 +615,21 @@ html { scrollbar-color: var(--accent) var(--paper); }
 
   <div class="wrap hero-in">
     <div class="copy">
-      <p class="eyebrow" data-i><span class="dot" aria-hidden="true"></span><span data-f="role"></span></p>
-      <h1 id="hero-name"><span class="sr" data-f="name"></span>
-        <span class="line name-a" id="nameA" aria-hidden="true"></span>
+      <p class="eyebrow" data-i><span class="dot" aria-hidden="true"></span><span data-f="role">Full-stack engineer</span></p>
+      <h1 id="hero-name"><span class="sr" data-f="name">Anmol Tomer</span>
+        <span class="line name-a" id="nameA" aria-hidden="true"><span class="ch">A</span><span class="ch">n</span><span class="ch">m</span><span class="ch">o</span><span class="ch">l</span></span>
         <svg class="name-b" id="nameB" viewBox="0 0 640 230" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false">
           <defs><clipPath id="nameWipe"><rect id="nameWipeRect" x="-40" y="-60" width="2000" height="400"/></clipPath></defs>
-          <text class="fill" id="nameFill" x="14" y="168" clip-path="url(#nameWipe)" data-f="last"></text>
-          <text class="stroke" id="nameStroke" x="14" y="168" data-f="last"></text>
+          <text class="fill" id="nameFill" x="14" y="168" clip-path="url(#nameWipe)" data-f="last">Tomer</text>
+          <text class="stroke" id="nameStroke" x="14" y="168" data-f="last">Tomer</text>
           <path class="swash" id="nameSwash" d="M22 205 C140 188 300 186 470 196 S600 204 626 188"/>
         </svg>
       </h1>
-      <p class="headline" data-i data-f="headline"></p>
-      <p class="intro" data-i data-f="intro"></p>
+      <p class="headline" data-i data-f="headline">0→1 builder for messy, high-ownership problems.</p>
+      <p class="intro" data-i data-f="intro">I like the early, ambiguous part of building. Full-stack by default, backend at heart. Currently shipping agentic AI workflows, with a strong pull towards infrastructure and product.</p>
       <div class="cta" data-i>
-        <a class="btn btn-primary magnet" data-f="mailto"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/></svg>Email me</a>
-        <div class="socials" data-socials></div>
+        <a class="btn btn-primary magnet" data-f="mailto" href="mailto:anmol3540@gmail.com"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/></svg>Email me</a>
+        <div class="socials" data-socials><a class="icon-btn" href="https://github.com/AnmolTomer" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a><a class="icon-btn" href="https://www.linkedin.com/in/anmol-tomer/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/></svg></a><a class="icon-btn" href="https://x.com/anmol_tomer_cc" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></a><a class="icon-btn" href="https://medium.com/@anmol_tomer" target="_blank" rel="noopener" aria-label="Medium"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="6.8" cy="12" r="5.6"/><ellipse cx="15.6" cy="12" rx="2.7" ry="5.3"/><ellipse cx="21.2" cy="12" rx="1.1" ry="4.7"/></svg></a></div>
       </div>
     </div>
     <div class="pola-zone" data-i>
@@ -630,18 +637,18 @@ html { scrollbar-color: var(--accent) var(--paper); }
         <div class="pola-float">
           <figure class="pola">
             <span class="tape" aria-hidden="true"></span>
-            <img src="./images/photo_2025-06-28_23-41-00.jpg" data-f="portrait" width="853" height="1280" fetchpriority="high">
+            <img data-f="portrait" width="853" height="1280" fetchpriority="high" src="./images/photo_2025-06-28_23-41-00.jpg" alt="Illustrated portrait of Anmol hiking in green hills with a backpack">
             <span class="holo-sheen" aria-hidden="true"></span>
             <span class="foil-stars" aria-hidden="true"><i style="left:8%;top:72%;--s:17px"></i><i style="left:91%;top:15%;--s:12px"></i><i style="left:85%;top:77%;--s:20px"></i><i style="left:13%;top:6%;--s:10px"></i></span>
             <figcaption>out on the trail</figcaption>
           </figure>
-          <div class="patch-badge" data-stat="3"></div>
+          <div class="patch-badge" data-stat="3"><span><small>Shipping since</small><b>2021</b></span></div>
         </div>
-        <div class="stat interest s0" data-personal="0"></div>
-        <div class="stat interest s1" data-personal="1"></div>
-        <div class="stat interest s2" data-personal="2"></div>
+        <div class="stat interest s0" data-personal="0"><div class="stat-in"><b>Football &amp; F1</b><span>Real Madrid. Max Verstappen.</span></div></div>
+        <div class="stat interest s1" data-personal="1"><div class="stat-in"><b>Off the keyboard</b><span>Out for a run or a game of cricket.</span></div></div>
+        <div class="stat interest s2" data-personal="2"><div class="stat-in"><b>Homelab tinkering</b><span>AdGuard, Immich &amp; open-source experiments.</span></div></div>
       </div>
-      <blockquote class="portrait-quote" data-f="quote"></blockquote>
+      <blockquote class="portrait-quote" data-f="quote">Perhaps wisdom…is realizing how small I am, and unwise, and how far I have yet to go.</blockquote>
     </div>
   </div>
   <a class="scroll-cue" href="#trail">Walk the trail<i aria-hidden="true"></i></a>
@@ -660,8 +667,8 @@ html { scrollbar-color: var(--accent) var(--paper); }
         <path class="trail-base"/>
         <path class="trail-steps" mask="url(#trailmask)"/>
       </svg>
-      <div class="hiker" aria-hidden="true"><img src="./images/photo_2025-06-28_23-41-00.jpg" data-f="portrait-sm" alt=""></div>
-      <ol class="markers" data-timeline></ol>
+      <div class="hiker" aria-hidden="true"><img data-f="portrait-sm" alt="" src="./images/photo_2025-06-28_23-41-00.jpg"></div>
+      <ol class="markers" data-timeline><li class="marker"><div class="sign" style="--r:-1.28deg"><span class="yr">2018</span><span class="period">2018–2022</span><h3>VIT, Chennai</h3><p>B.Tech in Electronics and Computer Science Engineering; CGPA 8.6/10.</p></div><span class="post" aria-hidden="true"></span><span class="foot" aria-hidden="true"></span></li><li class="marker"><div class="sign" style="--r:0.96deg"><span class="yr">2019–20</span><h3>Data science &amp; applied AI</h3><ul class="highlights"><li>Data science internship at Nokia Networks in Chennai.</li><li>Custom object detection for the Indian Rover Challenge and V.A.N.I. voice analytics for early dyslexia detection; patent filed.</li></ul></div><span class="post" aria-hidden="true"></span><span class="foot" aria-hidden="true"></span></li><li class="marker"><div class="sign" style="--r:-0.64deg"><span class="yr">2022</span><span class="period">Jun 2022–Jun 2024</span><h3>Product &amp; partner engineering</h3><p>At CRED, worked with partner product and business teams on payment integrations for 400+ brands. Built self-serve onboarding APIs and automated payment and refund operations.</p></div><span class="post" aria-hidden="true"></span><span class="foot" aria-hidden="true"></span></li><li class="marker"><div class="sign" style="--r:1.44deg"><span class="yr">2024</span><span class="period">Jul 2024–Mar 2026</span><h3>Backend engineering, payments</h3><p>At CRED, built Java/Spring Boot payment services, UPI bank integrations and idempotent Kafka/SQS processing. Automated merchant onboarding with Step Functions and Lambda.</p></div><span class="post" aria-hidden="true"></span><span class="foot" aria-hidden="true"></span></li><li class="marker summit"><div class="sign" style="--r:-1.04deg"><span class="yr">2026 <small>you are here</small></span><span class="period">Mar 2026–present</span><h3>Founding Engineer</h3><p>Owning backend architecture, databases and deployment while building Python/FastAPI AI workflows with checkpoints, bounded retries and human review. Shipping evals and retrieval changes with clear rollback paths.</p></div><span class="post" aria-hidden="true"></span><span class="foot" aria-hidden="true"></span></li></ol>
       <div class="trail-endpoint start" aria-hidden="true"><svg viewBox="0 0 40 64" aria-hidden="true"><path d="M6,4V64" stroke="var(--trunk)" stroke-width="3" stroke-linecap="round"/><path d="M7,6C16,2 22,10 34,6L34,24C22,28 16,20 7,24Z" fill="currentColor"/></svg></div>
       <div class="trail-endpoint finish" aria-hidden="true"><svg viewBox="0 0 40 64" aria-hidden="true"><path d="M6,4V64" stroke="var(--trunk)" stroke-width="3" stroke-linecap="round"/><path d="M7,6C16,2 22,10 34,6L34,24C22,28 16,20 7,24Z" fill="currentColor"/></svg></div>
     </div>
@@ -690,7 +697,7 @@ html { scrollbar-color: var(--accent) var(--paper); }
         </svg>
         <figcaption>packed for the long walk</figcaption>
       </figure>
-      <div class="pockets" data-stack></div>
+      <div class="pockets" data-stack><article class="pocket"><h3>Backend</h3><p>Languages, frameworks and APIs</p><ul class="patches"><li class="patch-wrap"><span class="patch" style="--r:1.26deg"><span class="lg"><img src="./assets/logos/java.svg" alt="" class="" loading="lazy" width="19" height="19"></span>Java</span></li><li class="patch-wrap"><span class="patch" style="--r:-1.44deg"><span class="lg"><img src="./assets/logos/spring.svg" alt="" class="" loading="lazy" width="19" height="19"></span>Spring Boot</span></li><li class="patch-wrap"><span class="patch" style="--r:1.08deg"><span class="lg"><img src="./assets/logos/python-color.svg" alt="" class="" loading="lazy" width="19" height="19"></span>Python</span></li><li class="patch-wrap"><span class="patch" style="--r:-0.72deg"><span class="lg"><img src="./assets/logos/fastapi-color.svg" alt="" class="" loading="lazy" width="19" height="19"></span>FastAPI</span></li><li class="patch-wrap"><span class="patch" style="--r:1.62deg"><span class="lg"><img src="./assets/logos/typescript-color.svg" alt="" class="" loading="lazy" width="19" height="19"></span>TypeScript</span></li></ul></article><article class="pocket"><h3>Systems</h3><p>Cloud, queues and data stores</p><ul class="patches"><li class="patch-wrap"><span class="patch" style="--r:1.26deg"><span class="lg"><img src="./assets/logos/aws.svg" alt="" class="" loading="lazy" width="19" height="19"></span>AWS</span></li><li class="patch-wrap"><span class="patch" style="--r:-1.44deg"><span class="lg"><img src="./assets/logos/apachekafka.svg" alt="" class="" loading="lazy" width="19" height="19"></span>Kafka</span></li><li class="patch-wrap"><span class="patch" style="--r:1.08deg"><span class="lg"><img src="./assets/logos/redis-color.svg" alt="" class="" loading="lazy" width="19" height="19"></span>Redis</span></li><li class="patch-wrap"><span class="patch" style="--r:-0.72deg"><span class="lg"><span class="tool-monogram" aria-hidden="true">PG</span></span>PostgreSQL</span></li></ul></article><article class="pocket"><h3>AI workflows</h3><p>Model APIs, typed agents and traces</p><ul class="patches"><li class="patch-wrap"><span class="patch" style="--r:-1.17deg"><span class="lg"><img src="./assets/logos/bedrock.jpg" alt="" class="full" loading="lazy" width="19" height="19"></span>Bedrock</span></li><li class="patch-wrap"><span class="patch" style="--r:0.81deg"><span class="lg"><img src="./assets/logos/openai.svg" alt="" class="" loading="lazy" width="19" height="19"></span>OpenAI</span></li><li class="patch-wrap"><span class="patch" style="--r:-1.71deg"><span class="lg"><img src="./assets/logos/anthropic.svg" alt="" class="" loading="lazy" width="19" height="19"></span>Claude</span></li><li class="patch-wrap"><span class="patch" style="--r:1.26deg"><span class="lg"><img src="./assets/logos/langfuse.svg" alt="" class="" loading="lazy" width="19" height="19"></span>Langfuse</span></li><li class="patch-wrap"><span class="patch" style="--r:-1.44deg"><span class="lg"><span class="tool-monogram" aria-hidden="true">Py</span></span>PydanticAI</span></li></ul></article><article class="pocket"><h3>Automation &amp; Delivery</h3><p>Workflows, containers and CI/CD</p><ul class="patches"><li class="patch-wrap"><span class="patch" style="--r:0.81deg"><span class="lg"><img src="./assets/logos/n8n.svg" alt="" class="" loading="lazy" width="19" height="19"></span>n8n</span></li><li class="patch-wrap"><span class="patch" style="--r:-1.71deg"><span class="lg"><img src="./assets/logos/aws-lambda.svg" alt="" class="" loading="lazy" width="19" height="19"></span>Lambda</span></li><li class="patch-wrap"><span class="patch" style="--r:1.26deg"><span class="lg"><img src="./assets/logos/aws-step-functions.svg" alt="" class="" loading="lazy" width="19" height="19"></span>Step Functions</span></li><li class="patch-wrap"><span class="patch" style="--r:-1.44deg"><span class="lg"><img src="./assets/logos/docker-color.svg" alt="" class="" loading="lazy" width="19" height="19"></span>Docker</span></li><li class="patch-wrap"><span class="patch" style="--r:1.08deg"><span class="lg"><img src="./assets/logos/githubactions.svg" alt="" class="" loading="lazy" width="19" height="19"></span>CI/CD</span></li></ul></article></div>
     </div>
   </div>
 </section>
@@ -701,7 +708,7 @@ html { scrollbar-color: var(--accent) var(--paper); }
       <p class="eyebrow" data-rv>How I work</p>
       <h2 id="how-h" data-rv>Notes pinned to <em>the map</em></h2>
     </div>
-    <ol class="notes" data-principles></ol>
+    <ol class="notes" data-principles><li class="note-wrap"><article class="note" style="--r:1.32deg"><span class="tape" aria-hidden="true"></span><p class="no">No. 1</p><h3>Start close to the problem.</h3><p>I work with sales, end customers and partner teams to understand requirements, turn them into technical solutions, and stay close through delivery.</p></article></li><li class="note-wrap"><article class="note" style="--r:-0.88deg"><span class="tape" aria-hidden="true"></span><p class="no">No. 2</p><h3>Move across the stack.</h3><p>Backend is home, but I enjoy the product and infrastructure conversations that make a build more complete.</p></article></li><li class="note-wrap"><article class="note" style="--r:1.98deg"><span class="tape" aria-hidden="true"></span><p class="no">No. 3</p><h3>Keep learning where it matters.</h3><p>Right now, that means treating agentic AI less like a demo and more like a real workflow to design carefully.</p></article></li></ol>
   </div>
 </section>
 
@@ -710,14 +717,14 @@ html { scrollbar-color: var(--accent) var(--paper); }
     <div class="now-copy">
       <div class="sec-head" style="margin-bottom:0">
         <p class="eyebrow" data-rv>Now</p>
-        <h2 id="now-h" data-rv data-f="now-title"></h2>
+        <h2 id="now-h" data-rv data-f="now-title">Currently shipping agentic AI workflows.</h2>
       </div>
-      <p class="body" data-rv data-f="now-body"></p>
-      <p class="aside" data-rv><span data-f="now-note"></span><svg viewBox="0 0 74 50" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4,40 C22,44 44,34 60,12"/><path d="M50,12 L61,10 L62,22"/></svg></p>
+      <p class="body" data-rv data-f="now-body">Models make decisions; the harness sets deterministic rules and checkpoints. I’m building around typed tools, evals, bounded retries, recovery and tracing, so failures can be understood and work can resume safely.</p>
+      <p class="aside" data-rv><span data-f="now-note">I’m drawn to the stretch between a good prototype and a product people can actually rely on.</span><svg viewBox="0 0 74 50" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4,40 C22,44 44,34 60,12"/><path d="M50,12 L61,10 L62,22"/></svg></p>
     </div>
     <div class="log">
       <div class="log-head"><b>Agent run</b><span>field log</span></div>
-      <ol data-agent></ol>
+      <ol data-agent><li><span class="node" aria-hidden="true">1</span><div><p class="step">Plan</p><p class="detail">Read the request, split it into steps, choose the tools each step needs.</p></div></li><li><span class="node" aria-hidden="true">2</span><div><p class="step">Call a tool</p><p class="detail">Query the orders service through a typed FastAPI endpoint.</p></div></li><li class="fail"><span class="node" aria-hidden="true">✕</span><div><p class="step">Tool times out</p><p class="detail">The call fails after 8 seconds. Expected, and the plan allows for it.</p></div></li><li><span class="node" aria-hidden="true">4</span><div><p class="step">Recover</p><p class="detail">Retry once with backoff, then fall back to the cached read from Redis.</p></div></li><li><span class="node" aria-hidden="true">5</span><div><p class="step">Trace it</p><p class="detail">Every step, input and cost goes to Langfuse so a person can see why it answered this way.</p></div></li><li><span class="node" aria-hidden="true">6</span><div><p class="step">Answer</p><p class="detail">Reply with the result, and say that the data came from the cache.</p></div></li></ol>
     </div>
   </div>
 </section>
@@ -730,11 +737,11 @@ html { scrollbar-color: var(--accent) var(--paper); }
         <h2 id="writing-h" data-rv>Postcards from <em>Medium</em></h2>
       </div>
       <div class="count" data-rv>
-        <b data-f="article-count"></b>
-        <div><span data-f="article-label"></span><a data-f="medium">All articles on Medium <span aria-hidden="true">↗</span></a></div>
+        <b data-f="article-count">10</b>
+        <div><span data-f="article-label">Articles on Medium</span><a data-f="medium" href="https://medium.com/@anmol_tomer" target="_blank" rel="noopener">All articles on Medium <span aria-hidden="true">↗</span></a></div>
       </div>
     </div>
-    <ul class="cards" data-articles></ul>
+    <ul class="cards" data-articles><li class="pc-wrap"><a class="postcard" href="https://medium.com/@anmol_tomer/authentication-concepts-explained-b6d5d208cfee" target="_blank" rel="noopener" style="--r:-0.72deg"><div class="pc-img"><img src="https://cdn-images-1.medium.com/max/1024/1*cY2aWbMMzhGqkeVLIpcpbg.png" alt="" loading="lazy" referrerpolicy="no-referrer"></div><div class="pc-body"><span class="stamp" aria-hidden="true"><span class="stamp-in" style="--sc:#c4513a"><svg viewBox="0 0 48 60" preserveAspectRatio="none"><circle cx="34" cy="16" r="6" fill="#fff3d6" opacity=".9"/><path d="M0,44 L14,26 L22,36 L30,24 L48,44 V60 H0Z" fill="#fff3d6" opacity=".35"/><path d="M0,52 C14,44 30,48 48,42 V60 H0Z" fill="#fff3d6" opacity=".55"/></svg><b>No.01</b></span></span><svg class="postmark" viewBox="0 0 128 66" aria-hidden="true"><circle cx="33" cy="33" r="29" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="33" cy="33" r="24" fill="none" stroke="currentColor" stroke-width=".8"/><text x="33" y="22" text-anchor="middle">MEDIUM</text><text class="big" x="33" y="38" text-anchor="middle">25 SEP</text><text x="33" y="50" text-anchor="middle">2026</text><path d="M66,20 q7,-5 14,0 t14,0 t14,0 t14,0 M66,30 q7,-5 14,0 t14,0 t14,0 t14,0 M66,40 q7,-5 14,0 t14,0 t14,0 t14,0" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><h3>Authentication Concepts Explained</h3><p>Basic, Digest, API keys, sessions, JWT and OAuth2: what each one actually answers about who is making a request.</p><ul class="tags"><li>OAuth2</li><li>Security</li></ul><p class="pc-from"><time datetime="2026-09-25">25 Sep 2026</time><span>read on Medium ↗</span></p></div></a></li><li class="pc-wrap"><a class="postcard" href="https://medium.com/@anmol_tomer/the-litellm-supply-chain-attack-what-actually-happened-2d9d634ed82b" target="_blank" rel="noopener" style="--r:1.62deg"><div class="pc-img"><img src="https://cdn-images-1.medium.com/max/1024/1*LTf-P3CsPqG4bEBQRjpAlA.png" alt="" loading="lazy" referrerpolicy="no-referrer"></div><div class="pc-body"><span class="stamp" aria-hidden="true"><span class="stamp-in" style="--sc:#2a4c7a"><svg viewBox="0 0 48 60" preserveAspectRatio="none"><circle cx="34" cy="16" r="6" fill="#fff3d6" opacity=".9"/><path d="M0,44 L14,26 L22,36 L30,24 L48,44 V60 H0Z" fill="#fff3d6" opacity=".35"/><path d="M0,52 C14,44 30,48 48,42 V60 H0Z" fill="#fff3d6" opacity=".55"/></svg><b>No.02</b></span></span><svg class="postmark" viewBox="0 0 128 66" aria-hidden="true"><circle cx="33" cy="33" r="29" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="33" cy="33" r="24" fill="none" stroke="currentColor" stroke-width=".8"/><text x="33" y="22" text-anchor="middle">MEDIUM</text><text class="big" x="33" y="38" text-anchor="middle">25 MAR</text><text x="33" y="50" text-anchor="middle">2026</text><path d="M66,20 q7,-5 14,0 t14,0 t14,0 t14,0 M66,30 q7,-5 14,0 t14,0 t14,0 t14,0 M66,40 q7,-5 14,0 t14,0 t14,0 t14,0" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><h3>The LiteLLM Supply Chain Attack: What Actually Happened</h3><p>Two malicious LiteLLM releases hit PyPI and stole credentials from laptops, CI runners and clusters within hours. How it worked.</p><ul class="tags"><li>LLM</li><li>Python</li><li>Security</li></ul><p class="pc-from"><time datetime="2026-03-25">25 Mar 2026</time><span>read on Medium ↗</span></p></div></a></li><li class="pc-wrap"><a class="postcard" href="https://medium.com/@anmol_tomer/pacelc-theorem-an-extension-to-cap-theorem-in-distributed-systems-ed2e02ce2377" target="_blank" rel="noopener" style="--r:-1.17deg"><div class="pc-img"><img src="https://cdn-images-1.medium.com/max/1024/0*UsiXyAdwzMI-4ht1.png" alt="" loading="lazy" referrerpolicy="no-referrer"></div><div class="pc-body"><span class="stamp" aria-hidden="true"><span class="stamp-in" style="--sc:#3d7a48"><svg viewBox="0 0 48 60" preserveAspectRatio="none"><circle cx="34" cy="16" r="6" fill="#fff3d6" opacity=".9"/><path d="M0,44 L14,26 L22,36 L30,24 L48,44 V60 H0Z" fill="#fff3d6" opacity=".35"/><path d="M0,52 C14,44 30,48 48,42 V60 H0Z" fill="#fff3d6" opacity=".55"/></svg><b>No.03</b></span></span><svg class="postmark" viewBox="0 0 128 66" aria-hidden="true"><circle cx="33" cy="33" r="29" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="33" cy="33" r="24" fill="none" stroke="currentColor" stroke-width=".8"/><text x="33" y="22" text-anchor="middle">MEDIUM</text><text class="big" x="33" y="38" text-anchor="middle">10 MAR</text><text x="33" y="50" text-anchor="middle">2026</text><path d="M66,20 q7,-5 14,0 t14,0 t14,0 t14,0 M66,30 q7,-5 14,0 t14,0 t14,0 t14,0 M66,40 q7,-5 14,0 t14,0 t14,0 t14,0" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><h3>PACELC Theorem: An Extension to CAP</h3><p>Why CAP isn’t enough: the latency versus consistency trade-off that applies even when the network is healthy.</p><ul class="tags"><li>Distributed systems</li></ul><p class="pc-from"><time datetime="2026-03-10">10 Mar 2026</time><span>read on Medium ↗</span></p></div></a></li><li class="pc-wrap"><a class="postcard" href="https://medium.com/@anmol_tomer/git-101-72d8509ba2b1" target="_blank" rel="noopener" style="--r:0.81deg"><div class="pc-img"><img src="https://cdn-images-1.medium.com/max/1024/0*DZ9SlJt6HTmQ4bE2.png" alt="" loading="lazy" referrerpolicy="no-referrer"></div><div class="pc-body"><span class="stamp" aria-hidden="true"><span class="stamp-in" style="--sc:#d39a36"><svg viewBox="0 0 48 60" preserveAspectRatio="none"><circle cx="34" cy="16" r="6" fill="#fff3d6" opacity=".9"/><path d="M0,44 L14,26 L22,36 L30,24 L48,44 V60 H0Z" fill="#fff3d6" opacity=".35"/><path d="M0,52 C14,44 30,48 48,42 V60 H0Z" fill="#fff3d6" opacity=".55"/></svg><b>No.04</b></span></span><svg class="postmark" viewBox="0 0 128 66" aria-hidden="true"><circle cx="33" cy="33" r="29" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="33" cy="33" r="24" fill="none" stroke="currentColor" stroke-width=".8"/><text x="33" y="22" text-anchor="middle">MEDIUM</text><text class="big" x="33" y="38" text-anchor="middle">17 FEB</text><text x="33" y="50" text-anchor="middle">2026</text><path d="M66,20 q7,-5 14,0 t14,0 t14,0 t14,0 M66,30 q7,-5 14,0 t14,0 t14,0 t14,0 M66,40 q7,-5 14,0 t14,0 t14,0 t14,0" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><h3>Git 101</h3><p>The essential commands and workflow for managing a repository with confidence.</p><ul class="tags"><li>Git</li></ul><p class="pc-from"><time datetime="2026-02-17">17 Feb 2026</time><span>read on Medium ↗</span></p></div></a></li><li class="pc-wrap"><a class="postcard" href="https://medium.com/@anmol_tomer/graalvm-vs-traditional-jvm-for-spring-boot-a-performance-deep-dive-20705c530fe7" target="_blank" rel="noopener" style="--r:-1.71deg"><div class="pc-img"><img src="https://cdn-images-1.medium.com/max/1000/0*3O85aUUICbAJRSPz.jpg" alt="" loading="lazy" referrerpolicy="no-referrer"></div><div class="pc-body"><span class="stamp" aria-hidden="true"><span class="stamp-in" style="--sc:#7a5a8c"><svg viewBox="0 0 48 60" preserveAspectRatio="none"><circle cx="34" cy="16" r="6" fill="#fff3d6" opacity=".9"/><path d="M0,44 L14,26 L22,36 L30,24 L48,44 V60 H0Z" fill="#fff3d6" opacity=".35"/><path d="M0,52 C14,44 30,48 48,42 V60 H0Z" fill="#fff3d6" opacity=".55"/></svg><b>No.05</b></span></span><svg class="postmark" viewBox="0 0 128 66" aria-hidden="true"><circle cx="33" cy="33" r="29" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="33" cy="33" r="24" fill="none" stroke="currentColor" stroke-width=".8"/><text x="33" y="22" text-anchor="middle">MEDIUM</text><text class="big" x="33" y="38" text-anchor="middle">17 FEB</text><text x="33" y="50" text-anchor="middle">2026</text><path d="M66,20 q7,-5 14,0 t14,0 t14,0 t14,0 M66,30 q7,-5 14,0 t14,0 t14,0 t14,0 M66,40 q7,-5 14,0 t14,0 t14,0 t14,0" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><h3>GraalVM vs Traditional JVM for Spring Boot</h3><p>Startup time, memory footprint and throughput of native images against the JVM, and when the switch is worth it.</p><ul class="tags"><li>Java</li><li>Spring Boot</li></ul><p class="pc-from"><time datetime="2026-02-17">17 Feb 2026</time><span>read on Medium ↗</span></p></div></a></li><li class="pc-wrap"><a class="postcard" href="https://medium.com/@anmol_tomer/mastering-sdkman-the-essential-tool-for-spring-boot-developers-d2a5e2143f82" target="_blank" rel="noopener" style="--r:1.26deg"><div class="pc-img"><img src="https://cdn-images-1.medium.com/max/960/0*ZjhXth-ILTG1UvgI.png" alt="" loading="lazy" referrerpolicy="no-referrer"></div><div class="pc-body"><span class="stamp" aria-hidden="true"><span class="stamp-in" style="--sc:#2f7b80"><svg viewBox="0 0 48 60" preserveAspectRatio="none"><circle cx="34" cy="16" r="6" fill="#fff3d6" opacity=".9"/><path d="M0,44 L14,26 L22,36 L30,24 L48,44 V60 H0Z" fill="#fff3d6" opacity=".35"/><path d="M0,52 C14,44 30,48 48,42 V60 H0Z" fill="#fff3d6" opacity=".55"/></svg><b>No.06</b></span></span><svg class="postmark" viewBox="0 0 128 66" aria-hidden="true"><circle cx="33" cy="33" r="29" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="33" cy="33" r="24" fill="none" stroke="currentColor" stroke-width=".8"/><text x="33" y="22" text-anchor="middle">MEDIUM</text><text class="big" x="33" y="38" text-anchor="middle">10 FEB</text><text x="33" y="50" text-anchor="middle">2026</text><path d="M66,20 q7,-5 14,0 t14,0 t14,0 t14,0 M66,30 q7,-5 14,0 t14,0 t14,0 t14,0 M66,40 q7,-5 14,0 t14,0 t14,0 t14,0" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><h3>Mastering SDKMAN for Spring Boot Developers</h3><p>Managing multiple JDKs, Maven and Gradle versions without the headache.</p><ul class="tags"><li>Java</li><li>Tooling</li></ul><p class="pc-from"><time datetime="2026-02-10">10 Feb 2026</time><span>read on Medium ↗</span></p></div></a></li></ul>
   </div>
 </section>
 
@@ -743,10 +750,10 @@ html { scrollbar-color: var(--accent) var(--paper); }
   <div class="wrap contact">
     <p class="eyebrow" data-rv>Contact</p>
     <h2 id="contact-h" data-rv>Building something that needs to <em>hold up?</em></h2>
-    <a class="mail" data-rv data-f="mail-big"></a>
+    <a class="mail" data-rv data-f="mail-big" href="mailto:anmol3540@gmail.com">anmol3540@gmail.com</a>
     <div class="cta" data-rv>
-      <a class="btn btn-primary magnet" data-f="mailto"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/></svg>Email me</a>
-      <div class="socials" data-socials></div>
+      <a class="btn btn-primary magnet" data-f="mailto" href="mailto:anmol3540@gmail.com"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/></svg>Email me</a>
+      <div class="socials" data-socials><a class="icon-btn" href="https://github.com/AnmolTomer" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a><a class="icon-btn" href="https://www.linkedin.com/in/anmol-tomer/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/></svg></a><a class="icon-btn" href="https://x.com/anmol_tomer_cc" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></a><a class="icon-btn" href="https://medium.com/@anmol_tomer" target="_blank" rel="noopener" aria-label="Medium"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="6.8" cy="12" r="5.6"/><ellipse cx="15.6" cy="12" rx="2.7" ry="5.3"/><ellipse cx="21.2" cy="12" rx="1.1" ry="4.7"/></svg></a></div>
     </div>
   </div>
   <div class="land">
@@ -761,93 +768,18 @@ html { scrollbar-color: var(--accent) var(--paper); }
 <button class="totop" type="button" aria-label="Back to top"><svg viewBox="0 0 52 52" aria-hidden="true"><circle class="tr" cx="26" cy="26" r="23"/><circle class="pr" cx="26" cy="26" r="23" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
 
 <script src="./assets/portfolio/data.js"></script>
+<script src="./assets/portfolio/portfolio-content.js"></script>
 <script>
-/* Render content from window.PORTFOLIO. Runs without any animation library. */
 (function () {
-  var P = window.PORTFOLIO; if (!P) return;
-  var $ = function (s, r) { return (r || document).querySelector(s); };
-  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
-  var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
-  var MON = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-  var rot = function (i, amp) { var v = [-1.6, 1.2, -0.8, 1.8, -1.3, 0.9, -1.9, 1.4]; return (v[i % v.length] * (amp || 1)).toFixed(2) + 'deg'; };
-  var f = function (k) { return $$('[data-f="' + k + '"]'); };
-  var set = function (k, v) { f(k).forEach(function (el) { el.textContent = v; }); };
-
-  set('role', P.role); set('name', P.name); set('last', P.last);
-  $('#nameA').innerHTML = Array.from(P.first).map(function (c) { return '<span class="ch">' + esc(c) + '</span>'; }).join('');
-  set('headline', P.headline); set('intro', P.intro); set('quote', P.quote);
-  f('mailto').forEach(function (a) { a.href = 'mailto:' + P.email; });
-  f('mail-big').forEach(function (a) { a.href = 'mailto:' + P.email; a.textContent = P.email; });
-  f('portrait').forEach(function (img) { img.src = P.portrait.src; img.alt = P.portrait.alt; });
-  f('portrait-sm').forEach(function (img) { img.src = P.portrait.src; });
-
-  var ICONS = {
-    github: ['GitHub', '0 0 24 24', 'M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'],
-    linkedin: ['LinkedIn', '0 0 16 16', 'M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z'],
-    x: ['X', '0 0 24 24', 'M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z'],
-    medium: ['Medium', '0 0 24 24', null]
-  };
-  var socials = Object.keys(ICONS).filter(function (k) { return P.links[k]; }).map(function (k) {
-    var I = ICONS[k];
-    var inner = I[2] ? '<path d="' + I[2] + '"/>' : '<circle cx="6.8" cy="12" r="5.6"/><ellipse cx="15.6" cy="12" rx="2.7" ry="5.3"/><ellipse cx="21.2" cy="12" rx="1.1" ry="4.7"/>';
-    return '<a class="icon-btn" href="' + esc(P.links[k]) + '" target="_blank" rel="noopener" aria-label="' + I[0] + '"><svg viewBox="' + I[1] + '" fill="currentColor" aria-hidden="true">' + inner + '</svg></a>';
-  }).join('');
-  $$('[data-socials]').forEach(function (el) { el.innerHTML = socials; });
-
-  $$('[data-stat]').forEach(function (el) {
-    var s = P.stats[+el.dataset.stat]; if (!s) return;
-    if (el.classList.contains('patch-badge')) { el.innerHTML = '<span><small>' + esc(s.label) + '</small><b>' + s.value + s.suffix + '</b></span>'; return; }
-    el.innerHTML = '<div class="stat-in"><b data-count="' + s.value + '"' + (s.plain ? ' data-plain' : '') + '>' + s.value + s.suffix + '</b><span>' + esc(s.label) + '</span></div>';
+  if (document.documentElement.hasAttribute('data-content-rendered')) return;
+  if (!window.PORTFOLIO || !window.renderPortfolioContent) return;
+  window.renderPortfolioContent(window.PORTFOLIO).forEach(function (update) {
+    document.querySelectorAll(update.selector).forEach(function (element) {
+      if (update.html !== undefined) element.innerHTML = update.html;
+      if (update.text !== undefined) element.textContent = update.text;
+      Object.entries(update.attributes || {}).forEach(function (entry) { element.setAttribute(entry[0], entry[1]); });
+    });
   });
-
-  $$('[data-personal]').forEach(function (el) {
-    var item = P.personal[+el.dataset.personal];
-    el.innerHTML = '<div class="stat-in"><b>' + esc(item.title) + '</b><span>' + esc(item.body) + '</span></div>';
-  });
-  var tl = P.timeline || [];
-  $('[data-timeline]').innerHTML = tl.map(function (t, i) {
-    var last = i === tl.length - 1;
-    var detail = t.highlights ? '<ul class="highlights">' + t.highlights.map(function (text) { return '<li>' + esc(text) + '</li>'; }).join('') + '</ul>' : '<p>' + esc(t.body) + '</p>';
-    return '<li class="marker' + (last ? ' summit' : '') + '">' +
-      '<div class="sign" style="--r:' + rot(i, .8) + '"><span class="yr">' + (t.year === 2019 ? '2019–20' : t.year) + (last ? ' <small>you are here</small>' : '') + '</span>' + (t.year === 2019 ? '' : '<span class="period">' + esc(t.period || '') + '</span>') + '<h3>' + esc(t.title) + '</h3>' + detail + '</div>' +
-      '<span class="post" aria-hidden="true"></span><span class="foot" aria-hidden="true"></span></li>';
-  }).join('');
-
-  $('[data-stack]').innerHTML = P.stack.map(function (g) {
-    return '<article class="pocket"><h3>' + esc(g.group) + '</h3><p>' + esc(g.note) + '</p><ul class="patches">' +
-      g.tools.map(function (t, i) {
-        var src = t.logo ? P.logoBase + t.logo : '', full = /\.(jpe?g|png)$/.test(t.logo || '');
-        var mark = t.monogram ? '<span class="tool-monogram" aria-hidden="true">' + esc(t.monogram) + '</span>' : '<img src="' + esc(src) + '" alt="" class="' + (full ? 'full' : '') + '" loading="lazy" width="19" height="19">';
-        return '<li class="patch-wrap"><span class="patch" style="--r:' + rot(i + g.group.length, .9) + '"><span class="lg">' + mark + '</span>' + esc(t.name) + '</span></li>';
-      }).join('') + '</ul></article>';
-  }).join('');
-
-  $('[data-principles]').innerHTML = P.principles.map(function (p, i) {
-    return '<li class="note-wrap"><article class="note" style="--r:' + rot(i + 1, 1.1) + '"><span class="tape" aria-hidden="true"></span><p class="no">No. ' + (i + 1) + '</p><h3>' + esc(p.title) + '</h3><p>' + esc(p.body) + '</p></article></li>';
-  }).join('');
-
-  set('now-title', P.now.title); set('now-body', P.now.body); set('now-note', P.now.note);
-  $('[data-agent]').innerHTML = (P.agentRun || []).map(function (s, i) {
-    return '<li' + (s.fail ? ' class="fail"' : '') + '><span class="node" aria-hidden="true">' + (s.fail ? '✕' : i + 1) + '</span><div><p class="step">' + esc(s.step) + '</p><p class="detail">' + esc(s.detail) + '</p></div></li>';
-  }).join('');
-
-  var art = P.stats.filter(function (s) { return /article/i.test(s.label); })[0];
-  set('article-count', art ? art.value : P.articles.length); set('article-label', art ? art.label : 'Articles');
-  f('medium').forEach(function (a) { a.href = P.links.medium; a.target = '_blank'; a.rel = 'noopener'; });
-  var STAMPS = ['#c4513a', '#2a4c7a', '#3d7a48', '#d39a36', '#7a5a8c', '#2f7b80'];
-  var arts = P.articles.slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; }).slice(0, 6);
-  $('[data-articles]').innerHTML = arts.map(function (a, i) {
-    var d = new Date(a.date + 'T00:00:00'), dd = ('0' + d.getDate()).slice(-2), mm = MON[d.getMonth()], yy = d.getFullYear();
-    return '<li class="pc-wrap"><a class="postcard" href="' + esc(a.url) + '" target="_blank" rel="noopener" style="--r:' + rot(i + 2, .9) + '">' +
-      '<div class="pc-img"><img src="' + esc(a.cover) + '" alt="" loading="lazy" referrerpolicy="no-referrer"></div>' +
-      '<div class="pc-body">' +
-        '<span class="stamp" aria-hidden="true"><span class="stamp-in" style="--sc:' + STAMPS[i % STAMPS.length] + '"><svg viewBox="0 0 48 60" preserveAspectRatio="none"><circle cx="34" cy="16" r="6" fill="#fff3d6" opacity=".9"/><path d="M0,44 L14,26 L22,36 L30,24 L48,44 V60 H0Z" fill="#fff3d6" opacity=".35"/><path d="M0,52 C14,44 30,48 48,42 V60 H0Z" fill="#fff3d6" opacity=".55"/></svg><b>No.' + ('0' + (i + 1)).slice(-2) + '</b></span></span>' +
-        '<svg class="postmark" viewBox="0 0 128 66" aria-hidden="true"><circle cx="33" cy="33" r="29" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="33" cy="33" r="24" fill="none" stroke="currentColor" stroke-width=".8"/><text x="33" y="22" text-anchor="middle">MEDIUM</text><text class="big" x="33" y="38" text-anchor="middle">' + dd + ' ' + mm + '</text><text x="33" y="50" text-anchor="middle">' + yy + '</text><path d="M66,20 q7,-5 14,0 t14,0 t14,0 t14,0 M66,30 q7,-5 14,0 t14,0 t14,0 t14,0 M66,40 q7,-5 14,0 t14,0 t14,0 t14,0" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>' +
-        '<h3>' + esc(a.title) + '</h3><p>' + esc(a.blurb) + '</p>' +
-        '<ul class="tags">' + a.tags.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>' +
-        '<p class="pc-from"><time datetime="' + a.date + '">' + dd + ' ' + mm.charAt(0) + mm.slice(1).toLowerCase() + ' ' + yy + '</time><span>read on Medium ↗</span></p>' +
-      '</div></a></li>';
-  }).join('');
 })();
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
