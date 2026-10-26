@@ -63,6 +63,25 @@ for (const accept of ['text/markdown', 'text/html']) {
     assert.ok(body.includes('/llms.txt'));
   });
 }
+await check('custom 404 document is excluded from indexing', async () => {
+  const { response, body } = await get('/404.html', 'text/html');
+  assert.equal(response.status, 200);
+  assert.match(body, /name="robots" content="noindex"/);
+});
+for (const page of pages) {
+  await check(`/${page.slug} redirects to its canonical page`, async () => {
+    const { response } = await get(`/${page.slug}`, 'text/html');
+    assert.equal(response.status, 200);
+    assert.equal(response.url, new URL(`/${page.slug}/`, base).href);
+  });
+}
+await check('HEAD negotiates Markdown without a body', async () => {
+  const response = await fetch(new URL('/', base), { method: 'HEAD', headers: { Accept: 'text/markdown' }, signal: AbortSignal.timeout(20000) });
+  assert.equal(response.status, 200);
+  assert.match(response.headers.get('Content-Type'), /^text\/markdown\b/);
+  varied(response);
+  assert.equal(await response.text(), '');
+});
 await check('weighted Accept prefers HTML', async () => {
   const { response } = await get('/', 'text/markdown;q=0.2, text/html;q=0.9');
   assert.ok(response.headers.get('Content-Type')?.startsWith('text/html'));
